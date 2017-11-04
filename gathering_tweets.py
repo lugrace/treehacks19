@@ -25,6 +25,7 @@ while(line!=""):
 input_word = 'University of Maryland'
 acronym_word = college[input_word]
 tweet_data = Queue()
+#---
 
 auth = OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_secret)
