@@ -1,15 +1,22 @@
 AECOM - Albert Einstein College of Medicine
 AFA - United States Air Force Academy
 Annapolis - U.S. Naval Academy
-A&M - Texas A&M University, but also others; see A&M
-A&M-CC or A&M-Corpus Christi - Texas A&M University–Corpus Christi
+A&M - Texas A&M University
+A&M-CC - Texas A&M University–Corpus Christi
 A&T - North Carolina A&T State University
 Newport News - Apprentice School
 APSU - Austin Peay State University
 ALASU - Alabama State University
 Army - U.S. Military Academy
-ASU - Alabama State University, Albany State University, Alcorn State University, Angelo State University, Appalachian State University, Arizona State University, Arkansas State University, Augusta State University, Armstrong State University
-AU - Adelphi University, Alfred University, American University, Anderson University, Asbury University, Auburn University, Ashford University, Arcadia University
+Alabama State - Alabama State University
+Albany State - Albany University
+Alcorn State - Alcorn State University
+Angelo State - Angelo State University
+Appalachian State - Appalachian State University
+Arizona State - Arizona State University
+Arkansas State - Arkansas State University
+Augusta State - August State University
+Armstrong State - Armstrong State University
 AUM - Auburn University Montgomery
 Bama - University of Alabama
 BC - Boston College
@@ -21,7 +28,7 @@ BMC - Bryn Mawr College
 Bona - St. Bonaventure University
 Brown - Brown University
 BSC - Birmingham-Southern College
-BSU - Ball State University, Boise State University, Bemidji State University, Bowie State University
+BSU - Boise State University
 BU - Baylor University, Belmont University, Binghamton University, Biola University, Boston University, Bradley University, Butler University
 BYU - Brigham Young University
 CBU - California Baptist University
@@ -44,7 +51,7 @@ CCV - Community College of Vermont
 CGU - Claremont Graduate University
 Chapel Hill - University of North Carolina at Chapel Hill
 Charlotte - University of North Carolina at Charlotte
-Chatt or Chattanooga - University of Tennessee at Chattanooga
+Chattanooga - University of Tennessee at Chattanooga
 Chatt State - Chattanooga State Community College
 Chico State - California State University, Chico
 City Tech - New York City College of Technology
@@ -56,7 +63,8 @@ Coast Guard - United States Coast Guard Academy
 College Park - University of Maryland, College Park
 Colorado - University of Colorado Boulder
 Colorado Springs - University of Colorado Colorado Springs
-CSB/SJU - College of Saint Benedict/Saint John's University
+CSB - College of Saint Benedict
+SJU - Saint John's University
 CSC - Castleton State College
 CSE - College of Saint Elizabeth
 CSI - College of Staten Island
@@ -120,7 +128,7 @@ IC - Ithaca College
 IIT - Illinois Institute of Technology
 IPFW - Indiana University-Purdue University Fort Wayne
 ISU - Idaho State University, Illinois State University, Indiana State University, Iowa State University
-IU or IUB - Indiana University Bloomington
+IUB - Indiana University Bloomington
 IUP - Indiana University of Pennsylvania
 IUPUI - Indiana University-Purdue University Indianapolis
 IWU - Illinois Wesleyan University
@@ -181,11 +189,11 @@ NMSU - New Mexico State University
 NMU - Northern Michigan University
 NoDak - University of North Dakota
 Nova - Northern Virginia Community College, Villanova University
-NSU - Norfolk State University, Northern State University (South Dakota), Northeastern State University (Oklahoma), Northwestern State University (Louisiana), Nova Southeastern University
+NSU - Norfolk State University, Northern State University, Northeastern State University , Northwestern State University, Nova Southeastern University
 NU - Northeastern University, University of Nebraska-Lincoln, Niagara University, Northwestern University, Norwich University
-NW - Northwestern University, technically incorrect
+NW - Northwestern University
 NWMSU - Northwest Missouri State University
-NYIT - New York Institute of Technology; New York Tech
+NYIT - New York Institute of Technology
 NYMC - New York Medical College
 NYU - New York University
 OC - Oklahoma Christian University
@@ -221,7 +229,7 @@ RPI - Rensselaer Polytechnic Institute
 RU - Rutgers University
 RWU - Roger Williams University
 RWC - Roberts Wesleyan College
-Sacramento State / Sac State - California State University, Sacramento
+Sacramento State - California State University, Sacramento
 SC - University of Southern California, University of South Carolina
 SCSU - South Carolina State University, Southern Connecticut State University
 Scripps - Scripps College, Scripps Institution of Oceanography
@@ -232,22 +240,21 @@ SFSU - San Francisco State University
 SEMo - Southeast Missouri State University
 Sewanee - University of the South
 SHC - Spring Hill College
-SIU or SIUC - Southern Illinois University Carbondale
+SIUC - Southern Illinois University Carbondale
 SIUE - Southern Illinois University Edwardsville
 SJC - St. John's College
 SJFC - St. John Fisher College
 SJSU - San Jose State University
 SJU - Saint Joseph's University, St. John's University (NY)
 SLU - Saint Louis University, St. Lawrence University
-SMC - St. Mary's College (CA)
+SMC - St. Mary's College
 SMU - Southern Methodist University
 SNHU - Southern New Hampshire University
 SOSU - Southeastern Oklahoma State University
 SPU - Seattle Pacific University
 SRU - Slippery Rock University of Pennsylvania
-Stanislaus State or Stan State - California State University, Stanislaus
-SSU - Savannah State University, California State University, Sonoma
-State - any of various state universities
+Stanislaus State or Stan State - California State University
+SSU - Savannah State University, California State University
 SU - Southwestern University, Shenandoah University, Southern University, Stanford University, Susquehanna University, Syracuse University, Salisbury University
 SUI - State University of Iowa
 SUU - Southern Utah University
@@ -257,7 +264,6 @@ TAMU - Texas A&M University
 TAMUCC - Texas A&M University–Corpus Christi
 TCNJ - The College of New Jersey
 TCU - Texas Christian University
-Tech - any "Institute of Technology," "Tech University," "Polytechnic," etc. (See list of institutions using the term "institute of technology" or "polytechnic")
 TSU - Tarleton State University, Tennessee State University, Texas Southern University, Truman State University
 TTU - Texas Tech University
 TU - Temple University, Towson University, Tufts University, Tulane University, University of Tulsa
@@ -305,7 +311,7 @@ UHCL - University of Houston–Clear Lake
 UHD - University of Houston–Downtown
 UHS - University of Houston System
 UHV - University of Houston–Victoria
-UI or U of I - University of Idaho, University of Illinois at Urbana-Champaign, University of Iowa
+UI - University of Idaho, University of Illinois at Urbana-Champaign, University of Iowa
 UIC - University of Illinois at Chicago
 UIUC - University of Illinois at Urbana-Champaign
 UK - University of Kentucky
@@ -343,7 +349,7 @@ UOP - University of the Pacific
 UP - University of Portland
 UPenn - University of Pennsylvania
 UPRM - University of Puerto Rico at Mayagüez
-UR or U of R - University of Richmond, University of Rochester
+UR - University of Richmond, University of Rochester
 URI - University of Rhode Island
 U of S - University of Scranton
 USA - University of South Alabama
