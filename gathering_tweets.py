@@ -2,6 +2,8 @@
 from tweepy.streaming import StreamListener
 from tweepy import OAuthHandler
 from tweepy import Stream
+from math import cos, pi
+from geopy.geocoders import Nominatim
 
 
 #Variables that contains the user credentials to access Twitter API
@@ -10,9 +12,9 @@ consumer_secret = '3b55vyoax4DIkhvTX6KUGP9sSjhxo9ZxOfpUUtsz6tpPVfZfw3'
 access_token = '926830219356340225-z2qjfLCagnxp99AL4UhzQ94LUQbo9RR'
 access_secret = 'uX5IWIi0ERKLySSQEYIVOSIcjEuHCmJlPwEK2zSLLLgGk'
 
-
-
 #This is a basic listener that just prints received tweets to stdout.
+
+tweet_data = list()
 class StdOutListener(StreamListener):
 
     def on_data(self, data):
@@ -30,18 +32,15 @@ if __name__ == '__main__':
     auth = OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(access_token, access_secret)
     stream = Stream(auth, l)
-
-    #This line filter Twitter Streams to capture data by the keywords: 'depression', 'anxiety', 'mental health'
-    stream.filter(track=['Depression', 'Anxiety', 'mental health'])
+    stream.filter(track = ['UMD'])
+    stream.filter(count = [1])
 
 import json
 import pandas as pd
 import matplotlib.pyplot as plt
 
-tweets_data_path = 'tweetdata.txt'
-
 tweets_data = []
-tweets_file = open(tweets_data_path, "r")
+tweets_file = open("tweets.txt", "r")
 for line in tweets_file:
     try:
         tweet = json.loads(line)
@@ -49,8 +48,8 @@ for line in tweets_file:
     except:
         continue
 
-print (len(tweets_data))
-'''
+print ("tweets here", len(tweets_data))
+
 tweets = pd.DataFrame()
 
 tweets['id'] = map(lambda tweet: tweet.get('id', None),tweets_data)
@@ -58,55 +57,3 @@ tweets['text'] = map(lambda tweet: tweet.get('text', None),tweets_data)
 
 print(tweets.head())
 print(tweets)
-'''
-sent = pd.read_excel('sentiment2.xlsx')
-print(sent.head())
-print(sent['id'])
-print(len(sent))
-
-x = []
-y = []
-for i in range(len(tweets_data)):
-    if tweets_data[i]['id']==sent['id'][i]:
-        x.append(tweets_data[i]['text'])
-        y.append(sent['sentiment'][i])
-print(x[0].split(" "))
-print(y[0])
-'''
-for i in range(len(x)):
-    x[i] = x[i].split(" ")
-print(x[0])
-print(x)
-'''
-
-from sklearn.naive_bayes import MultinomialNB
-from sklearn.feature_extraction.text import CountVectorizer
-from sklearn import metrics
-
-vectorizer = CountVectorizer(stop_words='english')
-train_features = vectorizer.fit_transform(x)
-
-actual = y[:-500]
-
-
-nb = MultinomialNB()
-nb.fit(train_features, [int(r) for r in y])
-
-test_features = vectorizer.transform(x[:-500])
-
-test_try= vectorizer.transform(["Can we all stop treating anxiety like it's a choice and something cool to have thank you"])
-test_try2= vectorizer.transform(["I want to die depression sucks"])
-predict2 = nb.predict(test_try)
-predict3 = nb.predict(test_try2)
-
-#print(predict2)
-predictions = nb.predict(test_features)
-
-print()
-
-fpr, tpr, thresholds = metrics.roc_curve(actual, predictions, pos_label=1)
-print("Multinomial naive bayes AUC: {0}".format(metrics.auc(fpr, tpr)))
-
-print(predict2)
-print(predict3)
-
