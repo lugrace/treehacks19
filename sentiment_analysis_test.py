@@ -14,7 +14,7 @@ accessKey = 'f15920f0f61947c29e12c7f1f12174f9'
 #
 # NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
 # a free trial access key, you should not need to change this region.
-uri = 'westus.api.cognitive.microsoft.com'
+uri = 'westcentralus.api.cognitive.microsoft.com'
 path = '/text/analytics/v2.0/sentiment'
 
 def GetSentiment (documents):
@@ -35,4 +35,4 @@ documents = { 'documents': [
 
 result = GetSentiment(documents)
 print(result)
-print (json.dumps(json.loads(result), indent=4))
+#print (json.dumps(json.loads(result), indent=4))
