@@ -1,5 +1,93 @@
-{% extends "app.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
 
-{% block content %}
-<p>We are on the top ten page</p>
-{% endblock %}
+  {% block title %}<title>Happy Student</title>{% endblock %}
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>EUPHORIA: College Happiness Finder</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <!-- Add additional CSS in static file -->
+  {% load static %}
+  <!-- <link rel="stylesheet" href="{% static 'css/style.css' %}"> -->
+  <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/theme.css' %}">
+  <link href="{% static 'font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700,400italic,700italic" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+</head>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<!-- Navigation -->
+<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+<div class="container">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+    <i class="fa fa-bars"></i>
+    </button>
+    <!--<img src="{% static 'img/logo.png' %}" height="2%" width="2%" align = "left"/>-->
+    <a class="navbar-brand page-scroll" href="/happystudent/home">:: EUPHORIA</a>
+  </div>
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+    <ul class="nav navbar-nav">
+      <li>
+      <a href="/happystudent/home#about">About</a>
+      </li>
+      <li>
+      <a href="/happystudent/home#works">How it works</a>
+      </li>
+      <li>
+      <a href="finder">College Finder</a>
+      </li>
+      <li>
+      <a href="ten">Our top 10</a>
+      </li>
+      <!--<li>
+      <a href="contact.html">Hire me</a>
+    </li>-->
+    </ul>
+  </div>
+  <!-- /.navbar-collapse -->
+</div>
+<!-- /.container -->
+</nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Footer -->
+<footer>
+<div class="container text-center">
+  <p class="credits">
+    Copyright &copy; EUPHORIA 2017<br/>
+  </p>
+</div>
+</footer>
+
+<!-- jQuery -->
+{% load static %}
+<script src="{% static 'js/jquery.js' %}"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<!-- Plugin JavaScript -->
+<script src="{% static 'js/jquery.easing.min.js' %}"></script>
+<!-- Custom Theme JavaScript -->
+<script src="{% static 'js/theme.js' %}"></script>
+</body>
+</html>

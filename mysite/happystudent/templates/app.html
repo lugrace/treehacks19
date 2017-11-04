@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  
+
   {% block title %}<title>Happy Student</title>{% endblock %}
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,11 +12,11 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  
+
   <!-- Add additional CSS in static file -->
   {% load static %}
   <!-- <link rel="stylesheet" href="{% static 'css/style.css' %}"> -->
-  <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet"> 
+  <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
   <link rel="stylesheet" href="{% static 'css/theme.css' %}">
   <link href="{% static 'font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
   <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700,400italic,700italic" rel="stylesheet" type="text/css">
@@ -31,7 +31,8 @@
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
     <i class="fa fa-bars"></i>
     </button>
-    <a class="navbar-brand page-scroll" href="index.html">EUPHORIA</a>
+    <!--<img src="{% static 'img/logo.png' %}" height="2%" width="2%" align = "left"/>-->
+    <a class="navbar-brand page-scroll" href="#">:: EUPHORIA</a>
   </div>
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
@@ -43,10 +44,10 @@
       <a href="#works">How it works</a>
       </li>
       <li>
-      <a href="portfolio-item.html">College Finder</a>
+      <a href="finder">College Finder</a>
       </li>
       <li>
-      <a href="ten.html">Our top 10</a>
+      <a href="ten">Our top 10</a>
       </li>
       <!--<li>
       <a href="contact.html">Hire me</a>
@@ -60,53 +61,82 @@
 <!-- Intro Header -->
 <header class="intro">
 <div class="intro-body">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-        <h1 class="brand-heading">EUPHORIA</h1>
-        <p class="intro-text">
-          How happy are students at your college?
-        </p>
-        <a href="#about" class="btnghostwhite page-scroll">About
-        </a>
-        <a href="portfolio-item.html" class="btnghostwhite page-scroll">Begin
-        <!--<i class="fa fa-angle-double-down animated"></i>-->
-        </a>
-      </div>
-    </div>
-  </div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2">
+				<h1 class="brand-heading">EUPHORIA</h1>
+				<p class="intro-text">
+					How happy are students at your college?
+				</p>
+				<a href="#about" class="btnghostwhite page-scroll">About
+				</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				<a href="finder" class="btnghostwhite page-scroll">Begin
+				<!--<i class="fa fa-angle-double-down animated"></i>-->
+				</a>
+			</div>
+		</div>
+	</div>
 </div>
 </header>
 <!-- About Section -->
 <section id="about">
 <div class="container content-section text-center">
-  <div class="row">
-    <h2>ABOUT EUPHORIA</h2>
-    <div class="col-lg-8 col-lg-offset-2">
-      <p>
-        We know that applying to college is hard. Most college rankings focus on academics and campus life, but few address the mental wellness of the students. EUPHORIA will analyze the happiness of students on campus, helping you decide if it’s the right place for you.
-      </p>
-      <p>
-        <a href="https://github.com/lugrace/technica17" target="_blank" class="btnghost"><i class="fa fa-github"></i> Github</a>
-      </p>
-    </div>
-  </div>
+	<div class="row">
+		<h2>ABOUT EUPHORIA</h2>
+		<div class="col-lg-8 col-lg-offset-2">
+			<p>
+				We know that applying to college is hard. Most college rankings focus on academics and campus life, but few address the mental wellness of the students. EUPHORIA will analyze the happiness of students on campus, helping you decide if it’s the right place for you.
+			</p>
+			<p>
+				<a href="https://github.com/lugrace/technica17" target="_blank" class="btnghost"><i class="fa fa-github"></i> Github</a>
+				&nbsp&nbsp&nbsp&nbsp
+				<a href="#works" class="btnghost page-scroll">How it works</a>
+			</p>
+		</div>
+	</div>
 </div>
 </section>
+
+
 <section id="works">
-  <div class="container content-section text-center">
-    <div class="row">
-      <h2>ABOUT ok</h2>
-      <div class="col-lg-8 col-lg-offset-2">
-        <p>
-          We know that applying to college is hard. Most college rankings focus on academics and campus life, but few address the mental wellness of the students. Happy Students will analyze the happiness of students on campus, and you can decide if it’s the right place for you.
-        </p>
-        <p>
-          <a href="https://github.com/lugrace/technica17" target="_blank" class="btnghost"><i class="fa fa-github"></i> Github</a>
-        </p>
-      </div>
+	<div class="container">
+		<div class="row text-center mb100">
+			<div class="container content-section text-center">
+				<h2>How it Works</h2>
+				<div class="col-lg-8 col-lg-offset-2">
+				<p>By analyzing tweets from the student body of a college campus, Euphoria uses natural language processing to assess the mental well-being of the community.</p>
+				</div>
+			</div>
+			<div class="col-md-8 col-md-pull-2 page-scroll">
+			<!--<p>hi<p>-->
+			</div>
+		</div>
+
+    <div class="row text-center mb100">
+    <div class="col-md-6">
+      <img src="{% static 'img/bird.png' %}" height="50%" width="50%" align = "right"/>
+    </div>
+    <div class="col-md-6">
+      <h2 align = "left">Twitter</h3>
+      <p align = "left">We will fill this section later with relevant information on how we used the twitter api. This is placeholder text lol</p>
     </div>
   </div>
+<br>
+<br>
+<br>
+<br>
+    <div class="col-md-6">
+      <h2 align = "right">APIS &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</h3>
+      <p align = "right">Microsoft Azure Text Analytics API</p>
+    </div>
+    <div class="col-md-6">
+      <img src="{% static 'img/cloud.png' %}" height="60%" width="60%" align = "left"/>
+    </div>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
 </section>
 
 <!-- Footer -->
@@ -129,5 +159,3 @@
 <script src="{% static 'js/theme.js' %}"></script>
 </body>
 </html>
-
-
