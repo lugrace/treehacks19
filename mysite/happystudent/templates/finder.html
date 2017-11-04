@@ -12,6 +12,8 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/css/select2.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
   
   <!-- Add additional CSS in static file -->
   {% load static %}
@@ -58,7 +60,26 @@
 <!-- /.container -->
 </nav>
 <!-- Intro Header -->
-<p>{{college_name}}</p>
+<header class="intro">
+<div class="intro-body">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <h1 class="brand-heading">{{college_name}}</h1>
+        <p class="intro-text">
+          Enter your college
+        </p>
+        <form action="/happystudent/home/college/" method="post">
+          {% csrf_token %}
+          {{ form }}
+          <button>Submit</button>
+        </form>
+        
+      </div>
+    </div>
+  </div>
+</div>
+</header>
 <!-- Footer -->
 <footer>
 <div class="container text-center">
@@ -79,5 +100,12 @@
 <script src="{% static 'js/theme.js' %}"></script>
 </body>
 </html>
+
+<!-- <script>
+ // button on click
+ // redirect to a page and take input from input field and add slug if it has spaces
+</script> -->
+
+<!-- need to figure out slugs -->
 
 
