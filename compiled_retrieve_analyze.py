@@ -70,7 +70,7 @@ tweetlist = []
 int x = 1;
 while( !Queue.empty() ):
 	tweetlist.append({'id': str(x), 'language': 'en', 'text': str(tweet_data.pop())})
-documents = { 'doucments': tweetlist }
+documents = { 'documents': tweetlist }
 
 
 percentresults = GetSentiment(documents)
