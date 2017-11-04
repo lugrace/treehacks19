@@ -25,7 +25,7 @@ for tweet in tweepy.Cursor(api.search,
                            count=100,
                            result_type="recent",
                            include_entities=True,
-                           lang="en").items(2500):     # the values inside items defines how many searches we want
+                           lang="en").items(3500):     # the values inside items defines how many searches we want
     print(tweet.text)
     tweet_data.append(tweet.text)
 
