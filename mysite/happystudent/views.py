@@ -1,10 +1,13 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 
 #for the backend part
 from tweepy.streaming import StreamListener
 from tweepy import OAuthHandler
 from tweepy import Stream
+
+#for forms
+from .forms import CollegeForm
 
 #Variables that contains the user credentials to access Twitter API
 consumer_key = 'oeaiWzPmHLx20OLsp5g5QPFbw'
@@ -29,6 +32,16 @@ def analyze(request, college="University of Maryland"):
 		context={'college_name':college}
 	)
 
+def analyzeForm(request):
+	if request.method == 'POST':
+		form = CollegeForm(request.POST)
+		if form.is_valid():
+			return analyze(request, form.cleaned_data['your_college'])
+	else:
+		form = CollegeForm()
+
+	return render(request, 'finder.html', {'form': form})
+
 def topten(request):
 	#do stuff
 	return render(
@@ -40,5 +53,15 @@ def finder(request):
 	#do stuff
 	return render(
 		request,
-		'finder.html'
+		'finder.html',
 	)
+
+def get_college(request):
+	if request.method == 'POST':
+		form = CollegeForm(request.POST)
+		if form.is_valid():
+			return analyze(request, form.your_college)
+	else:
+		form = CollegeForm()
+
+	return render(request, 'results.html', {'form': form})
