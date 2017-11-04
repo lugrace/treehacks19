@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  
+
   {% block title %}<title>Happy Student</title>{% endblock %}
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,11 +14,11 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/css/select2.min.css" rel="stylesheet" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
-  
+
   <!-- Add additional CSS in static file -->
   {% load static %}
   <!-- <link rel="stylesheet" href="{% static 'css/style.css' %}"> -->
-  <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet"> 
+  <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
   <link rel="stylesheet" href="{% static 'css/theme.css' %}">
   <link href="{% static 'font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
   <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700,400italic,700italic" rel="stylesheet" type="text/css">
@@ -36,22 +36,22 @@
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
     <i class="fa fa-bars"></i>
     </button>
-    <a class="navbar-brand page-scroll" href="index.html">EUPHORIA</a>
+    <a class="navbar-brand page-scroll" href="/happystudent/home">EUPHORIA</a>
   </div>
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
     <ul class="nav navbar-nav">
       <li>
-      <a href="#about">About</a>
+      <a href="/happystudent/home#about">About</a>
       </li>
       <li>
-      <a href="#works">How it works</a>
+      <a href="/happystudent/home#works">How it works</a>
       </li>
       <li>
-      <a href="portfolio-item.html">College Finder</a>
+      <a href="#">College Finder</a>
       </li>
       <li>
-      <a href="ten.html">Our top 10</a>
+      <a href="/happystudent/home/ten">Our top 10</a>
       </li>
       <!--<li>
       <a href="contact.html">Hire me</a>
@@ -79,9 +79,9 @@
             {{ form }}
           </div>
           <button style="width: 100px; height: 50px; font-size: 24px; background: white; color: black;">Submit</button>
-          
+
         </form>
-        
+
       </div>
     </div>
   </div>
@@ -115,7 +115,7 @@
 
 <!-- need to figure out slugs -->
 
-<style type="text/css">  
+<style type="text/css">
 .company-name-input {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
