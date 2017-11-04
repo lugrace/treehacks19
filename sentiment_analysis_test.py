@@ -27,9 +27,8 @@ def GetSentiment (documents):
     response = conn.getresponse ()
     return response.read()
 
-documents = { 'documents': [
+documents = { 'doucments': [
     { 'id': '1', 'language': 'en', 'text': 'I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable.' },
-    { 'id': '2', 'language': 'es', 'text': 'Este ha sido un dia terrible, llegué tarde al trabajo debido a un accidente automobilistico.' }
 ]}
 
 
