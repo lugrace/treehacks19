@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="97121889-27b9-4643-ac4b-dfb0a76f1e64" name="Default" comment="">
+      <change type="MOVED" beforePath="$PROJECT_DIR$/college_acronyms" afterPath="$PROJECT_DIR$/college_acronyms.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gathering_tweets.py" afterPath="$PROJECT_DIR$/gathering_tweets.py" />
     </list>
     <ignored path="technica17.iws" />
@@ -25,8 +27,8 @@
       <file leaf-file-name="gathering_tweets.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/gathering_tweets.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+            <state relative-caret-position="527">
+              <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
               <folding>
                 <element signature="e#1#44#0" expanded="true" />
               </folding>
@@ -34,11 +36,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="college_acronyms" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/college_acronyms">
+      <file leaf-file-name="college_acronyms.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/college_acronyms.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6953">
-              <caret line="409" column="0" selection-start-line="409" selection-start-column="0" selection-end-line="409" selection-end-column="0" />
+            <state relative-caret-position="5423">
+              <caret line="319" column="44" selection-start-line="319" selection-start-column="44" selection-end-line="319" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -62,6 +64,7 @@
         <option value="$PROJECT_DIR$/technica17/gathering_tweets.py" />
         <option value="$PROJECT_DIR$/new_test.py" />
         <option value="$PROJECT_DIR$/college_acronyms" />
+        <option value="$PROJECT_DIR$/college_acronyms.txt" />
         <option value="$PROJECT_DIR$/gathering_tweets.py" />
       </list>
     </option>
@@ -397,18 +400,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/college_acronyms">
+    <entry file="file://$PROJECT_DIR$/college_acronyms.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6953">
-          <caret line="409" column="0" selection-start-line="409" selection-start-column="0" selection-end-line="409" selection-end-column="0" />
+        <state relative-caret-position="5423">
+          <caret line="319" column="44" selection-start-line="319" selection-start-column="44" selection-end-line="319" selection-end-column="44" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gathering_tweets.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+        <state relative-caret-position="527">
+          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
           <folding>
             <element signature="e#1#44#0" expanded="true" />
           </folding>
