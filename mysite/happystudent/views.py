@@ -24,15 +24,15 @@ import simplejson
 # import matplotlib.pyplot as plt
 
 #Variables that contains the user credentials to access Twitter API
-# consumer_key = 'oeaiWzPmHLx20OLsp5g5QPFbw'
-# consumer_secret = '3b55vyoax4DIkhvTX6KUGP9sSjhxo9ZxOfpUUtsz6tpPVfZfw3'
-# access_token = '926830219356340225-z2qjfLCagnxp99AL4UhzQ94LUQbo9RR'
-# access_secret = 'uX5IWIi0ERKLySSQEYIVOSIcjEuHCmJlPwEK2zSLLLgGk'
+consumer_key = 'oeaiWzPmHLx20OLsp5g5QPFbw'
+consumer_secret = '3b55vyoax4DIkhvTX6KUGP9sSjhxo9ZxOfpUUtsz6tpPVfZfw3'
+access_token = '926830219356340225-z2qjfLCagnxp99AL4UhzQ94LUQbo9RR'
+access_secret = 'uX5IWIi0ERKLySSQEYIVOSIcjEuHCmJlPwEK2zSLLLgGk'
 
-consumer_key = 'nZLGMLHWqqRdXZLJyRO4Aa73i'
-consumer_secret = 'S6z8cMV3o1e8Pd1RV7w57KTUloL3XwZGPj9nX885CcE33o36En'
-access_token = '1499540593-1EwsHUl4V7gaa1EFXTlqqq5mAceIwsJ3sioQ0Nf'
-access_secret = 'BrgR0qv32GbIQQD8fYKXHtcxigrvh4fJJ3Td3LdQEU4tq'
+# consumer_key = 'nZLGMLHWqqRdXZLJyRO4Aa73i'
+# consumer_secret = 'S6z8cMV3o1e8Pd1RV7w57KTUloL3XwZGPj9nX885CcE33o36En'
+# access_token = '1499540593-1EwsHUl4V7gaa1EFXTlqqq5mAceIwsJ3sioQ0Nf'
+# access_secret = 'BrgR0qv32GbIQQD8fYKXHtcxigrvh4fJJ3Td3LdQEU4tq'
 
 # consumer_key = 'USKNo3FUPLEY4Drk7PGOP3vfs'
 # consumer_secret = 'EexUTxb2MDYQw51jz9xYaB3eFv9uMd2CdIdWzxNY8OeX0m05to'
