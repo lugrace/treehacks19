@@ -73,7 +73,7 @@
                      a 40 40 0 0 1 0 80
                      a 40 40 0 0 1 0 -80">
             </path>
-            <text id="count" x="50" y="50" text-anchor="middle" dy="7" font-size="20">100%</text>
+            <text id="count" x="50" y="50" text-anchor="middle" dy="7" font-size="20">{{avpercent}}%</text>
           </svg>
 
       </div>
@@ -130,9 +130,10 @@ svg{width:30%;}
 
   var s = Snap('#animated');
   var progress = s.select('#progress');
+  var limit = 251.2*{{avpercent}}/100;
 
   progress.attr({strokeDasharray: '0, 251.2'});
-  Snap.animate(0,251.2, function( value ) {
+  Snap.animate(0,limit, function( value ) {
       progress.attr({ 'stroke-dasharray':value+',251.2'});
   }, 5000); 
 </script>
