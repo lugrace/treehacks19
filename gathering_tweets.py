@@ -21,7 +21,7 @@ colleges = {}
 line = f.readline()
 while line != "":
     line = line.split(' - ')
-    fullname = line[1].split(', ')[:-1]
+    fullname = line[1][:-1].split(', ')
     for x in fullname:
         colleges[x] = line[0]
     line = f.readline()
@@ -34,10 +34,10 @@ auth = OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_secret)
 api = tweepy.API(auth)
 
-for tweet in tweepy.Cursor(api.search, q=input_word, count=100, result_type="recent", include_entities=True, lang="en").items(1):     # the values inside items defines how many searches we want
+for tweet in tweepy.Cursor(api.search, q=input_word, count=100, result_type="recent", include_entities=True, lang="en").items(3500):     # the values inside items defines how many searches we want
     #print(tweet.text)
     tweet_data.put(tweet.text)
-for tweet in tweepy.Cursor(api.search, q=acronym_word, count=100, result_type="recent", include_entities=True, lang="en").items(1):     # the values inside items defines how many searches we want
+for tweet in tweepy.Cursor(api.search, q=acronym_word, count=100, result_type="recent", include_entities=True, lang="en").items(3500):     # the values inside items defines how many searches we want
     #print(tweet.text)
     tweet_data.put(tweet.text)
 print(colleges)
