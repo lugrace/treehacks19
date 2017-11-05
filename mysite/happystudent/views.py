@@ -126,8 +126,22 @@ def analyze(request, college="University of Maryland"):
 		elif z["score"] > 0.8:
 			positive+=1
 	sortnums = sorted(sortnums)
-	examplebad = [tweetlist[int(sortnums[0][1])-1]['text'], tweetlist[int(sortnums[1][1])-1]['text'], tweetlist[int(sortnums[2][1])-1]['text']]
-	examplegood = [tweetlist[int(sortnums[-1][1])-1]['text'], tweetlist[int(sortnums[-2][1])-1]['text'], tweetlist[int(sortnums[-3][1])-1]['text']]
+	examplebad = []
+	index = 0
+	count = 0
+	while count < 3:
+		if tweetlist[int(sortnums[index][1])-1]['text'] not in examplebad:
+			examplebad.append(tweetlist[int(sortnums[index][1])-1]['text'])
+			count++
+		index++
+	index = -1
+	count = 0
+	while count < 3:
+		if tweetlist[int(sortnums[index][1])-1]['text'] not in examplegood:
+			examplegood.append(tweetlist[int(sortnums[index][1])-1]['text'])
+			count++
+		index--	
+	#examplegood = [tweetlist[int(sortnums[-1][1])-1]['text'], tweetlist[int(sortnums[-2][1])-1]['text'], tweetlist[int(sortnums[-3][1])-1]['text']]
 	avpercent = avpercent/len(percentresults["documents"])
 	negative = negative/len(percentresults["documents"])
 	positive = positive/len(percentresults["documents"])
