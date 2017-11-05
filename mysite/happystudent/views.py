@@ -129,6 +129,7 @@ def analyze(request, college="University of Maryland"):
 	examplebad = []
 	index = 0
 	count = 0
+	examplegood = []
 	while count < 3:
 		if tweetlist[int(sortnums[index][1])-1]['text'] not in examplebad:
 			examplebad.append(tweetlist[int(sortnums[index][1])-1]['text'])
