@@ -100,11 +100,11 @@ def analyze(request, college="University of Maryland"):
 
 	for tweet in tweepy.Cursor(api.search, q=input_word, count=3500, result_type="recent", include_entities=True, lang="en").items(100):     # the values inside items defines how many searches we want
 	    #print(tweet.text)
-	    if (not tweet.retweeted) and ("RT @" not in tweet.text) and ("http" not in tweet.text):
+	    if( not tweet.retweeted):
 	    	tweet_data.put(tweet.text)
 	for tweet in tweepy.Cursor(api.search, q=acronym_word, count=3500, result_type="recent", include_entities=True, lang="en").items(100):     # the values inside items defines how many searches we want
 	    #print(tweet.text)
-	    if (not tweet.retweeted) and ("RT @" not in tweet.text) and ("http" not in tweet.text):
+	    if (not tweet.retweeted):
 	    	tweet_data.put(tweet.text)
 
 	tweetlist = []
@@ -133,16 +133,20 @@ def analyze(request, college="University of Maryland"):
 	count = 0
 	examplegood = []
 	while count < 3:
-		if tweetlist[int(sortnums[index][1])-1]['text'] not in examplebad:
-			examplebad.append(tweetlist[int(sortnums[index][1])-1]['text'])
-			count+=1
+		tw = tweetlist[int(sortnums[index][1])-1]['text']
+		if tw not in examplebad:
+			if ("RT @" not in tw) and ("http" not in tw) and ("trump" not in tw.lower()):
+				examplebad.append(tw)
+				count+=1
 		index+=1
 	index = -1
 	count = 0
 	while count < 3:
-		if tweetlist[int(sortnums[index][1])-1]['text'] not in examplegood:
-			examplegood.append(tweetlist[int(sortnums[index][1])-1]['text'])
-			count+=1
+		tw = tweetlist[int(sortnums[index][1])-1]['text']
+		if tw not in examplegood:
+			if ("RT @" not in tw) and ("http" not in tw) and ("trump" not in tw.lower()):
+				examplegood.append(tw)
+				count+=1
 		index-=1
 	#examplegood = [tweetlist[int(sortnums[-1][1])-1]['text'], tweetlist[int(sortnums[-2][1])-1]['text'], tweetlist[int(sortnums[-3][1])-1]['text']]
 	avpercent = avpercent/len(percentresults["documents"])
