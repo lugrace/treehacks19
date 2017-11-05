@@ -138,9 +138,59 @@ def analyze(request, college="University of Maryland"):
 			# {text: "Sit", weight: 7},
 			# {text: "Amet", weight: 5}
  #	];
-	words = ["fuck", "wtf"]
-	# words = serializers.serialize("json", words)
-	json_list = simplejson.dumps(words)
+	wordqueue = queue.Queue()
+	keywords = eval(GetKeyWords(documents))
+	badfile = open("static/txt/badfile.txt", 'r', encoding="utf8")
+	badline = badfile.readline()
+	badwords = {}
+	while badline != "":
+		badline.strip()
+		badline = badline[:-1].lower()
+		badwords[badline] = 0
+		badline = badfile.readline()
+	goodfile = open("static/txt/goodfile.txt", 'r', encoding="utf8")
+	goodline = goodfile.readline()
+	goodwords = {}
+	while goodline != "":
+		goodline.strip()
+		goodline = goodline[:-1].lower()
+		goodwords[goodline] = 0
+		goodline = goodfile.readline()
+	for w in keywords["documents"]:
+		for wordphrase in w["keyPhrases"]:
+			for word in wordphrase.split(" "):
+				wordqueue.put(word.lower())
+
+	while wordqueue.empty() != True:
+		inbad = False
+		findword = wordqueue.get()
+		for x in badwords.keys():
+			if x in findword:
+				badwords[x] +=1
+				inbad = True
+				break
+		if inbad != True:
+			for x in goodwords.keys():
+				if x in findword:
+					goodwords[x] +=1
+					break
+	badstringinput = ""
+	for x in badwords.keys():
+		badstringinput += (x+" ")*badwords[x]
+	badstringinput.strip()
+	goodstringinput = ""
+	for x in goodwords.keys():
+		goodstringinput += (x+" ")*goodwords[x]
+	goodstringinput.strip()
+	badstringinput = badstringinput.split(" ")
+	goodstringinput = goodstringinput.split(" ")
+	# words = ["fuck", "wtf"]
+	# json_list = simplejson.dumps(words)
+	# words = badstringinput.concat(goodstringinput)
+	words = badstringinput + goodstringinput
+	words_list = simplejson.dumps(words)
+	# badwords_list = simplejson.dumps(badstringinput)
+	# goodwords_list = simplejson.dumps(goodstringinput)
 
 	return render(
 		request, 
@@ -148,7 +198,8 @@ def analyze(request, college="University of Maryland"):
 		context={'college_name':college, 'avpercent': avpercentR, 'positive': positiveR, 'negative': negativeR, 
 		'exampleGood1': examplegood[0], 'exampleGood2': examplegood[1], 'exampleGood3': examplegood[2], 
 		'exampleBad1': examplebad[0], 'exampleBad2': examplebad[1], 'exampleBad3': examplebad[2],
-		'words': json_list}
+		'words': words_list}
+		# 'words': json_list
 	)
 
 def analyzeForm(request):

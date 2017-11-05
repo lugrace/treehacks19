@@ -127,7 +127,7 @@
                 </div>
               </div>
           </div>
-          <div id="tagsCloud" style="width: 100%; height: 500px; color: white;">
+          <div id="tagsCloudGood" style="width: 100%; height: 500px; color: white; margin-top: 25px;">
           <!-- wordle -->
           </div>
       </div>
@@ -265,16 +265,28 @@
     //       {text: "Amet", weight: 5}
     //       // ...as many words as you want
     //   ];
+    // {% autoescape off %}
+    // var wordss = {{badwords}};
+    // var wordsss = [];
+    // for(var i = 0; i < wordss.length; i++){
+    //   var nums = countInArray(wordss, wordss[i]);
+    //   // myObject = {text: wordss[i], weight: nums};
+    //   // wordsss = appendObjTo(wordsss, myObject);
+    //   wordsss.push({text: wordss[i], weight: nums})
+    // }
+    // $("#tagsCloudBad").jQCloud(wordsss);
+    // {% endautoescape %}
+
     {% autoescape off %}
     var wordss = {{words}};
     var wordsss = [];
     for(var i = 0; i < wordss.length; i++){
       var nums = countInArray(wordss, wordss[i]);
-      // myObject = {text: wordss[i], weight: nums};
-      // wordsss = appendObjTo(wordsss, myObject);
-      wordsss.push({text: wordss[i], weight: nums})
+      var temp = {text: wordss[i], weight: nums};
+      if(!containsObject(temp, wordsss))
+        wordsss.push(temp);
     }
-    $("#tagsCloud").jQCloud(wordsss);
+    $("#tagsCloudGood").jQCloud(wordsss);
     {% endautoescape %}
     console.log("theoretically...")
   });
@@ -288,6 +300,16 @@
       }
       return count;
   }
+  function containsObject(obj, list) {
+    var i;
+    for (i = 0; i < list.length; i++) {
+        if (list[i].text === obj.text) {
+            return true;
+        }
+    }
+
+    return false;
+}
 
   
 
