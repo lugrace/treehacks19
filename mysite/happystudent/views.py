@@ -100,10 +100,12 @@ def analyze(request, college="University of Maryland"):
 
 	for tweet in tweepy.Cursor(api.search, q=input_word, count=3500, result_type="recent", include_entities=True, lang="en").items(100):     # the values inside items defines how many searches we want
 	    #print(tweet.text)
-	    tweet_data.put(tweet.text)
+	    if (not tweet.retweeted) and ("RT @" not in tweet.text) and ("http" not in tweet.text):
+	    	tweet_data.put(tweet.text)
 	for tweet in tweepy.Cursor(api.search, q=acronym_word, count=3500, result_type="recent", include_entities=True, lang="en").items(100):     # the values inside items defines how many searches we want
 	    #print(tweet.text)
-	    tweet_data.put(tweet.text)
+	    if (not tweet.retweeted) and ("RT @" not in tweet.text) and ("http" not in tweet.text):
+	    	tweet_data.put(tweet.text)
 
 	tweetlist = []
 
