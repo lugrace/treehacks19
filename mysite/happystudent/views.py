@@ -171,13 +171,13 @@ def analyze(request, college="University of Maryland"):
 		inbad = False
 		findword = wordqueue.get()
 		for x in badwords.keys():
-			if x in findword:
+			if x == findword[:len(x)]:
 				badwords[x] +=1
 				inbad = True
 				break
 		if inbad != True:
 			for x in goodwords.keys():
-				if x in findword:
+				if x == findword[:len(x)]:
 					goodwords[x] +=1
 					break
 	badstringinput = ""
