@@ -23,15 +23,15 @@ from .forms import CollegeForm
 # access_token = '926830219356340225-z2qjfLCagnxp99AL4UhzQ94LUQbo9RR'
 # access_secret = 'uX5IWIi0ERKLySSQEYIVOSIcjEuHCmJlPwEK2zSLLLgGk'
 
-# consumer_key = 'nZLGMLHWqqRdXZLJyRO4Aa73i'
-# consumer_secret = 'S6z8cMV3o1e8Pd1RV7w57KTUloL3XwZGPj9nX885CcE33o36En'
-# access_token = '1499540593-1EwsHUl4V7gaa1EFXTlqqq5mAceIwsJ3sioQ0Nf'
-# access_secret = 'BrgR0qv32GbIQQD8fYKXHtcxigrvh4fJJ3Td3LdQEU4tq'
+consumer_key = 'nZLGMLHWqqRdXZLJyRO4Aa73i'
+consumer_secret = 'S6z8cMV3o1e8Pd1RV7w57KTUloL3XwZGPj9nX885CcE33o36En'
+access_token = '1499540593-1EwsHUl4V7gaa1EFXTlqqq5mAceIwsJ3sioQ0Nf'
+access_secret = 'BrgR0qv32GbIQQD8fYKXHtcxigrvh4fJJ3Td3LdQEU4tq'
 
-consumer_key = 'USKNo3FUPLEY4Drk7PGOP3vfs'
-consumer_secret = 'EexUTxb2MDYQw51jz9xYaB3eFv9uMd2CdIdWzxNY8OeX0m05to'
-access_token = '927051697876324352-3Vqh7zQybwZPu7VGggnLc4MBwbeoZTT'
-access_secret = 'kHVihIkPLvud5p0665ceKHcrLq2qrTl4yinnD5tV0X1oj'
+# consumer_key = 'USKNo3FUPLEY4Drk7PGOP3vfs'
+# consumer_secret = 'EexUTxb2MDYQw51jz9xYaB3eFv9uMd2CdIdWzxNY8OeX0m05to'
+# access_token = '927051697876324352-3Vqh7zQybwZPu7VGggnLc4MBwbeoZTT'
+# access_secret = 'kHVihIkPLvud5p0665ceKHcrLq2qrTl4yinnD5tV0X1oj'
 
 #analyzing tweets
 accessKey = 'f15920f0f61947c29e12c7f1f12174f9'
@@ -86,10 +86,10 @@ def analyze(request, college="University of Maryland"):
 	auth.set_access_token(access_token, access_secret)
 	api = tweepy.API(auth)
 
-	for tweet in tweepy.Cursor(api.search, q=input_word, count=3500, result_type="recent", include_entities=True, lang="en").items():     # the values inside items defines how many searches we want
+	for tweet in tweepy.Cursor(api.search, q=input_word, count=3500, result_type="recent", include_entities=True, lang="en").items(100):     # the values inside items defines how many searches we want
 	    #print(tweet.text)
 	    tweet_data.put(tweet.text)
-	for tweet in tweepy.Cursor(api.search, q=acronym_word, count=3500, result_type="recent", include_entities=True, lang="en").items():     # the values inside items defines how many searches we want
+	for tweet in tweepy.Cursor(api.search, q=acronym_word, count=3500, result_type="recent", include_entities=True, lang="en").items(100):     # the values inside items defines how many searches we want
 	    #print(tweet.text)
 	    tweet_data.put(tweet.text)
 
