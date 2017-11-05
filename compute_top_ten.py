@@ -6,10 +6,11 @@ import http.client
 import json
 
 # TWITTER API CREDENTIALS
-consumer_key = 'oeaiWzPmHLx20OLsp5g5QPFbw'
-consumer_secret = '3b55vyoax4DIkhvTX6KUGP9sSjhxo9ZxOfpUUtsz6tpPVfZfw3'
-access_token = '926830219356340225-z2qjfLCagnxp99AL4UhzQ94LUQbo9RR'
-access_secret = 'uX5IWIi0ERKLySSQEYIVOSIcjEuHCmJlPwEK2zSLLLgGk'
+consumer_key = 'eX2R7yd2UcF9gxP9jQjRWmRhX'
+consumer_secret = 'HwZiUEm7yvoxcB45IylGJbTGgQMGIA15r57NfjXOTdKuW5UcDZ'
+access_token = '926830219356340225-fZ4dTfgwS20mlcTZPnyhaokwOxSr5pP'
+access_secret = 'wb78ubDGgq5VkK8yES9HK0PQieKb9dGVSCqFkkC9gbs6t'
+
 
 # acronym dictionary
 
@@ -24,8 +25,10 @@ while line != "":
         colleges[x] = line[0]
     line = f.readline()
 
+# print(len(colleges))      # this is 500
 
-for input_word in colleges:
+
+for input_word in lll[0:50]:
     acronym_word = colleges[input_word]
     tweet_data = queue.Queue()
 
@@ -33,10 +36,10 @@ for input_word in colleges:
     auth.set_access_token(access_token, access_secret)
     api = tweepy.API(auth)
 
-    for tweet in tweepy.Cursor(api.search, q=input_word, count=100, result_type="recent", include_entities=True, lang="en").items(100):     # the values inside items defines how many searches we want
+    for tweet in tweepy.Cursor(api.search, q=input_word, result_type="recent", include_entities=True, lang="en").items(100):     # the values inside items defines how many searches we want
         #print(tweet.text)
         tweet_data.put(tweet.text)
-    for tweet in tweepy.Cursor(api.search, q=acronym_word, count=100, result_type="recent", include_entities=True, lang="en").items(100):     # the values inside items defines how many searches we want
+    for tweet in tweepy.Cursor(api.search, q=acronym_word, result_type="recent", include_entities=True, lang="en").items(100):     # the values inside items defines how many searches we want
         #print(tweet.text)
         tweet_data.put(tweet.text)
     #---
@@ -73,19 +76,18 @@ for input_word in colleges:
 
     percentresults = eval(GetSentiment(documents))
     avpercent = 0.0
+    for z in percentresults["documents"]:
+        avpercent += z["score"]
     avpercent = avpercent/len(percentresults["documents"])
     top_ten.update({input_word: avpercent})
-   # print(avpercent, negative, positive)
+    print(input_word, " ", avpercent)
 
-
-import operator
-sorted_x = sorted(top_ten.items(), key=operator.itemgetter(1))
-
-
-returnme = []
-for rrr in sorted_x.keys()[0:10]:
-    returnme.append(rrr)
-    returnme.append(sorted_x[rrr])
-
-
-print(returnme)
+# import operator
+# sorted_x = sorted(top_ten.items(), key=operator.itemgetter(1))
+#
+#
+# returnme = []
+# for rrr in sorted_x.keys()[0:10]:
+#     returnme.append(rrr)
+#     returnme.append(sorted_x[rrr])
+# print(returnme)
