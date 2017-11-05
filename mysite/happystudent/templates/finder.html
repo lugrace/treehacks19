@@ -63,7 +63,7 @@
 <!-- /.container -->
 </nav>
 <!-- Intro Header -->
-<header class="intro" style="background: black;">
+<header class="intro" style="background: url({% static 'img/spiral.jpg' %}) height = 150% width = 150%;">
 <div class="intro-body">
   <div class="container">
     <div class="row">
@@ -71,7 +71,7 @@
         <h1 class="brand-heading">{{college_name}}</h1>
         <p class="intro-text" style="font-weight:600; font-size: 48px;">
           Enter your college
-        </p>
+        </h2>
         <p><input class="company-name-input" name="company" placeholder="College name..." type="text" autocomplete="off" style="color: black; border-radius: 5px; height: 75px; width: 750px; font-size: 26px;"></p>
         <form action="/happystudent/home/college/" method="post" style="color: black;">
           {% csrf_token %}
@@ -79,6 +79,7 @@
             {{ form }}
           </div>
           <button style="width: 100px; height: 50px; font-size: 24px; background: white; color: black;">Submit</button>
+          <button class="btnghostwhite page-scroll">Submit</button>
         </form>
 
       </div>
