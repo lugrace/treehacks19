@@ -60,7 +60,7 @@
 <!-- /.container -->
 </nav>
 
-<header class="intro" style="background: radial-gradient(circle at 50% 50%,rgba(0,0,0,0.2),rgba(0,0,0,0.3)),url('http://unsplash.it/1600/1400?image=868')">
+<header class="intro" style="background: radial-gradient(circle at 50% 50%,rgba(0,0,0,0.2),rgba(0,0,0,0.3)),url('http://unsplash.it/1600/1400?image=868') no-repeat; background-size: 100%;">
 <div class="intro-body">
   <div class="container">
     <div class="row">
@@ -76,27 +76,30 @@
             <text id="count" x="50" y="50" text-anchor="middle" dy="7" font-size="20">{{avpercent}}%</text>
           </svg>
 
-          <p>Positive Tweets</p>
-          <svg id="animated" viewbox="0 0 100 100">
-            <circle cx="50" cy="50" r="45" fill="#66ff66"/>
-            <path id="progress2" stroke-linecap="round" stroke-width="5" stroke="#fff" fill="none"
-                  d="M50 10
-                     a 40 40 0 0 1 0 80
-                     a 40 40 0 0 1 0 -80">
-            </path>
-            <text id="count" x="50" y="50" text-anchor="middle" dy="7" font-size="20">{{positive}}%</text>
-          </svg>
+          <p>Happiness Level %</p>
+          <div>
+            <svg id="animated2" viewbox="0 0 100 100">
+              <circle cx="50" cy="50" r="45" fill="#66ff66"/>
+              <path id="progress2" stroke-linecap="round" stroke-width="5" stroke="#fff" fill="none"
+                    d="M50 10
+                       a 40 40 0 0 1 0 80
+                       a 40 40 0 0 1 0 -80">
+              </path>
+              <text id="count" x="50" y="50" text-anchor="middle" dy="7" font-size="20">{{positive}}%</text>
+            </svg>
+            <p>Positive Tweets %</p>
 
-          <p>Negative Tweets</p>
-          <svg id="animated" viewbox="0 0 100 100">
-            <circle cx="50" cy="50" r="45" fill="#ff0000"/>
-            <path id="progress3" stroke-linecap="round" stroke-width="5" stroke="#fff" fill="none"
-                  d="M50 10
-                     a 40 40 0 0 1 0 80
-                     a 40 40 0 0 1 0 -80">
-            </path>
-            <text id="count" x="50" y="50" text-anchor="middle" dy="7" font-size="20">{{negative}}%</text>
-          </svg>
+            <svg id="animated3" viewbox="0 0 100 100">
+              <circle cx="50" cy="50" r="45" fill="#ff0000"/>
+              <path id="progress3" stroke-linecap="round" stroke-width="5" stroke="#fff" fill="none"
+                    d="M50 10
+                       a 40 40 0 0 1 0 80
+                       a 40 40 0 0 1 0 -80">
+              </path>
+              <text id="count" x="50" y="50" text-anchor="middle" dy="7" font-size="20">{{negative}}%</text>
+            </svg>
+            <p>Negative Tweets %</p>
+          </div>
       </div>
     </div>
   </div>
@@ -149,6 +152,7 @@ svg{width:30%;}
       progress.attr({ 'stroke-dasharray':value+',251.2'});
   }, 5000);
 
+  var s = Snap('#animated2');
   var progress2 = s.select('#progress2');
   var limit2 = 251.2*{{positive}}/100;
 
@@ -157,6 +161,7 @@ svg{width:30%;}
       progress.attr({ 'stroke-dasharray':value+',251.2'});
   }, 5000);
 
+  var s = Snap('#animated3');
   var progress3 = s.select('#progress3');
   var limit3 = 251.2*{{negative}}/100;
 
