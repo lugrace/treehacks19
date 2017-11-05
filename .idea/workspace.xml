@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="97121889-27b9-4643-ac4b-dfb0a76f1e64" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compiled_retrieve_analyze.py" afterPath="$PROJECT_DIR$/compiled_retrieve_analyze.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gathering_tweets.py" afterPath="$PROJECT_DIR$/gathering_tweets.py" />
     </list>
     <ignored path="technica17.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,8 +37,8 @@
       <file leaf-file-name="compiled_retrieve_analyze.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/compiled_retrieve_analyze.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="87" column="42" selection-start-line="87" selection-start-column="42" selection-end-line="87" selection-end-column="42" />
+            <state relative-caret-position="241">
+              <caret line="49" column="39" selection-start-line="49" selection-start-column="39" selection-end-line="49" selection-end-column="39" />
               <folding>
                 <element signature="e#1#44#0" expanded="true" />
               </folding>
@@ -553,8 +551,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/compiled_retrieve_analyze.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="87" column="42" selection-start-line="87" selection-start-column="42" selection-end-line="87" selection-end-column="42" />
+        <state relative-caret-position="241">
+          <caret line="49" column="39" selection-start-line="49" selection-start-column="39" selection-end-line="49" selection-end-column="39" />
           <folding>
             <element signature="e#1#44#0" expanded="true" />
           </folding>
