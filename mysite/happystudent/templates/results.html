@@ -10,9 +10,11 @@
   <meta name="author" content="">
   <title>EUPHORIA: College Happiness Finder</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqcloud/1.0.4/jqcloud.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="  https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.3.0/snap.svg-min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqcloud/1.0.4/jqcloud-1.0.4.min.js"></script>
 
   <!-- Add additional CSS in static file -->
   {% load static %}
@@ -125,6 +127,9 @@
                 </div>
               </div>
           </div>
+          <div id="tagsCloud" style="width: 100%; height: 500px; color: white;">
+          <!-- wordle -->
+          </div>
       </div>
     </div>
   </div>
@@ -154,9 +159,63 @@
 </html>
 
 <style>
-body{text-align:center;font-family: 'Open Sans', sans-serif;}
-svg{width:30%;}
+  body{text-align:center;font-family: 'Open Sans', sans-serif;}
+  svg{width:30%;}
+
+  /* fonts */
+
+  div.jqcloud {
+    font-family: "Helvetica", "Arial", sans-serif;
+    font-size: 10px;
+    line-height: normal;
+  }
+
+  div.jqcloud a {
+    font-size: inherit;
+    text-decoration: none;
+  }
+
+  div.jqcloud span.w10 { font-size: 550%; }
+  div.jqcloud span.w9 { font-size: 500%; }
+  div.jqcloud span.w8 { font-size: 450%; }
+  div.jqcloud span.w7 { font-size: 400%; }
+  div.jqcloud span.w6 { font-size: 350%; }
+  div.jqcloud span.w5 { font-size: 300%; }
+  div.jqcloud span.w4 { font-size: 250%; }
+  div.jqcloud span.w3 { font-size: 200%; }
+  div.jqcloud span.w2 { font-size: 150%; }
+  div.jqcloud span.w1 { font-size: 100%; }
+
+  /* colors */
+
+  div.jqcloud { color: #09f; }
+  div.jqcloud a { color: inherit; }
+  div.jqcloud a:hover { color: #0df; }
+  div.jqcloud a:hover { color: #0cf; }
+  div.jqcloud span.w10 { color: #0cf; }
+  div.jqcloud span.w9 { color: #0cf; }
+  div.jqcloud span.w8 { color: #0cf; }
+  div.jqcloud span.w7 { color: #39d; }
+  div.jqcloud span.w6 { color: #90c5f0; }
+  div.jqcloud span.w5 { color: #90a0dd; }
+  div.jqcloud span.w4 { color: #90c5f0; }
+  div.jqcloud span.w3 { color: #a0ddff; }
+  div.jqcloud span.w2 { color: #99ccee; }
+  div.jqcloud span.w1 { color: #aab5f0; }
+
+  /* layout */
+
+  div.jqcloud {
+    overflow: hidden;
+    position: relative;
+  }
+
+  div.jqcloud span { padding: 0; }
 </style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqcloud/1.0.4/jqcloud-1.0.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 
 <script type="text/javascript">
   var count = $(('#count'));
@@ -194,4 +253,43 @@ svg{width:30%;}
   Snap.animate(0,limit3, function( value ) {
       progress3.attr({ 'stroke-dasharray':value+',251.2'});
   }, 5000);
+
+  (function(e){"use strict";e.fn.jQCloud=function(t,n){var r=this,i=r.attr("id")||Math.floor(Math.random()*1e6).toString(36),s={width:r.width(),height:r.height(),center:{x:(n&&n.width?n.width:r.width())/2,y:(n&&n.height?n.height:r.height())/2},delayedMode:t.length>50,shape:!1,encodeURI:!0,removeOverflowing:!0};n=e.extend(s,n||{}),r.addClass("jqcloud").width(n.width).height(n.height),r.css("position")==="static"&&r.css("position","relative");var o=function(){var s=function(e,t){var n=function(e,t){return Math.abs(2*e.offsetLeft+e.offsetWidth-2*t.offsetLeft-t.offsetWidth)<e.offsetWidth+t.offsetWidth&&Math.abs(2*e.offsetTop+e.offsetHeight-2*t.offsetTop-t.offsetHeight)<e.offsetHeight+t.offsetHeight?!0:!1},r=0;for(r=0;r<t.length;r++)if(n(e,t[r]))return!0;return!1};for(var o=0;o<t.length;o++)t[o].weight=parseFloat(t[o].weight,10);t.sort(function(e,t){return e.weight<t.weight?1:e.weight>t.weight?-1:0});var u=n.shape==="rectangular"?18:2,a=[],f=n.width/n.height,l=function(o,l){var c=i+"_word_"+o,h="#"+c,p=6.28*Math.random(),d=0,v=0,m=0,g=5,y="",b="",w;l.html=e.extend(l.html,{id:c}),l.html&&l.html["class"]&&(y=l.html["class"],delete l.html["class"]),t[0].weight>t[t.length-1].weight&&(g=Math.round((l.weight-t[t.length-1].weight)/(t[0].weight-t[t.length-1].weight)*9)+1),w=e("<span>").attr(l.html).addClass("w"+g+" "+y),l.link?(typeof l.link=="string"&&(l.link={href:l.link}),n.encodeURI&&(l.link=e.extend(l.link,{href:encodeURI(l.link.href).replace(/'/g,"%27")})),b=e("<a>").attr(l.link).text(l.text)):b=l.text,w.append(b);if(!!l.handlers)for(var E in l.handlers)l.handlers.hasOwnProperty(E)&&typeof l.handlers[E]=="function"&&e(w).bind(E,l.handlers[E]);r.append(w);var S=w.width(),x=w.height(),T=n.center.x-S/2,N=n.center.y-x/2,C=w[0].style;C.position="absolute",C.left=T+"px",C.top=N+"px";while(s(w[0],a)){if(n.shape==="rectangular"){v++,v*u>(1+Math.floor(m/2))*u*(m%4%2===0?1:f)&&(v=0,m++);switch(m%4){case 1:T+=u*f+Math.random()*2;break;case 2:N-=u+Math.random()*2;break;case 3:T-=u*f+Math.random()*2;break;case 0:N+=u+Math.random()*2}}else d+=u,p+=(o%2===0?1:-1)*u,T=n.center.x-S/2+d*Math.cos(p)*f,N=n.center.y+d*Math.sin(p)-x/2;C.left=T+"px",C.top=N+"px"}if(n.removeOverflowing&&(T<0||N<0||T+S>n.width||N+x>n.height)){w.remove();return}a.push(w[0]),e.isFunction(l.afterWordRender)&&l.afterWordRender.call(w)},c=function(i){i=i||0;if(!r.is(":visible")){setTimeout(function(){c(i)},10);return}i<t.length?(l(i,t[i]),setTimeout(function(){c(i+1)},10)):e.isFunction(n.afterCloudRender)&&n.afterCloudRender.call(r)};n.delayedMode?c():(e.each(t,l),e.isFunction(n.afterCloudRender)&&n.afterCloudRender.call(r))};return setTimeout(function(){o()},10),r}})(jQuery);
+  // wordle
+  $(document).ready(function(){
+    // var words = [
+    //       {text: "Lorem", weight: 15},
+    //       {text: "Ipsum", weight: 9, link: "http://jquery.com/"},
+    //       {text: "Dolor", weight: 6, html: {title: "I can haz any html attribute"}},
+    //       {text: "Sit", weight: 7},
+    //       {text: "Amet", weight: 5}
+    //       // ...as many words as you want
+    //   ];
+    {% autoescape off %}
+    var wordss = {{words}};
+    var wordsss = [];
+    for(var i = 0; i < wordss.length; i++){
+      var nums = countInArray(wordss, wordss[i]);
+      // myObject = {text: wordss[i], weight: nums};
+      // wordsss = appendObjTo(wordsss, myObject);
+      wordsss.push({text: wordss[i], weight: nums})
+    }
+    $("#tagsCloud").jQCloud(wordsss);
+    {% endautoescape %}
+    console.log("theoretically...")
+  });
+
+  function countInArray(array, what) {
+      var count = 0;
+      for (var i = 0; i < array.length; i++) {
+          if (array[i] === what) {
+              count++;
+          }
+      }
+      return count;
+  }
+
+  
+
+
 </script>

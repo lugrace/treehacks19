@@ -16,6 +16,12 @@ import operator
 
 #for forms
 from .forms import CollegeForm
+import simplejson
+
+# import os
+
+# from wordcloud import WordCloud
+# import matplotlib.pyplot as plt
 
 #Variables that contains the user credentials to access Twitter API
 # consumer_key = 'oeaiWzPmHLx20OLsp5g5QPFbw'
@@ -101,19 +107,6 @@ def analyze(request, college="University of Maryland"):
 	    x+=1
 	documents = { 'documents': tweetlist }
 
-	# percentresults = eval(GetSentiment(documents))
-	# avpercent = 0.0
-	# positive = 0.0
-	# negative = 0.0
-	# for z in percentresults["documents"]:
-	#     avpercent += z["score"]
-	#     if z["score"] < 0.01:
-	#         negative+=1
-	#     elif z["score"] > 0.8:
-	#         positive+=1
-	# avpercent = avpercent/len(percentresults["documents"])
-	# negative = negative/len(percentresults["documents"])
-	# positive = positive/len(percentresults["documents"])
 	percentresults = eval(GetSentiment(documents))
 	avpercent = 0.0
 	positive = 0.0
@@ -137,12 +130,25 @@ def analyze(request, college="University of Maryland"):
 	negativeR = int(int(negative*100)/100*100)
 	positiveR = int(int(positive*100)/100*100)
 
+	# wordle stuff
+	# words = [
+			# {text: "Lorem", weight: 15},
+			# {text: "Ipsum", weight: 9, link: "http://jquery.com/"},
+			# {text: "Dolor", weight: 6, html: {title: "I can haz any html attribute"}},
+			# {text: "Sit", weight: 7},
+			# {text: "Amet", weight: 5}
+ #	];
+	words = ["fuck", "wtf"]
+	# words = serializers.serialize("json", words)
+	json_list = simplejson.dumps(words)
+
 	return render(
 		request, 
 		'results.html',
 		context={'college_name':college, 'avpercent': avpercentR, 'positive': positiveR, 'negative': negativeR, 
 		'exampleGood1': examplegood[0], 'exampleGood2': examplegood[1], 'exampleGood3': examplegood[2], 
-		'exampleBad1': examplebad[0], 'exampleBad2': examplebad[1], 'exampleBad3': examplebad[2]}
+		'exampleBad1': examplebad[0], 'exampleBad2': examplebad[1], 'exampleBad3': examplebad[2],
+		'words': json_list}
 	)
 
 def analyzeForm(request):
