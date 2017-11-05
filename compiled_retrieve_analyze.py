@@ -24,7 +24,7 @@ while line != "":
         colleges[x] = line[0]
     line = f.readline()
 
-input_word = 'University of Maryland'
+input_word = 'Cornell University'
 acronym_word = colleges[input_word]
 tweet_data = queue.Queue()
 
@@ -100,22 +100,29 @@ badfile = open("badfile.txt", 'r')
 badline = badfile.readline()
 badwords = {}
 while badline != "":
-    badline.rstrip()
+    badline.strip()
+    badline = badline[:-1]
     badwords[badline] = 0
+    badline = badfile.readline()
 goodfile = open("goodfile.txt", 'r')
 goodline = goodfile.readline()
 goodwords = {}
 while goodline != "":
-    goodline.rstrip()
+    goodline.strip()
+    goodline = goodline[:-1]
     goodwords[goodline] = 0
+    goodline = goodfile.readline()
+#print(goodwords)
+#print(badwords)
 for w in keywords["documents"]:
     for wordphrase in w["keyPhrases"]:
         for word in wordphrase.split(" "):
-            wordqueue.put(word)
+            wordqueue.put(word.lower())
 
 while wordqueue.empty() != True:
     inbad = False
-    findword = wordqueue.pop()
+    findword = wordqueue.get()
+    #print(findword)
     for x in badwords.keys():
         if x in findword:
             badwords[x] +=1
