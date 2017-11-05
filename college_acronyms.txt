@@ -393,7 +393,7 @@ VTC - Vermont Technical College
 VU - Valparaiso University, Vanderbilt University, Villanova University, Vincennes University, Vanguard University
 W&J - Washington & Jefferson College
 W&L - Washington and Lee University
-W&M - The College of William & Mary
+W&M - William & Mary
 Wash U or WUSTL - Washington University in St. Louis
 Wazzu - Washington State University
 WC - Wagner College, Wilmington College
