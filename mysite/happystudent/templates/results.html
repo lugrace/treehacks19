@@ -60,14 +60,14 @@
 <!-- /.container -->
 </nav>
 
-<header class="intro" style="background: white; color: black;">
+<header class="intro" style="background: radial-gradient(circle at 50% 50%,rgba(0,0,0,0.2),rgba(0,0,0,0.3)),url('http://unsplash.it/1600/1400?image=868')">
 <div class="intro-body">
   <div class="container">
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
         <h1 class="brand-heading">{{college_name}}</h1>
           <svg id="animated" viewbox="0 0 100 100">
-            <circle cx="50" cy="50" r="45" fill="#FDB900"/>
+            <circle cx="50" cy="50" r="45" fill="#84e0ff"/>
             <path id="progress" stroke-linecap="round" stroke-width="5" stroke="#fff" fill="none"
                   d="M50 10
                      a 40 40 0 0 1 0 80
@@ -135,5 +135,5 @@ svg{width:30%;}
   progress.attr({strokeDasharray: '0, 251.2'});
   Snap.animate(0,limit, function( value ) {
       progress.attr({ 'stroke-dasharray':value+',251.2'});
-  }, 5000); 
+  }, 5000);
 </script>
