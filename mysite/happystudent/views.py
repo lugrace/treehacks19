@@ -135,7 +135,7 @@ def analyze(request, college="University of Maryland"):
 	while count < 3:
 		tw = tweetlist[int(sortnums[index][1])-1]['text']
 		if tw not in examplebad:
-			if ("RT @" not in tw) and ("http" not in tw) and ("trump" not in tw.lower()):
+			if ("RT @" not in tw) and ("http" not in tw) and ("trump" not in tw.lower()) and ("lyft" not in tw.lower()):
 				examplebad.append(tw)
 				count+=1
 		index+=1
@@ -144,7 +144,7 @@ def analyze(request, college="University of Maryland"):
 	while count < 3:
 		tw = tweetlist[int(sortnums[index][1])-1]['text']
 		if tw not in examplegood:
-			if ("RT @" not in tw) and ("http" not in tw) and ("trump" not in tw.lower()):
+			if ("RT @" not in tw) and ("http" not in tw) and ("trump" not in tw.lower()) and ("lyft" not in tw.lower()):
 				examplegood.append(tw)
 				count+=1
 		index-=1
