@@ -118,13 +118,14 @@
     </div>
     <div class="col-md-6">
       <h2 align = "left">Twitter</h3>
-      <p align = "left">We will fill this section later with relevant information on how we used the twitter api. This is placeholder text lol</p>
+      <p align = "left">What better source to hear the voice students part of the college community than through Twitter? We use the most recent 5,000 tweets (real-time) that contain a message regarding the college/university. We process this data using natural language processing (NLP) to find keywords in the message and to classify the message using sentiment analysis.</p>
     </div>
   </div>
-<br>
-<br>
-<br>
-<br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <div class="row text-center mb100">
     <div class="col-md-6">
       <h2 align = "right">APIS &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</h3>
       <p align = "right">Microsoft Azure Text Analytics API</p>
@@ -133,6 +134,23 @@
     </div>
     <div class="col-md-6">
       <img src="{% static 'img/cloud.png' %}" height="60%" width="60%" align = "left"/>
+    </div>
+  </div>
+  <div class="row text-center mb100">
+    <div class="col-md-6">
+      <br>
+      <br>
+      <br>
+      <br>
+      <img src="{% static 'img/chat.png' %}" height="60%" width="60%" align = "right"/>
+    </div>
+    <div class="col-md-6" col-lg-offset-5>
+      <br>
+      <br>
+      <br>
+      <br>
+      <h2 align = "left">Natural Language Processing</h3>
+      <p align = "left">We used Microsoft Azure’s Text Analytics API to implement the artificial intelligence aspect of our product, while also performing a sentiment analysis on our tweets. This generates a number, which ranks the tweet on a “good”/”bad” spectrum. By aggregating this number for thousands of tweets, we were able to compute a numerical average, which is the “happiness” factor. This is the value displayed under each college. </p>
     </div>
   </div>
   <br>
