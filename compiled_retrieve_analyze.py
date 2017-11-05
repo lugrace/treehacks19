@@ -32,10 +32,10 @@ auth = OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_secret)
 api = tweepy.API(auth)
 
-for tweet in tweepy.Cursor(api.search, q=input_word, count=3500, result_type="recent", include_entities=True, lang="en").items(100):     # the values inside items defines how many searches we want
+for tweet in tweepy.Cursor(api.search, q=input_word, count=100, result_type="recent", include_entities=True, lang="en").items(3500):     # the values inside items defines how many searches we want
     #print(tweet.text)
     tweet_data.put(tweet.text)
-for tweet in tweepy.Cursor(api.search, q=acronym_word, count=3500, result_type="recent", include_entities=True, lang="en").items(100):     # the values inside items defines how many searches we want
+for tweet in tweepy.Cursor(api.search, q=acronym_word, count=100, result_type="recent", include_entities=True, lang="en").items(3500):     # the values inside items defines how many searches we want
     #print(tweet.text)
     tweet_data.put(tweet.text)
 #---

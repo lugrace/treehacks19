@@ -33,10 +33,10 @@ for input_word in colleges:
     auth.set_access_token(access_token, access_secret)
     api = tweepy.API(auth)
 
-    for tweet in tweepy.Cursor(api.search, q=input_word, count=3500, result_type="recent", include_entities=True, lang="en").items(100):     # the values inside items defines how many searches we want
+    for tweet in tweepy.Cursor(api.search, q=input_word, count=100, result_type="recent", include_entities=True, lang="en").items(100):     # the values inside items defines how many searches we want
         #print(tweet.text)
         tweet_data.put(tweet.text)
-    for tweet in tweepy.Cursor(api.search, q=acronym_word, count=3500, result_type="recent", include_entities=True, lang="en").items(100):     # the values inside items defines how many searches we want
+    for tweet in tweepy.Cursor(api.search, q=acronym_word, count=100, result_type="recent", include_entities=True, lang="en").items(100):     # the values inside items defines how many searches we want
         #print(tweet.text)
         tweet_data.put(tweet.text)
     #---
@@ -73,20 +73,19 @@ for input_word in colleges:
 
     percentresults = eval(GetSentiment(documents))
     avpercent = 0.0
-    positive = 0.0
-    negative = 0.0
-    for z in percentresults["documents"]:
-        avpercent += z["score"]
-        if z["score"] < 0.01:
-            negative+=1
-        elif z["score"] > 0.8:
-            positive+=1
     avpercent = avpercent/len(percentresults["documents"])
-    negative = negative/len(percentresults["documents"])
-    positive = positive/len(percentresults["documents"])
     top_ten.update({input_word: avpercent})
-    print(avpercent, negative, positive)
+   # print(avpercent, negative, positive)
+
 
 import operator
 sorted_x = sorted(top_ten.items(), key=operator.itemgetter(1))
-print(sorted_x)
+
+
+returnme = []
+for rrr in sorted_x.keys()[0:10]:
+    returnme.append(rrr)
+    returnme.append(sorted_x[rrr])
+
+
+print(returnme)
