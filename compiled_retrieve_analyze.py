@@ -74,8 +74,6 @@ percentresults = eval(GetSentiment(documents))
 avpercent = 0.0
 positive = 0.0
 negative = 0.0
-maxpos = 2
-minneg = -1
 sortnums = []
 for z in percentresults["documents"]:
     avpercent += z["score"]
