@@ -80,7 +80,7 @@ avpercent = 0.0
 positive = 0.0
 negative = 0.0
 for z in percentresults["documents"]:
-    percent += z["score"]
+    avpercent += z["score"]
     if z["score"] < 0.01:
         negative+=1
     elif z["score"] > 0.8:
@@ -88,6 +88,9 @@ for z in percentresults["documents"]:
 avpercent = avpercent/len(percentresults["documents"])
 negative = negative/len(percentresults["documents"])
 positive = positive/len(percentresults["documents"])
+
+
+print(avpercent, negative, positive)
 
 # wordqueue = queue.Queue()
 # keywords = eval(GetKeyWords(documents))
