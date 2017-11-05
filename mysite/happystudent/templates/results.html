@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="  https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.3.0/snap.svg-min.js"></script>
 
   <!-- Add additional CSS in static file -->
   {% load static %}
@@ -65,7 +66,15 @@
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
         <h1 class="brand-heading">{{college_name}}</h1>
-        <p>wtf</p>
+          <svg id="animated" viewbox="0 0 100 100">
+            <circle cx="50" cy="50" r="45" fill="#FDB900"/>
+            <path id="progress" stroke-linecap="round" stroke-width="5" stroke="#fff" fill="none"
+                  d="M50 10
+                     a 40 40 0 0 1 0 80
+                     a 40 40 0 0 1 0 -80">
+            </path>
+            <text id="count" x="50" y="50" text-anchor="middle" dy="7" font-size="20">{{avpercent}}%</text>
+          </svg>
 
       </div>
     </div>
@@ -103,3 +112,28 @@
 <script src="{% static 'js/theme.js' %}"></script>
 </body>
 </html>
+
+<style>
+body{text-align:center;font-family: 'Open Sans', sans-serif;}
+svg{width:30%;}
+</style>
+
+<script type="text/javascript">
+  var count = $(('#count'));
+  $({ Counter: 0 }).animate({ Counter: count.text() }, {
+    duration: 5000,
+    easing: 'linear',
+    step: function () {
+      count.text(Math.ceil(this.Counter)+ "%");
+    }
+  });
+
+  var s = Snap('#animated');
+  var progress = s.select('#progress');
+  var limit = 251.2*{{avpercent}}/100;
+
+  progress.attr({strokeDasharray: '0, 251.2'});
+  Snap.animate(0,limit, function( value ) {
+      progress.attr({ 'stroke-dasharray':value+',251.2'});
+  }, 5000); 
+</script>

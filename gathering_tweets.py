@@ -26,7 +26,7 @@ while line != "":
         colleges[x] = line[0]
     line = f.readline()
 
-input_word = 'University of Maryland'
+input_word = 'Stanford University'
 acronym_word = colleges[input_word]
 tweet_data = queue.Queue()
 
@@ -40,5 +40,4 @@ for tweet in tweepy.Cursor(api.search, q=input_word, count=100, result_type="rec
 for tweet in tweepy.Cursor(api.search, q=acronym_word, count=100, result_type="recent", include_entities=True, lang="en").items(1):     # the values inside items defines how many searches we want
     #print(tweet.text)
     tweet_data.put(tweet.text)
-
 print(colleges)
