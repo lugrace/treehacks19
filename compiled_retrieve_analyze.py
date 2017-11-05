@@ -1,14 +1,9 @@
 
-from tweepy.streaming import StreamListener
 from tweepy import OAuthHandler
 import queue
-from tweepy import Stream
 import tweepy
-from math import cos, pi
-from geopy.geocoders import Nominatim
 
-import http.client, urllib.request, urllib.parse, urllib.error, base64
-import http.client, urllib
+import http.client
 import json
 
 # TWITTER API CREDENTIALS
