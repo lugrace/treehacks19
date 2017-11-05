@@ -313,6 +313,7 @@ UHS - University of Houston System
 UHV - University of Houston–Victoria
 UI - University of Idaho, University of Illinois at Urbana-Champaign, University of Iowa
 UIC - University of Illinois at Chicago
+UIUC - UIUC
 UIUC - University of Illinois at Urbana-Champaign
 UK - University of Kentucky
 ULM - University of Louisiana at Monroe
@@ -384,11 +385,11 @@ UWM - University of Wisconsin–Milwaukee
 Valpo - Valparaiso University
 Vandy - Vanderbilt University
 VCU - Virginia Commonwealth University
-Virginia Tech - Virginia Polytechnic Institute and State University
+Virginia Tech - Virginia Tech
 VMI - Virginia Military Institute
 VPI - Virginia Polytechnic Institute and State University (An abbreviation of the university official name, though not actively used by the university)
 VSU - Valdosta State University, Virginia State University
-VT - Virginia Polytechnic Institute and State University
+VT - Virginia Tech
 VTC - Vermont Technical College
 VU - Valparaiso University, Vanderbilt University, Villanova University, Vincennes University, Vanguard University
 W&J - Washington & Jefferson College
