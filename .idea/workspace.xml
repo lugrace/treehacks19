@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="97121889-27b9-4643-ac4b-dfb0a76f1e64" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compiled_retrieve_analyze.py" afterPath="$PROJECT_DIR$/compiled_retrieve_analyze.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/compute_top_ten.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="technica17.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,11 +35,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="compiled_retrieve_analyze.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/compiled_retrieve_analyze.py">
+      <file leaf-file-name="compute_top_ten.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/compute_top_ten.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="27" column="31" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
+            <state relative-caret-position="1513">
+              <caret line="89" column="15" selection-start-line="89" selection-start-column="15" selection-end-line="89" selection-end-column="15" />
               <folding>
                 <element signature="e#1#32#0" expanded="true" />
               </folding>
@@ -46,33 +47,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="goodfile.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/goodfile.txt">
+      <file leaf-file-name="compiled_retrieve_analyze.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/compiled_retrieve_analyze.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="5" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="badfile.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/badfile.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sentiment_analysis_test.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sentiment_analysis_test.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="25" column="18" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
+            <state relative-caret-position="275">
+              <caret line="92" column="36" selection-start-line="92" selection-start-column="36" selection-end-line="92" selection-end-column="36" />
               <folding>
-                <element signature="e#0#70#0" expanded="true" />
+                <element signature="e#1#32#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -103,6 +84,7 @@
         <option value="$PROJECT_DIR$/gathering_tweets.py" />
         <option value="$PROJECT_DIR$/badfile.txt" />
         <option value="$PROJECT_DIR$/goodfile.txt" />
+        <option value="$PROJECT_DIR$/compute_top_ten.py" />
         <option value="$PROJECT_DIR$/compiled_retrieve_analyze.py" />
       </list>
     </option>
@@ -230,6 +212,23 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="technica17" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/compiled_retrieve_analyze.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="compute_top_ten" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="technica17" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/compute_top_ten.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -381,18 +380,20 @@
       <option name="USE_KEYWORD" value="false" />
       <method />
     </configuration>
-    <list size="4">
+    <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.gathering_tweets" />
       <item index="1" class="java.lang.String" itemvalue="Python.new_test" />
       <item index="2" class="java.lang.String" itemvalue="Python.sentiment_analysis_test" />
       <item index="3" class="java.lang.String" itemvalue="Python.compiled_retrieve_analyze" />
+      <item index="4" class="java.lang.String" itemvalue="Python.compute_top_ten" />
     </list>
     <recent_temporary>
-      <list size="4">
+      <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Python.compiled_retrieve_analyze" />
-        <item index="1" class="java.lang.String" itemvalue="Python.gathering_tweets" />
-        <item index="2" class="java.lang.String" itemvalue="Python.sentiment_analysis_test" />
-        <item index="3" class="java.lang.String" itemvalue="Python.new_test" />
+        <item index="1" class="java.lang.String" itemvalue="Python.compute_top_ten" />
+        <item index="2" class="java.lang.String" itemvalue="Python.gathering_tweets" />
+        <item index="3" class="java.lang.String" itemvalue="Python.sentiment_analysis_test" />
+        <item index="4" class="java.lang.String" itemvalue="Python.new_test" />
       </list>
     </recent_temporary>
   </component>
@@ -549,10 +550,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/compute_top_ten.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1513">
+          <caret line="89" column="15" selection-start-line="89" selection-start-column="15" selection-end-line="89" selection-end-column="15" />
+          <folding>
+            <element signature="e#1#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/compiled_retrieve_analyze.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="31" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
+        <state relative-caret-position="275">
+          <caret line="92" column="36" selection-start-line="92" selection-start-column="36" selection-end-line="92" selection-end-column="36" />
           <folding>
             <element signature="e#1#32#0" expanded="true" />
           </folding>
