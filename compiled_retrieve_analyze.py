@@ -113,7 +113,7 @@ for w in keywords["documents"]:
         for word in wordphrase.split(" "):
             wordqueue.put(word)
 
-while !wordqueue.empty():
+while wordqueue.empty() != True:
     inbad = False
     findword = wordqueue.pop()
     for x in badwords.keys():
