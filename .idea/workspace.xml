@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="97121889-27b9-4643-ac4b-dfb0a76f1e64" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysite/happystudent/templates/ten.html" afterPath="$PROJECT_DIR$/mysite/happystudent/templates/ten.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysite/happystudent/urls.py" afterPath="$PROJECT_DIR$/mysite/happystudent/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysite/happystudent/views.py" afterPath="$PROJECT_DIR$/mysite/happystudent/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compute_top_ten.py" afterPath="$PROJECT_DIR$/compute_top_ten.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/top_ten_hardcoded.txt" afterPath="$PROJECT_DIR$/top_ten_hardcoded.txt" />
     </list>
     <ignored path="technica17.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,23 +24,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="gathering_tweets.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gathering_tweets.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="28" column="34" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
-              <folding>
-                <element signature="e#1#44#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="compute_top_ten.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/compute_top_ten.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="588">
-              <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+            <state relative-caret-position="391">
+              <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
               <folding>
                 <element signature="e#1#32#0" expanded="true" />
               </folding>
@@ -49,34 +36,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/mysite/happystudent/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2125">
-              <caret line="147" column="20" selection-start-line="147" selection-start-column="20" selection-end-line="147" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="top_ten_hardcoded.txt" pinned="false" current-in-tab="false">
+      <file leaf-file-name="top_ten_hardcoded.txt" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/top_ten_hardcoded.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="173">
+              <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="31" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="compiled_retrieve_analyze.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/compiled_retrieve_analyze.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-830">
-              <caret line="37" column="64" selection-start-line="37" selection-start-column="64" selection-end-line="37" selection-end-column="64" />
-              <folding>
-                <element signature="e#1#32#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -101,14 +66,15 @@
         <option value="$PROJECT_DIR$/college_acronyms" />
         <option value="$PROJECT_DIR$/sentiment_analysis.py" />
         <option value="$PROJECT_DIR$/sentiment_analysis_test.py" />
-        <option value="$PROJECT_DIR$/college_acronyms.txt" />
         <option value="$PROJECT_DIR$/copy.py" />
         <option value="$PROJECT_DIR$/badfile.txt" />
         <option value="$PROJECT_DIR$/goodfile.txt" />
-        <option value="$PROJECT_DIR$/compute_top_ten.py" />
-        <option value="$PROJECT_DIR$/gathering_tweets.py" />
         <option value="$PROJECT_DIR$/compiled_retrieve_analyze.py" />
         <option value="$PROJECT_DIR$/mysite/happystudent/views.py" />
+        <option value="$PROJECT_DIR$/gathering_tweets.py" />
+        <option value="$PROJECT_DIR$/college_acronyms.txt" />
+        <option value="$PROJECT_DIR$/compute_top_ten.py" />
+        <option value="$PROJECT_DIR$/top_ten_hardcoded.txt" />
       </list>
     </option>
   </component>
@@ -450,8 +416,8 @@
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Python.compute_top_ten" />
-        <item index="1" class="java.lang.String" itemvalue="Python.compiled_retrieve_analyze" />
-        <item index="2" class="java.lang.String" itemvalue="Python.gathering_tweets" />
+        <item index="1" class="java.lang.String" itemvalue="Python.gathering_tweets" />
+        <item index="2" class="java.lang.String" itemvalue="Python.compiled_retrieve_analyze" />
         <item index="3" class="java.lang.String" itemvalue="Python.sentiment_analysis_test" />
         <item index="4" class="java.lang.String" itemvalue="Python.new_test" />
       </list>
@@ -566,14 +532,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/college_acronyms.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="269" column="33" selection-start-line="269" selection-start-column="30" selection-end-line="269" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sentiment_analysis_test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
@@ -600,20 +558,46 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/mysite/happystudent/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2125">
+          <caret line="147" column="20" selection-start-line="147" selection-start-column="20" selection-end-line="147" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compiled_retrieve_analyze.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="83" column="19" selection-start-line="77" selection-start-column="0" selection-end-line="83" selection-end-column="19" />
+          <folding>
+            <element signature="e#1#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/college_acronyms.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="61">
+          <caret line="396" column="28" selection-start-line="396" selection-start-column="28" selection-end-line="396" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/gathering_tweets.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="28" column="34" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
+        <state relative-caret-position="306">
+          <caret line="18" column="32" selection-start-line="18" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding>
             <element signature="e#1#44#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/compiled_retrieve_analyze.py">
+    <entry file="file://$PROJECT_DIR$/compute_top_ten.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-830">
-          <caret line="37" column="64" selection-start-line="37" selection-start-column="64" selection-end-line="37" selection-end-column="64" />
+        <state relative-caret-position="391">
+          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
           <folding>
             <element signature="e#1#32#0" expanded="true" />
           </folding>
@@ -622,26 +606,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/top_ten_hardcoded.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/compute_top_ten.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="588">
-          <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
-          <folding>
-            <element signature="e#1#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mysite/happystudent/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2125">
-          <caret line="147" column="20" selection-start-line="147" selection-start-column="20" selection-end-line="147" selection-end-column="20" />
+        <state relative-caret-position="173">
+          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="31" />
           <folding />
         </state>
       </provider>
