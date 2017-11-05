@@ -85,7 +85,13 @@ def analyze(request, college="University of Maryland"):
 	    line = f.readline()
 
 	input_word = college
-	acronym_word = colleges[input_word]
+	if input_word in colleges.keys():
+		acronym_word = colleges[input_word]
+	else:
+		acronym_word = college.replace("University", "")
+		acronym_word = college.replace("College of", "")
+		acronym_word = college.replace("College", "")
+		acronym_word.strip()
 	tweet_data = queue.Queue()
 
 	auth = OAuthHandler(consumer_key, consumer_secret)
