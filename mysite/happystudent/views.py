@@ -132,15 +132,15 @@ def analyze(request, college="University of Maryland"):
 	while count < 3:
 		if tweetlist[int(sortnums[index][1])-1]['text'] not in examplebad:
 			examplebad.append(tweetlist[int(sortnums[index][1])-1]['text'])
-			count++
-		index++
+			count+=1
+		index+=1
 	index = -1
 	count = 0
 	while count < 3:
 		if tweetlist[int(sortnums[index][1])-1]['text'] not in examplegood:
 			examplegood.append(tweetlist[int(sortnums[index][1])-1]['text'])
-			count++
-		index--	
+			count+=1
+		index-=1
 	#examplegood = [tweetlist[int(sortnums[-1][1])-1]['text'], tweetlist[int(sortnums[-2][1])-1]['text'], tweetlist[int(sortnums[-3][1])-1]['text']]
 	avpercent = avpercent/len(percentresults["documents"])
 	negative = negative/len(percentresults["documents"])
