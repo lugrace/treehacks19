@@ -83,13 +83,14 @@ for z in percentresults["documents"]:
     elif z["score"] > 0.8:
         positive+=1
 sortnums = sorted(sortnums)
-examplegood = [tweetlist[int(sortnums[0][1])]['text'], tweetlist[int(sortnums[1][1])]['text'], tweetlist[int(sortnums[2][1])]['text']]
-examplebad = [tweetlist[int(sortnums[-1][1])]['text'], tweetlist[int(sortnums[-2][1])]['text'], tweetlist[int(sortnums[-3][1])]['text']]
+examplebad = [tweetlist[int(sortnums[0][1])-1]['text'], tweetlist[int(sortnums[1][1])-1]['text'], tweetlist[int(sortnums[2][1])-1]['text']]
+examplegood = [tweetlist[int(sortnums[-1][1])-1]['text'], tweetlist[int(sortnums[-2][1])-1]['text'], tweetlist[int(sortnums[-3][1])-1]['text']]
 avpercent = avpercent/len(percentresults["documents"])
 negative = negative/len(percentresults["documents"])
 positive = positive/len(percentresults["documents"])
 
-
+print(examplebad)
+print(examplegood)
 print(avpercent, negative, positive)
 
 # wordqueue = queue.Queue()
