@@ -19,7 +19,7 @@ colleges = {}
 line = f.readline()
 while line != "":
     line = line.split(' - ')
-    fullname = line[1].split(', ')[:-1]
+    fullname = line[1][:-1].split(', ')
     for x in fullname:
         colleges[x] = line[0]
     line = f.readline()
@@ -74,12 +74,19 @@ percentresults = eval(GetSentiment(documents))
 avpercent = 0.0
 positive = 0.0
 negative = 0.0
+maxpos = 2
+minneg = -1
+sortnums = []
 for z in percentresults["documents"]:
     avpercent += z["score"]
+    sortnums.append([z["score"], z['id']])
     if z["score"] < 0.01:
         negative+=1
     elif z["score"] > 0.8:
         positive+=1
+sortnums = sorted(sortnums)
+examplegood = [tweetlist[int(sortnums[0][1])]['text'], tweetlist[int(sortnums[1][1])]['text'], tweetlist[int(sortnums[2][1])]['text']]
+examplebad = [tweetlist[int(sortnums[-1][1])]['text'], tweetlist[int(sortnums[-2][1])]['text'], tweetlist[int(sortnums[-3][1])]['text']]
 avpercent = avpercent/len(percentresults["documents"])
 negative = negative/len(percentresults["documents"])
 positive = positive/len(percentresults["documents"])
