@@ -35,6 +35,10 @@ a {
 	-webkit-transition:all .2s ease-in-out;
 	-moz-transition:all .2s ease-in-out;
 	transition:all .2s ease-in-out;
+	font-weight:700;
+}
+.lc a:link{
+	color:#f4af00;
 }
 a:hover,a:focus {
 	text-decoration:none;
@@ -363,6 +367,36 @@ p.lead {
 	color:#fff;
 	border:2px solid #333;
 }
+
+/*hanna*/
+.hanna:hover i.animated {
+	-webkit-animation-name:pulse;
+	-moz-animation-name:pulse;
+	-webkit-animation-duration:1.5s;
+	-moz-animation-duration:1.5s;
+	-webkit-animation-iteration-count:infinite;
+	-moz-animation-iteration-count:infinite;
+	-webkit-animation-timing-function:linear;
+	-moz-animation-timing-function:linear;
+}
+.hanna {
+	border:2px solid #fff0e3;
+	background-color:transparent;
+	padding:15px 20px;
+	letter-spacing:3px;
+	font-size:12px;
+	text-transform:uppercase;
+	font-weight:400;
+	color:#333;
+	margin-top:20px;
+	display:inline-block;
+}
+.hanna:hover {
+	background-color:#fff0e3;
+	color:#333;
+}
+/*end hanna*/
+
 .bgcover {
 	background-size:cover;
 	background-repeat:no-repeat;
@@ -442,6 +476,11 @@ section:after {
 }
 #works {
 	background-color:#fff0e3;
+	color:#333;
+	overflow:hidden;
+}
+#team {
+	background-color:#f9f9f9;
 	color:#333;
 	overflow:hidden;
 }
