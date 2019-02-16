@@ -1,0 +1,6 @@
+<form enctype="multipart/form-data" method="post">
+    {% csrf_token %}
+    <label>Please upload a file: </label> <br/>
+    {{ form }} <br/>
+    <input type="submit" value="Submit">
+</form>
