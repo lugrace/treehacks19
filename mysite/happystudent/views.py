@@ -247,6 +247,20 @@ def finder(request):
 		'finder.html',
 	)
 
+def webcam(request):
+	#do stuff
+	return render(
+		request,
+		'webcam.html',
+	)
+
+def upload(request):
+	#do stuff
+	return render(
+		request,
+		'upload.html',
+	)
+
 def get_college(request):
 	if request.method == 'POST':
 		form = CollegeForm(request.POST)

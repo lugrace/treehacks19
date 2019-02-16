@@ -8,4 +8,6 @@ urlpatterns = [
     url(r'^home/college/(?P<college>\w+)/$', views.analyze),
     url(r'^home/college/$', views.analyzeForm),
     url(r'^home/ten/$', views.topTen),
+    url(r'^home/finder/webcam/$', views.webcam),
+    url(r'^home/finder/upload/$', views.upload),
 ]
