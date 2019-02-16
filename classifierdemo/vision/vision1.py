@@ -1,5 +1,6 @@
 import io
 import os
+from get_info import get_info
 
 from google.cloud import vision
 from google.cloud.vision import types
@@ -116,20 +117,14 @@ def classify(image_name):
                     
     # food_items:
     # (four vertices starting top left clockwise, list of words representing food)
-    
+    # raw_descriptions = []
     for food in food_items:
-        raw_description = food[1]
-        factors = []
-        for description in raw_description:
-            # If description in the database
-            # if description in {DATABASE NAME}:
-            #     factors.append(description)
-        # Problem is that WE DON'T KNOW HOW TO DISTINGUISH THE TITLE FROM ELSE
-        # Potential NLP that determines when the title stops and the
-        # description starts?
-        
+        # raw_descriptions.append(food[1])
+        [co2, water] = get_info(food[1])
+
         # NLP to denote certain words (e.g. organic, processed, and add extra
         # to the rating or not
+        factors = []
         ratings.append(rating(factors))
     
     # Low rating is good
