@@ -1,6 +1,7 @@
 import sys
 import os
-sys.path.append(r"C:\Users\Kevin\AppData\Local\Programs\Python\Python37-32\treehacks\djangotest\testsite\vision")
+DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+print(os.path.join(DIR, r"vision\treehacks-food-recognizer-3787a7fb5f64.json"))
 
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
@@ -13,7 +14,7 @@ from google.cloud.vision import types
 client = vision.ImageAnnotatorClient()
 
 def classify(image_file):
-    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = r"C:\Users\Kevin\AppData\Local\Programs\Python\Python37-32\treehacks\djangotest\testsite\vision\treehacks-food-recognizer-3787a7fb5f64.json"
+    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = os.path.join(DIR, r"vision\treehacks-food-recognizer-3787a7fb5f64.json")
 
     content = image_file.read()
 
