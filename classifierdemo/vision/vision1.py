@@ -4,7 +4,7 @@ import os
 from google.cloud import vision
 from google.cloud.vision import types
 
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"]='C:\\Users\\eshao\\Documents\\Caltech\\treehacks2019\\treehacks2019-d0ddac9f339e.json'
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"]='C:\\Users\\eshao\\Documents\\Caltech\\treehacks2019\\treehacks19\\treehacks2019-d0ddac9f339e.json'
 client = vision.ImageAnnotatorClient()
 
 file_prefix = 'C:\\Users\\eshao\\Documents\\Caltech\\treehacks2019\\'
