@@ -7,6 +7,31 @@ body {
 	background-color:#000;
 	 font-weight:300;
 }
+.animate{
+	background: linear-gradient(270deg, #5A3F37, #2C7744);
+	background-size: 400% 400%;
+
+	-webkit-animation: GradientAnimation 10s ease infinite;
+	-moz-animation: GradientAnimation 10s ease infinite;
+	animation: GradientAnimation 10s ease infinite;
+}
+
+@-webkit-keyframes GradientAnimation {
+     0%{background-position:0% 50%}
+     50%{background-position:100% 50%}
+     100%{background-position:0% 50%}
+ }
+ @-moz-keyframes GradientAnimation {
+     0%{background-position:0% 50%}
+     50%{background-position:100% 50%}
+     100%{background-position:0% 50%}
+ }
+ @keyframes GradientAnimation {
+     0%{background-position:0% 50%}
+     50%{background-position:100% 50%}
+     100%{background-position:0% 50%}
+ }
+
 html {
 	width:100%;
 	height:100%;
