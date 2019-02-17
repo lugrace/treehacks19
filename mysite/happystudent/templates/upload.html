@@ -80,7 +80,7 @@
             <input type="submit" value="Submit"> -->
             {% csrf_token %}
             <label style="display:none;">Please upload a file: </label> <br/>
-            {{ form }} <br/>
+            {{ form | linebreaks}} <br/>
             <input class="btnghostwhite" type="submit" value="Submit">
         </form>
 
