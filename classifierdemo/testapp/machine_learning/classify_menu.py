@@ -7,7 +7,6 @@ from google.cloud.vision import types
 
 DIR = os.path.dirname(os.path.abspath(__file__))
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(DIR)))
-print(BASE_DIR)
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"]= os.path.join(BASE_DIR, r"auth\treehacks2019-d0ddac9f339e.json")
 client = vision.ImageAnnotatorClient()
 MINIMUM_LENGTH = 20
@@ -132,7 +131,8 @@ def classify_menu(image_file):
         food_items[i].append(scores[i])
         
     sorted_food = [x for _, x in sorted(zip(scores, food_items))]
-    print_results(sorted_food)
+    return sorted_food
+    #print_results(sorted_food)
     
     return sorted_food
         
