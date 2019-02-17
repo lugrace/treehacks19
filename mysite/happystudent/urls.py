@@ -18,4 +18,6 @@ urlpatterns = [
     url(r'^home/finder/upload/$', views.upload_file, name='upload_file'),
     url(r'^home/finder/webcam/screenshot/$', views.upload_file_screenshot, name='upload_file_screenshot'),
     # path('', views.upload_file, name='upload_file'),
+    url(r'^home/train/$', views.upload_training_files, name='upload_training_files'),
+    path('home', views.upload_training_files, name='upload_training_files'),
 ]
