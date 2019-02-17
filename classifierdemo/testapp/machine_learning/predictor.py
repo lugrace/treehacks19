@@ -14,7 +14,7 @@ def classify_image(image_file):
 	'''
 	image_file: an image file opened as read bytes
 
-	Classifies the image according to the custom vision model
+	Classifies the image according to the custom vision model 
 	'''
 	image_data = image_file.read()
 
