@@ -1,8 +1,10 @@
-food,score
-Wheat & Rye,1.4
-Maize,1.1
-Barley,1.1
-Oatmeal,1.6
-Rice,4
-Potatoes,0.3
-Cassava,0.9
+food,score,,,,
+Peas,353,1,32,1,#23BF00
+Tomatoes,235,0.66572238,22,11,#39BE00
+Onions & Leeks,11,0.031161473,1,32,#5BBD00
+Root Vegetables,23,0.065155807,3,30,#71BC00
+Cruciferous Vegetables,97,0.274787535,9,24,#7CBC00
+Citrus Fruit,65,0.184135977,6,27,#A7BB00
+Bananas,86,0.243626062,8,25,#B86800
+Apples,140,0.396600567,13,20,#B63100
+Berries & Grapes,292,0.827195467,27,6,#B50005

@@ -115,6 +115,7 @@ def classify_menu(image_file):
                 for word in paragraph.words:
                     curr_word = ""
                     for symbol in word.symbols:
+                        print(symbol)
                         curr_word += symbol.text
                         counter += 1
                     words.append(curr_word)
