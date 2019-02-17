@@ -4,7 +4,7 @@ DIR = os.path.dirname(os.path.abspath(__file__))
 
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from .forms import UploadFileForm
+from .forms import UploadFileForm, MultipleUploadFileForm
 from django.core.files.storage import default_storage
 
 import csv
@@ -14,6 +14,7 @@ from google.cloud.vision import types
 from .util.machine_learning import predictor 
 from .util.machine_learning import classify
 from .util.machine_learning import classify_menu
+from .util.machine_learning import trainer
 
 recognized = set()
 
@@ -78,4 +79,25 @@ def upload_file(request):
             return render(request, 'result.html', {'result' : obj})
     else:
         form = UploadFileForm()
+    return render(request, 'upload.html', {'form': form})
+
+def upload_training_files(request):
+    if request.method == 'POST':
+        form = MultipleUploadFileForm(request.POST, request.FILES)
+        if form.is_valid():
+            files = request.FILES.getlist('file_field')
+
+            to_add = []
+            tag = request.POST['title']
+
+            for file in files:
+                convert_file(file, 'tmp/temp3.txt')
+                f = open('tmp/temp3.txt', 'rb')
+                to_add.append((f, tag))
+
+            trainer.add_training_images(to_add)
+            trainer.train_model()
+            
+    else:
+        form = MultipleUploadFileForm()
     return render(request, 'upload.html', {'form': form})
