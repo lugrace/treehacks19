@@ -37,7 +37,7 @@
     <i class="fa fa-bars"></i>
     </button>
     <!--<img src="{% static 'img/logo.png' %}" height="2%" width="2%" align = "left"/>-->
-    <a class="navbar-brand page-scroll" href="/happystudent/home">:: SUS</a>
+    <a class="navbar-brand page-scroll" href="/happystudent/home"><img src="{% static 'img/carrot.ico' %}" style="display: inline;"/> SUS</a>
   </div>
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
@@ -49,11 +49,11 @@
       <a href="/happystudent/home#works">How it works</a>
       </li>
       <li>
-      <a href="/happystudent/home/finder">College Finder</a>
+      <a href="/happystudent/home/finder">Sustainability</a>
       </li>
-      <li>
+      <!-- <li>
       <a href="/happystudent/home/ten">Our top 10</a>
-      </li>
+      </li> -->
       <!--<li>
       <a href="contact.html">Hire me</a>
     </li>-->
@@ -69,15 +69,9 @@
   <div class="container">
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
-        <h1 class="brand-heading" style="display:inherit;">{{college_name}}</h1>
-          <svg id="animated" viewbox="0 0 100 100">
-            <circle cx="50" cy="50" r="45" fill="#84e0ff"/>
-            <path id="progress" stroke-linecap="round" stroke-width="5" stroke="#fff" fill="none"
-                  d="M50 10
-                     a 40 40 0 0 1 0 80
-                     a 40 40 0 0 1 0 -80">
-            </path>
-            <text id="count" x="50" y="50" text-anchor="middle" dy="7" font-size="20">{{avpercent}}%</text>
+        <!-- <h1 class="brand-heading" style="display:inherit;">{{college_name}}</h1> -->
+          <!-- r -->
+            <!-- <text id="count" x="50" y="50" text-anchor="middle" dy="7" font-size="20">{{avpercent}}%</text>
           </svg>
 
           <p>Happiness Level</p>
@@ -127,7 +121,45 @@
                 </div>
               </div>
           </div>
-          <div id="tagsCloudGood" style="width: 100%; height: 500px; color: white; margin-top: 250px;">
+          <div id="tagsCloudGood" style="width: 100%; height: 500px; color: white; margin-top: 250px;"> -->
+            <div class="pricingTable" style="color: black">
+              <h2 class="pricingTable-title">{{result}}</h2>
+              <h3 class="pricingTable-subtitle"></h3>
+              
+              <ul class="pricingTable-firstTable">
+                <li class="pricingTable-firstTable_table">
+                  <h1 class="pricingTable-firstTable_table__header">Land Usage</h1>
+                  <p class="pricingTable-firstTable_table__pricing"><span></span><span>{{land}}</span><span>m<sup>2</sup></span></p>
+                  <ul class="pricingTable-firstTable_table__options">
+                    <li>Unlimited Listing</li>
+                    <li>Edit Your Listing</li>
+                    <li>Approve Reviews</li>
+                  </ul>
+                  <!-- <div class="pricingTable-firstTable_table__getstart">Get Started Now</div> -->
+                </li><li class="pricingTable-firstTable_table">
+                  <h1 class="pricingTable-firstTable_table__header">CO2 Emissions</h1>
+                  <p class="pricingTable-firstTable_table__pricing"><span></span><span>{{co2}}</span><span>kg</span></p>
+                  <ul class="pricingTable-firstTable_table__options">
+                    <li>Unlimited Listing</li>
+                    <li>Edit Your Listing</li>
+                    <li>Approve Reviews</li>
+                    <li>Take Booking Online</li>
+                    <li>24/7 Support Service</li>
+                  </ul>
+                  <!-- <div class="pricingTable-firstTable_table__getstart">Get Started Now</div> -->
+                </li><li class="pricingTable-firstTable_table">
+                  <h1 class="pricingTable-firstTable_table__header">H20 Usage</h1>
+                  <p class="pricingTable-firstTable_table__pricing"><span></span><span>{{water}}</span><span>L</span></p>
+                  <ul class="pricingTable-firstTable_table__options">
+                    <li>Unlimited Listing</li>
+                    <li>Edit Your Listing</li>
+                    <li>Approve Reviews</li>
+                  </ul>
+                 <!--  <div class="pricingTable-firstTable_table__getstart">Get Started Now</div> -->
+                </li>
+              </ul>
+            </div>
+            <!-- <p>{{result}}</p> -->
           <!-- wordle -->
           </div>
       </div>
@@ -157,6 +189,375 @@
 <script src="{% static 'js/theme.js' %}"></script>
 </body>
 </html>
+
+<style>
+.pricingTable {
+  margin: 40px auto;
+}
+.pricingTable > .pricingTable-title {
+  text-align: center;
+  color: #6e768d;
+  font-size: 3em;
+  font-size: 300%;
+  margin-bottom: 20px;
+  letter-spacing: 0.04em;
+}
+.pricingTable > .pricingTable-subtitle {
+  text-align: center;
+  color: #b4bdc6;
+  font-size: 1.8em;
+  letter-spacing: 0.04em;
+  margin-bottom: 60px;
+}
+@media screen and (max-width: 480px) {
+  .pricingTable > .pricingTable-subtitle {
+    margin-bottom: 30px;
+  }
+}
+.pricingTable-firstTable {
+  list-style: none;
+  padding-left: 2em;
+  padding-right: 2em;
+  text-align: center;
+}
+.pricingTable-firstTable_table {
+  vertical-align: middle;
+  width: 31%;
+  background-color: #fff;
+  display: inline-block;
+  padding: 0px 30px 40px;
+  text-align: center;
+  max-width: 320px;
+  transition: all 0.3s ease;
+  border-radius: 5px;
+}
+@media screen and (max-width: 767px) {
+  .pricingTable-firstTable_table {
+    display: block;
+    width: 90%;
+    margin: 0 auto;
+    max-width: 90%;
+    margin-bottom: 20px;
+    padding: 10px;
+    padding-left: 20px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .pricingTable-firstTable_table > * {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+@media screen and (max-width: 480px) {
+  .pricingTable-firstTable_table > * {
+    display: block;
+    float: none;
+  }
+}
+@media screen and (max-width: 767px) {
+  .pricingTable-firstTable_table:after {
+    display: table;
+    content: '';
+    clear: both;
+  }
+}
+.pricingTable-firstTable_table:hover {
+  transform: scale(1.08);
+}
+@media screen and (max-width: 767px) {
+  .pricingTable-firstTable_table:hover {
+    transform: none;
+  }
+}
+.pricingTable-firstTable_table:not(:last-of-type) {
+  margin-right: 3.5%;
+}
+@media screen and (max-width: 767px) {
+  .pricingTable-firstTable_table:not(:last-of-type) {
+    margin-right: auto;
+  }
+}
+.pricingTable-firstTable_table:nth-of-type(2) {
+  position: relative;
+}
+@media screen and (max-width: 767px) {
+  .pricingTable-firstTable_table:nth-of-type(2) h1 {
+    padding-top: 8%;
+  }
+}
+
+@media screen and (max-width: 988px) {
+  .pricingTable-firstTable_table:nth-of-type(2):before {
+    font-size: 0.6em;
+  }
+}
+@media screen and (max-width: 767px) {
+  .pricingTable-firstTable_table:nth-of-type(2):before {
+    left: 10px;
+    width: 45px;
+    height: 45px;
+    top: -10px;
+    padding-top: 13px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .pricingTable-firstTable_table:nth-of-type(2):before {
+    font-size: 0.8em;
+  }
+}
+.pricingTable-firstTable_table:nth-of-type(2):hover:before {
+  transform: rotate(360deg);
+}
+.pricingTable-firstTable_table__header {
+  font-size: 1.6em;
+  padding: 40px 0px;
+  border-bottom: 2px solid #ebedec;
+  letter-spacing: 0.03em;
+}
+@media screen and (max-width: 1068px) {
+  .pricingTable-firstTable_table__header {
+    font-size: 1.45em;
+  }
+}
+@media screen and (max-width: 767px) {
+  .pricingTable-firstTable_table__header {
+    padding: 0px;
+    border-bottom: none;
+    float: left;
+    width: 33%;
+    padding-top: 3%;
+    padding-bottom: 2%;
+  }
+}
+@media screen and (max-width: 610px) {
+  .pricingTable-firstTable_table__header {
+    font-size: 1.3em;
+  }
+}
+@media screen and (max-width: 480px) {
+  .pricingTable-firstTable_table__header {
+    float: none;
+    width: 100%;
+    font-size: 1.8em;
+    margin-bottom: 5px;
+  }
+}
+.pricingTable-firstTable_table__pricing {
+  font-size: 3em;
+  padding: 30px 0px;
+  border-bottom: 2px solid #ebedec;
+  line-height: 0.7;
+}
+@media screen and (max-width: 1068px) {
+  .pricingTable-firstTable_table__pricing {
+    font-size: 2.8em;
+  }
+}
+@media screen and (max-width: 767px) {
+  .pricingTable-firstTable_table__pricing {
+    border-bottom: none;
+    padding: 0;
+    float: left;
+    clear: left;
+    width: 33%;
+  }
+}
+@media screen and (max-width: 610px) {
+  .pricingTable-firstTable_table__pricing {
+    font-size: 2.4em;
+  }
+}
+@media screen and (max-width: 480px) {
+  .pricingTable-firstTable_table__pricing {
+    float: none;
+    width: 100%;
+    font-size: 3em;
+    margin-bottom: 10px;
+  }
+}
+.pricingTable-firstTable_table__pricing span:first-of-type {
+  font-size: 0.35em;
+  vertical-align: top;
+  letter-spacing: 0.15em;
+}
+@media screen and (max-width: 1068px) {
+  .pricingTable-firstTable_table__pricing span:first-of-type {
+    font-size: 0.3em;
+  }
+}
+.pricingTable-firstTable_table__pricing span:last-of-type {
+  vertical-align: bottom;
+  font-size: 0.3em;
+  letter-spacing: 0.04em;
+  padding-left: 0.2em;
+}
+@media screen and (max-width: 1068px) {
+  .pricingTable-firstTable_table__pricing span:last-of-type {
+    font-size: 0.25em;
+  }
+}
+.pricingTable-firstTable_table__options {
+  list-style: none;
+  padding: 15px;
+  font-size: 0.9em;
+  border-bottom: 2px solid #ebedec;
+}
+@media screen and (max-width: 1068px) {
+  .pricingTable-firstTable_table__options {
+    font-size: 0.85em;
+  }
+}
+@media screen and (max-width: 767px) {
+  .pricingTable-firstTable_table__options {
+    border-bottom: none;
+    padding: 0;
+    margin-right: 10%;
+  }
+}
+@media screen and (max-width: 610px) {
+  .pricingTable-firstTable_table__options {
+    font-size: 0.7em;
+    margin-right: 8%;
+  }
+}
+@media screen and (max-width: 480px) {
+  .pricingTable-firstTable_table__options {
+    font-size: 1.3em;
+    margin-right: none;
+    margin-bottom: 10px;
+  }
+}
+.pricingTable-firstTable_table__options > li {
+  padding: 8px 0px;
+}
+@media screen and (max-width: 767px) {
+  .pricingTable-firstTable_table__options > li {
+    text-align: left;
+  }
+}
+@media screen and (max-width: 610px) {
+  .pricingTable-firstTable_table__options > li {
+    padding: 5px 0;
+  }
+}
+@media screen and (max-width: 480px) {
+  .pricingTable-firstTable_table__options > li {
+    text-align: center;
+  }
+}
+.pricingTable-firstTable_table__options > li:before {
+  content: '✓';
+  display: inline-block;
+  margin-right: 15px;
+  color: white;
+  background-color: #74ce6a;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  font-size: 0.8em;
+  padding: 2px;
+  text-align: center;
+}
+@media screen and (max-width: 1068px) {
+  .pricingTable-firstTable_table__options > li:before {
+    width: 14px;
+    height: 14px;
+    padding: 1.5px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .pricingTable-firstTable_table__options > li:before {
+    width: 12px;
+    height: 12px;
+  }
+}
+.pricingTable-firstTable_table__getstart {
+  color: white;
+  background-color: #71ce73;
+  margin-top: 30px;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 15px;
+  box-shadow: 0px 3px 0px 0px rgba(102, 172, 100, 1);
+  letter-spacing: 0.07em;
+  transition: all 0.4s ease;
+}
+@media screen and (max-width: 1068px) {
+  .pricingTable-firstTable_table__getstart {
+    font-size: 0.95em;
+  }
+}
+@media screen and (max-width: 767px) {
+  .pricingTable-firstTable_table__getstart {
+    margin-top: 0;
+  }
+}
+@media screen and (max-width: 610px) {
+  .pricingTable-firstTable_table__getstart {
+    font-size: 0.9em;
+    padding: 10px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .pricingTable-firstTable_table__getstart {
+    font-size: 1em;
+    width: 50%;
+    margin: 10px auto;
+  }
+}
+.pricingTable-firstTable_table__getstart:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 40px 29px -19px rgba(102, 172, 100, 0.9);
+}
+@media screen and (max-width: 767px) {
+  .pricingTable-firstTable_table__getstart:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
+.pricingTable-firstTable_table__getstart:active {
+  box-shadow: inset 0 0 10px 1px rgba(102, 165, 100, 1), 0px 40px 29px -19px rgba(102, 172, 100, 0.95);
+  transform: scale(0.95) translateY(-9px);
+}
+@media screen and (max-width: 767px) {
+  .pricingTable-firstTable_table__getstart:active {
+    transform: scale(0.95) translateY(0);
+    box-shadow: none;
+  }
+}
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 100%;
+  background-color: #f0f4f7;
+  color: #717787;
+}
+@media screen and (max-width: 960px) {
+  body {
+    font-size: 80%;
+  }
+}
+@media screen and (max-width: 776px) {
+  body {
+    font-size: 70%;
+  }
+}
+@media screen and (max-width: 496px) {
+  body {
+    font-size: 50%;
+  }
+}
+@media screen and (max-width: 320px) {
+  body {
+    font-size: 40%;
+  }
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+</style>
 
 <style>
   body{text-align:center;font-family: 'Open Sans', sans-serif;}
