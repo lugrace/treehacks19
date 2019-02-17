@@ -7,10 +7,10 @@ DIR = os.path.dirname(os.path.abspath(__file__))
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(DIR)))
 
 def classify(image_file):
-	'''
-	Takes in an image as file object and then uses Google Vision API 
-	to regonize tags associated with it.
-	'''
+    '''
+    Takes in an image as file object and then uses Google Vision API 
+    to regonize tags associated with it.
+    '''
     client = vision.ImageAnnotatorClient()
     os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = os.path.join(BASE_DIR, r"auth\treehacks-food-recognizer-3787a7fb5f64.json")
 

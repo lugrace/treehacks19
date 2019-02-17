@@ -7,7 +7,6 @@ from google.cloud.vision import types
 
 DIR = os.path.dirname(os.path.abspath(__file__))
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(DIR)))
-print(BASE_DIR)
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"]= os.path.join(BASE_DIR, r"auth\treehacks2019-d0ddac9f339e.json")
 client = vision.ImageAnnotatorClient()
 MINIMUM_LENGTH = 20
