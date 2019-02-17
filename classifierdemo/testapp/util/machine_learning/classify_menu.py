@@ -1,5 +1,6 @@
 import io
 import os
+import functools
 from .. import get_info
 
 from google.cloud import vision
@@ -59,6 +60,18 @@ def list_to_string(lst):
     
     return output
 
+def comparator(this, other):
+    '''
+    Compares tuples of (score, food_items)
+    '''
+
+    if (this[0] < other[0]):
+        return -1
+    if (this[0] > other[0]):
+        return 1
+    if (this[0] == other[0]):
+        return 0
+
 def classify_menu(image_file):
     '''
     Takes in an image name and return the food and the environmental effects
@@ -73,14 +86,14 @@ def classify_menu(image_file):
     content = image_file.read()
     
     image = types.Image(content=content)
-    
+
     response = client.label_detection(image=image)
     labels = response.label_annotations
     
     text_response = client.text_detection(image=image)
     texts = text_response.full_text_annotation
     
-    print(file_name)
+    #print(file_name)
     '''
     print('Classifications:')
     for classification in labels:
@@ -106,7 +119,7 @@ def classify_menu(image_file):
                         counter += 1
                     words.append(curr_word)
             if len(words) > 1:
-                food_items.append((bounds, words))
+                food_items.append([bounds, words])
             elif len(words) == 1:
                 try:
                     num = int(words[0])
@@ -115,30 +128,24 @@ def classify_menu(image_file):
     
     if counter < MINIMUM_LENGTH:
         return None
-    
+
     # food_items:
     # [(four vertices starting top left clockwise, list of words representing food)]
     ratings = []
     for i in range(len(food_items)):
         temp_food = food_items[i][1]
-        ratings.append(get_info(temp_food))
+        ratings.append(get_info.get_info(temp_food))
     scores = []
     for rate in ratings:
         score_sum = sum(rate[1])/3
         scores.append(score_sum)
-
     for i in range(len(food_items)):
         food_items[i].append(scores[i])
         
-    sorted_food = [x for _, x in sorted(zip(scores, food_items))]
+    sorted_food = [x for _, x in sorted(zip(scores, food_items), key=functools.cmp_to_key(comparator))]
     return sorted_food
     #print_results(sorted_food)
-    
-    return sorted_food
-        
-    
-    
-    
+            
     '''
     # Prints out 1) the entire text and 2) each vertex of each word in the text
     print('Texts:')
@@ -147,3 +154,10 @@ def classify_menu(image_file):
         vertices = ['({},{})'.format(vertex.x, vertex.y) for vertex in text.bounding_poly.vertices]
         print(f'bounds: {",".join(vertices)}')
     '''
+
+if __name__ == '__main__':
+    DIR = os.path.dirname(os.path.abspath(__file__))
+    BASE_DIR = os.path.dirname(os.path.dirname(DIR))
+    filename = os.path.join(BASE_DIR, r'images/menu2.jpg')
+    file = open(filename, 'r')
+    classify_menu(file)
