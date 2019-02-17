@@ -10,7 +10,7 @@ DIR = os.path.dirname(os.path.abspath(__file__))
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(DIR))))
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"]= os.path.join(BASE_DIR, r"auth\treehacks2019-d0ddac9f339e.json")
 client = vision.ImageAnnotatorClient()
-MINIMUM_LENGTH = 20
+MINIMUM_LENGTH = 150
 
 def rating(factors):
     '''
