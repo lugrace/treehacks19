@@ -120,7 +120,7 @@ def classify(image_name):
     # raw_descriptions = []
     for food in food_items:
         # raw_descriptions.append(food[1])
-        [co2, water] = get_info(food[1])
+        [co2, water, land] = get_info(food[1])
 
         # NLP to denote certain words (e.g. organic, processed, and add extra
         # to the rating or not
