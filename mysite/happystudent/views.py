@@ -275,6 +275,14 @@ def classify(image_file):
 
     return labels
 
+def convert_file(img_file, tmp_filename):
+    '''
+    Converts from InMemoryUploadedFile to a python File
+    '''
+    with default_storage.open(tmp_filename, 'wb+') as destination:
+        for chunk in img_file.chunks():
+            destination.write(chunk)
+
 def upload_file(request):
     # if request.method == 'POST':
     #     form = UploadFileForm(request.POST, request.FILES)
@@ -282,10 +290,6 @@ def upload_file(request):
     #         file = request.FILES['file']
     #         labels = classify(file)
     #         obj = labels[0].description
-
-
-
-
 
     #         return_values = get_info([obj])
 
@@ -306,20 +310,32 @@ def upload_file(request):
             
             obj = None
             for label in reversed(labels):
-                if label.description.lower() in recognized:
+                desc = label.description.lower()
+                if desc in recognized:
                     obj = label.description
                     is_recognized = True
-                if label.description == 'text':
+                if desc in ['text', 'menu']:
                     is_menu = True
             
             if is_menu: #special
-                sorted_food = classify_menu.classify_menu(file)
+                convert_file(file, 'tmp/temp2.txt')
+                f = open('tmp/temp2.txt', 'rb')
+
+                sorted_food = classify_menu.classify_menu(f)
 
                 # sorted_food is None when the text is small, i.e. not a menu
                 if sorted_food is not None:
                     # Handle this special case. Shows every single item
                     # return render(...)
-                    return render(request, 'results.html', {'result': str(sorted_food)})
+                    # return render(request, 'results.html', {'result': str(sorted_food)})
+                    sortedfood2 = []
+                    for next in sorted_food:
+                    	word = ""
+                    	for words in next[1]:
+                    		if("$" not in words):
+                    			word = word + " " + words
+                    	sortedfood2.append([word.strip().lower().capitalize(), str(next[2])[0:4]])
+                    return render(request, 'results-menu.html', {'menu': 'yes', 'result': sortedfood2})
 
             if is_recognized:
                 # return render(request, 'results.html', {'result' : obj})
@@ -337,9 +353,7 @@ def upload_file(request):
 				'score': str(int(100 - sum(return_values[1])/3))})
 
 
-            with default_storage.open('tmp/temp.txt', 'wb+') as destination:
-                for chunk in file.chunks():
-                    destination.write(chunk)
+            convert_file(file, 'tmp/temp.txt')
 
             # Not correctly recognized by default image => try custom model    
             f = open('tmp/temp.txt', 'rb')

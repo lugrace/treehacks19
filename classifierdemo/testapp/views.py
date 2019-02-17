@@ -11,12 +11,15 @@ import csv
 from google.cloud import vision
 from google.cloud.vision import types
 
+from .util import write_data
+
 from .util.machine_learning import predictor 
 from .util.machine_learning import classify
 from .util.machine_learning import classify_menu
 from .util.machine_learning import trainer
 
 recognized = set()
+TRESHOLD = 0.5
 
 with open(r'dictionary.csv', newline='', encoding='utf-8', errors='ignore') as csvfile:
     reader = csv.reader(csvfile)
@@ -76,6 +79,9 @@ def upload_file(request):
             # Note that if picture is something random, classification will be junk
             # ideally ask user if item is correct, and then update model
             obj = results.predictions[0].tag_name
+            if (results.predictions[0].probability < TRESHOLD) or obj == 'none':
+                obj = 'Cannot identify image'
+
             return render(request, 'result.html', {'result' : obj})
     else:
         form = UploadFileForm()
@@ -88,17 +94,23 @@ def upload_training_files(request):
             files = request.FILES.getlist('file_field')
 
             to_add = []
-            tag = request.POST['title']
+            tag = request.POST['name']
 
+            co2 = request.POST['co2']
+            land_use = request.POST['land_use']
+            water_use = request.POST['water_use']
+            
             for file in files:
                 convert_file(file, 'tmp/temp3.txt')
                 f = open('tmp/temp3.txt', 'rb')
+                write_data(tag, water_land, co2, land_use)
                 trainer.add_training_image(f, tag)
 
             try:
-                trainer.train_model()
-            except:
                 trainer.delete_all_iterations()
+                trainer.train_model()
+
+            except:
                 return render(request, 'result.html', {'result': 'error'})
             
     else:

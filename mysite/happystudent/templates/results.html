@@ -678,6 +678,12 @@ a {
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 
 <script type="text/javascript">
+  var array1 = {{ result | safe }};
+  var array2 = [];
+  // for(int i = 0; i < array1.length; i++){
+  //   array2.append(array1[i][1] + array1[i][2])
+  // }
+  // console.log(array2);
   // var count = $(('#count'));
   // $({ Counter: 0 }).animate({ Counter: count.text() }, {
   //   duration: 5000,

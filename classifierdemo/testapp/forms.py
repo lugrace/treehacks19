@@ -5,5 +5,8 @@ class UploadFileForm(forms.Form):
     file = forms.FileField()
 
 class MultipleUploadFileForm(forms.Form):
-	title = forms.CharField(max_length=50)
+	name = forms.CharField(max_length=50)
+	water_use = forms.CharField(max_length=50, required=False)
+	co2 = forms.CharField(max_length=50, required=False)
+	land_use = forms.CharField(max_length=50, required=False)
 	file_field = forms.FileField(widget=forms.ClearableFileInput(attrs={'multiple': True}))
