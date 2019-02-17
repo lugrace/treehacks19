@@ -1,30 +1,30 @@
-food,score,,,,,,
-Wheat & Rye,0.567,,,,,,
-Cassava,0,,,,,,
-Maize,0.12,,,,,,
-Barley,0.015,,,,,,
-Potatoes,0.043,,,,,,
-Soy,0.026,,,,,,
-Tofu,0.139,,,,,,
-Onions & Leeks,0.011,,,,,,
-Root Vegetables,0.023,,,,,,
-Cruciferous Vegetables,0.097,,,,,,
-Citrus Fruit,0.065,,,,,,
-Bananas,0.086,,,,,,
-Apples,0.14,,,,,,
-Tomatoes,0.235,,,,,,
-Berries & Grapes,0.292,,,,,,
-Oatmeal,0.302,,,,,,
-Peas,0.353,,,,,,
-Chicken,0.402,,,,,,
-Milk,0.533,,,,,,
-Eggs,0.556,,,,,,
-Beef,0.871,,,,,,
-Lamb & Mutton,1.082,,,,,,
-Pork,1.073,,,,,,
-Fish,1.315,,,,,,
-Peanuts,1.431,,,,,,
-Crustaceans,1.394,,,,,,
-Nuts,1.914,,,,,,
-Rice,1.962,,,,,,
-Cheese,4.735,,,,,,
+food,score
+Wheat & Rye,0.567
+Cassava,0
+Maize,0.12
+Barley,0.015
+Potatoes,0.043
+Soy,0.026
+Tofu,0.139
+Onions & Leeks,0.011
+Root Vegetables,0.023
+Cruciferous Vegetables,0.097
+Citrus Fruit,0.065
+Bananas,0.086
+Apples,0.14
+Tomatoes,0.235
+Berries & Grapes,0.292
+Oatmeal,0.302
+Peas,0.353
+Chicken,0.402
+Milk,0.533
+Eggs,0.556
+Beef,0.871
+Lamb & Mutton,1.082
+Pork,1.073
+Fish,1.315
+Peanuts,1.431
+Crustaceans,1.394
+Nuts,1.914
+Rice,1.962
+Cheese,4.735
