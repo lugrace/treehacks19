@@ -1,3 +1,12 @@
+import sys
+import base64
+from django.core.files.base import ContentFile
+
+import os
+import re
+DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+print(os.path.join(DIR, r"vision/treehacks-food-recognizer-3787a7fb5f64.json"))
+
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 
@@ -16,7 +25,15 @@ import operator
 
 #for forms
 from .forms import CollegeForm
+from django.shortcuts import render
+from .forms import UploadFileForm
 import simplejson
+
+import io
+from google.cloud import vision
+from google.cloud.vision import types
+
+client = vision.ImageAnnotatorClient()
 
 # import os
 
@@ -260,6 +277,70 @@ def upload(request):
 		request,
 		'upload.html',
 	)
+
+def classify(image_file):
+    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = os.path.join(DIR, r"vision/treehacks-food-recognizer-3787a7fb5f64.json")
+
+    content = image_file.read()
+
+    image = types.Image(content=content)
+
+    response = client.label_detection(image=image)
+    labels = response.label_annotations
+
+    return labels
+
+def upload_file(request):
+    if request.method == 'POST':
+        form = UploadFileForm(request.POST, request.FILES)
+        if form.is_valid():
+            file = request.FILES['file']
+            labels = classify(file)
+            obj = labels[0].description
+
+            return render(request, 'results.html', {'result' : obj})
+    else:
+        form = UploadFileForm()
+    return render(request, 'upload.html', {'form': form})
+
+def upload_file_screenshot(request):
+    if request.method == 'POST':
+        # form = UploadFileScreenshotForm(request.POST, request.FILES)
+        # if form.is_valid():
+        #     file = request.FILES['file']
+        #     labels = classify(file)
+        #     obj = labels[0].description
+        file = request.FILES['img_data']#['img_data']['name']#['img_data']
+        labels = classify(file)
+        obj = labels[0].description
+
+        return render(request, 'results.html', {'result' : obj}) #used to be indented
+    else:
+        form = UploadFileScreenshotForm()
+    return render(request, 'webcam.html', {'form': form})
+
+def webcam_upload_file(request):
+    if request.method == 'POST':
+        form = CollegeForm(request.POST, request.FILES)
+        if form.is_valid():
+            # dataUrlPattern = re.compile('data:image/(png|jpeg);base64,(.*)$')
+            # image_data = cleaned_data['image_data']
+            # image_data = dataUrlPattern.match(image_data).group(2)
+            # image_data = image_data.encode()
+            # image_data = base64.b64decode(image_data)
+            image_data = request['user']['image']
+            format, imgstr = image_data.split(';base64,')
+            ext = format.split('/')[-1]
+            data = ContentFile(base64.b64decode(imgstr))  
+            file = data#request.FILES['file']
+            labels = classify(file)
+            obj = labels[0].description
+
+            return render(request, 'results.html', {'result' : obj})
+    else:
+        form = CollegeForm()
+    return render(request, 'webcam.html', {'form': form})
+
 
 def get_college(request):
 	if request.method == 'POST':

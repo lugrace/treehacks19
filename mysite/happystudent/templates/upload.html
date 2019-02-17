@@ -82,10 +82,15 @@
           </div>
           <button class="btnghostwhite page-scroll">Submit</button>
         </form> -->
-        <h2>Pick a Path</h2>
-        <a href="#about" class="btnghostwhite page-scroll">WEB CAM
-        </a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-        <a href="finder" class="btnghostwhite page-scroll">Upload</a>
+        <form enctype="multipart/form-data" method="post" style="display: inline-block" class="btnghostwhite">
+            <!-- {% csrf_token %}
+            {{ form }}
+            <input type="submit" value="Submit"> -->
+            {% csrf_token %}
+            <label style="display:none;">Please upload a file: </label> <br/>
+            {{ form }} <br/>
+            <input class="btnghostwhite" type="submit" value="Submit">
+        </form>
 
       </div>
     </div>
@@ -121,6 +126,26 @@
 <!-- need to figure out slugs -->
 
 <style type="text/css">
+input{
+  font-size: 15px;
+  margin: 20px;
+
+}
+
+input #id_file {
+    border: 2px solid gray;
+    color: gray;
+    background-color: white;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+label{
+  font-size: 50px;
+  display: inline;
+}
 .company-name-input {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;

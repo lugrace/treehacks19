@@ -93,6 +93,17 @@
         <a onclick="takescreenshot()" style="margin-bottom: 50px;" id="screenshot-button" class="btnghostwhite">Take Picture
         </a>
 
+        <form enctype="multipart/form-data" method="post">
+            <!-- {% csrf_token %}
+            {{ form }}
+            <input type="submit" value="Submit"> -->
+            {% csrf_token %}
+            <label>Please upload a file: </label> <br/>
+            {{ form }} <br/>
+            <input id="thisisbullshit" type="submit" value="Submit">
+        </form>
+
+        {% csrf_token %}
         <script>
           if (navigator.getUserMedia) {
              // do stuff
@@ -120,6 +131,7 @@
           }
           function takescreenshot(){
             //trigger something to send to call
+            // var csrftoken = Cookies.get('csrftoken');
             const video = document.querySelector('video');
             const screenshotButton = $('#screenshot-button');
             const img = document.querySelector('#myImg');
@@ -129,7 +141,56 @@
             canvas.height = video.videoHeight;
             canvas.getContext('2d').drawImage(video, 0, 0);
             // Other browsers will fall back to image/png
-            img.src = canvas.toDataURL('image/webp');
+            img.src = canvas.toDataURL('image/jpeg');
+            $('#id_your_college').val(img.src);
+            // $('#id_file').val($('canvas')['context']['images'][1]);
+
+            // $('#id_file').click(function(){
+            //     $(this).val($('canvas')['context']['images'][1]);
+            // });
+
+            // function getCookie(name) {
+            //     var cookieValue = null;
+            //     if (document.cookie && document.cookie !== '') {
+            //         var cookies = document.cookie.split(';');
+            //         for (var i = 0; i < cookies.length; i++) {
+            //             var cookie = jQuery.trim(cookies[i]);
+            //             // Does this cookie string begin with the name we want?
+            //             if (cookie.substring(0, name.length + 1) === (name + '=')) {
+            //                 cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+            //                 break;
+            //             }
+            //         }
+            //     }
+            //     return cookieValue;
+            // }
+            // var csrftoken = getCookie('csrftoken');
+
+            // // var img_data = $('canvas')[0].files[0];//['context']['images'][1]//$('#myImg');//.files[0];//.get(0);
+            // var img_data = $('canvas')['context']['images'][1];
+            // var formdata = new FormData();
+            // formdata.append("img_data", img_data);
+
+            // var dataURL = canvas.toDataURL();
+            // $.ajaxSetup({
+            //     beforeSend: function(xhr, settings) {
+            //         // if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+            //             xhr.setRequestHeader("X-CSRFToken", csrftoken);
+            //         // }
+            //     }
+            // });
+            // $.ajax({
+            //   type: "POST",
+            //   url: "screenshot/",
+            //   data: formdata,
+            //   processData: false,
+            //   contentType: false
+            //   // data: { 
+            //   //    imgBase64: dataURL
+            //   // }
+            // }).done(function(o) {
+            //   console.log('saved'); 
+            // });
           }
         </script>
 

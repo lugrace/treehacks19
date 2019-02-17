@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "treehacks-food-recognizer",
+  "private_key_id": "3787a7fb5f643197391805fac0aec90740fa7e55",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCuAVZ+vnxTeGKW\nJyMnBwCEbHsErYJFSbx81wKYAFMuw87mx9F8hctgoPh39qJZ69P4L2QMRDZehSsC\ng3QeBtW39gPhtS/uBiorhKc9PhNr63YKnx1M62cWcsLNzXNQcilr7PXZw5OZv24/\nCDFVu0H0qX+kDx37DwgaiXVk/u2GKQeeJTTTGQB6Si7IINCzt4kqJk0QB16OnMXe\n8eMQd75HDIdRS1pYbPeJ4+BGID18PjZ6DosbJxxG/8CNFG5E0sQmdlhs4Ca3piP0\njTBZ/xZ8zkrzYRi3xdOWyMahowrWomh8tXtk1XHpac6z8UF1POiu0pfZ2W2Af3Jt\nTL+bckrVAgMBAAECggEAOXCTnu8+l0dMNAjjX8S99Pjiex7TvA+lOwi3AHpK+0sE\nB8a6boK0Kke4/dDasxhYNrteKXZzBCytj/zY3fifoESD74QiOE6sqQT3OA4/1wY5\nRzRTNcsXkp97kvhZMpsc9VWZqrMXDE/XEtOfhY91LFCvo/ahjPjfUfNCX36P5hMl\nGD5+NWxm7igg5o7r3usksF+fKWZ4AzA7K2so15B901wXvCgDsXf1q7MuJdzdMy2y\nvr/VZJglRhV8K8NCMpYTYeQCpyC+KIw4snyXJ2rpxdTOQem+VK72l71QV+iL1wWn\nBw4pTk4T6co6DkqiwV8/0t72azAonPgvqciFNY5GWQKBgQDrQU4qQI4EW0ZANp2w\nWvNLOsHWv+dAjgUDZXDwid52ZUKflnJFuvtx1KQ4A9ytwmILNf86MPk3d8U1aFr0\nwNr2SWPFyGxGAM2xemkIpB2/55CdQi4TwTsHG7222wtTumC+bFfvYpjhIFp1X5UF\n0ls/rA17aT1x+LH2/vK05s/7HwKBgQC9WV2spCrM2kaETEQrI/p3ZyonTWJwArhL\n+xjoFI7Z4dA2EBj1Q1lwph2gb8M0qDG5YKpsn4RfYBUBaeJ3JpOyCD9R1Ia/lvBJ\nyT4xRYjoAScxvhLmsEjrf8ECISFEhcR96uk41tz/c4caXuI4Uqb0CDQ1tr/1OMtq\nak12k43viwKBgEl3QWOseS0fG9cdtyzFmkiZ9sKLdzoPn70pxpU3WMN8Z8vSfakM\n9Uzc7NOZUSbqFxgNKsEPXiRWQL2m8xCP0VEsJf4z0qwhwBp2caqDJc8yD1Usv5rn\nsvlLTnl1+hmRkHim+OcG0VsscVNKIA2LXXeK0UMC4G9hDKJnh3+6vKRdAoGANs4b\n//FQdhSjnn1YqcfzIgZZPCD44gTXhR57mgkBQ+1JT6yfHLZOt/1My/gtXxtjsQ1a\nprARJ23vBoa4RtaCn2Alu7CxA9lTWXgHKUnAE67pwksKu3zAznEe01f1ghjZw7xv\nnsUKGGI+85INFlJOAooxWm635ul2bymvnCefSHsCgYBinkjSF4K10Mz905ZNtnlU\nozYbXTw107VO6WkLW2W5g8M5fmv9v4sPdU6gt0pVHeJb/YmPOj3NxWrsiPJibxjy\ntOw4KaFRRmzJa9ZI6oyZAZmQgorZJkHZP2G4fh0UaP6di6nEH4FXwSoHjkyg0/Qs\noFaQkWTHs/2M1PC43BVnbA==\n-----END PRIVATE KEY-----\n",
+  "client_email": "visionboi@treehacks-food-recognizer.iam.gserviceaccount.com",
+  "client_id": "116896179057828556824",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/visionboi%40treehacks-food-recognizer.iam.gserviceaccount.com"
+}
