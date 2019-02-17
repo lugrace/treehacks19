@@ -17,6 +17,7 @@ from .util.machine_learning import classify_menu
 from .util.machine_learning import trainer
 
 recognized = set()
+TRESHOLD = 0.5
 
 with open(r'dictionary.csv', newline='', encoding='utf-8', errors='ignore') as csvfile:
     reader = csv.reader(csvfile)
@@ -76,6 +77,9 @@ def upload_file(request):
             # Note that if picture is something random, classification will be junk
             # ideally ask user if item is correct, and then update model
             obj = results.predictions[0].tag_name
+            if (results.predictions[0].probability < TRESHOLD) or obj == 'none':
+                obj = 'Cannot identify image'
+
             return render(request, 'result.html', {'result' : obj})
     else:
         form = UploadFileForm()
@@ -96,9 +100,9 @@ def upload_training_files(request):
                 trainer.add_training_image(f, tag)
 
             try:
+                trainer.delete_all_iterations()
                 trainer.train_model()
             except:
-                trainer.delete_all_iterations()
                 return render(request, 'result.html', {'result': 'error'})
             
     else:
