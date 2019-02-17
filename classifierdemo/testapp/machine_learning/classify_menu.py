@@ -126,7 +126,8 @@ def classify_menu(image_file):
         food_items[i].append(scores[i])
         
     sorted_food = [x for _, x in sorted(zip(scores, food_items))]
-    print_results(sorted_food)
+    return sorted_food
+    #print_results(sorted_food)
     
         
     
