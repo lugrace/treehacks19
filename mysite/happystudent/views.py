@@ -494,7 +494,7 @@ def upload_training_files(request):
     if request.method == 'POST':
         form = MultipleUploadFileForm(request.POST, request.FILES)
         if form.is_valid():
-            files = request.FILES.getlist('file_field')
+            files = request.FILES.getlist('upload_files')
 
             to_add = []
             tag = request.POST['name']
