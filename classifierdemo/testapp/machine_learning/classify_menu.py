@@ -10,6 +10,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(DIR)))
 print(BASE_DIR)
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"]= os.path.join(BASE_DIR, r"auth\treehacks2019-d0ddac9f339e.json")
 client = vision.ImageAnnotatorClient()
+MINIMUM_LENGTH = 20
 
 def rating(factors):
     '''
@@ -92,6 +93,7 @@ def classify_menu(image_file):
     pages = texts.pages
     food_items = []
     ratings = []
+    counter = 0
     
     for page in pages:
         for block in page.blocks:
@@ -102,6 +104,7 @@ def classify_menu(image_file):
                     curr_word = ""
                     for symbol in word.symbols:
                         curr_word += symbol.text
+                        counter += 1
                     words.append(curr_word)
             if len(words) > 1:
                 food_items.append((bounds, words))
@@ -110,7 +113,10 @@ def classify_menu(image_file):
                     num = int(words[0])
                 except:
                     food_items.append([bounds, words])
-                    
+    
+    if counter < MINIMUM_LENGTH:
+        return None
+    
     # food_items:
     # [(four vertices starting top left clockwise, list of words representing food)]
     ratings = []
@@ -129,6 +135,7 @@ def classify_menu(image_file):
     return sorted_food
     #print_results(sorted_food)
     
+    return sorted_food
         
     
     
