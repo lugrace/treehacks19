@@ -345,7 +345,7 @@ def upload_file(request):
                 return_values = get_info([obj])
                 # return render(request, 'results.html', {'result':obj, 'land' : str(return_values[0][0])[0:4], \
                 # 	'co2':return_values[0][1], 'water': return_values[0][2]})
-<<<<<<< HEAD
+
                 return render(request, 'results.html', {'result':obj, 'land' : str(int(return_values[0][2])), \
             	'co2':str(int(return_values[0][0])), 'water': str(int(return_values[0][1])), \
             	'land2' : str(100 - int(return_values[1][2])), \
@@ -355,13 +355,7 @@ def upload_file(request):
 				'parking': str(int(return_values[0][2] / 15)),
 				'shower': str(int(return_values[0][1] / 66)),
 				'score': str(int(100 - sum(return_values[1])/3))})
-=======
-                print(return_values)
-                return render(request, 'results.html', {'result':obj, 'land' : str(return_values[0][2])[0:4], \
-            	'co2':str(return_values[0][0])[0:4], 'water': str(return_values[0][1])[0:4], \
-            	'land2' : str(return_values[1][2])[0:4], \
-            	'co22':str(return_values[1][0])[0:4], 'water2': str(return_values[1][1])[0:4]})
->>>>>>> 2745da6660f7f7aff636ed2e249786386aa101c9
+
 
 
             convert_file(file, 'tmp/temp.txt')
@@ -371,14 +365,14 @@ def upload_file(request):
             
             results = predictor.classify_image(f)
 
-            print("RESULTS", results)
-
             # Note that if picture is something random, classification will be junk
             # ideally ask user if item is correct, and then update model
             obj = results.predictions[0].tag_name
-            return_values = get_info([obj])
 
-            print('RETVALUES', return_values)
+            if results.predictions[0].probability < TRESHOLD or obj == 'none':
+            	obj = 'Cannot identify image'
+
+            return_values = get_info([obj])
 
             # return render(request, 'results.html', {'result' : obj})
             return render(request, 'results.html', {'result':obj, 'land' : str(return_values[0][2])[0:4], \

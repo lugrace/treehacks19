@@ -3,6 +3,8 @@ import os
 import csv
 import pyrebase
 
+DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 def get_info(list_of_words):
     
     list_of_words = [x.lower() for x in list_of_words]
@@ -22,7 +24,7 @@ def get_info(list_of_words):
     db = firebase.database()
 
     # get words and categories
-    with open('dictionary.csv', newline='', encoding='utf-8', errors='ignore') as csvfile:
+    with open(os.path.join(DIR, r'dictionary.csv'), newline='', encoding='utf-8', errors='ignore') as csvfile:
             data = list(csv.reader(csvfile))
             
     new_data = [];
