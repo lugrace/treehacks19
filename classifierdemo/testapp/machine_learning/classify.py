@@ -4,10 +4,11 @@ from google.cloud import vision
 from google.cloud.vision import types
 
 DIR = os.path.dirname(os.path.abspath(__file__))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(DIR)))
 
 def classify(image_file):
     client = vision.ImageAnnotatorClient()
-    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = os.path.join(DIR, r"vision\treehacks-food-recognizer-3787a7fb5f64.json")
+    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = os.path.join(BASE_DIR, r"auth\treehacks-food-recognizer-3787a7fb5f64.json")
 
     content = image_file.read()
 

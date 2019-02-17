@@ -1,7 +1,6 @@
 import sys
 import os
 DIR = os.path.dirname(os.path.abspath(__file__))
-print(os.path.join(DIR, r"vision\treehacks-food-recognizer-3787a7fb5f64.json"))
 
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
@@ -11,8 +10,9 @@ import io
 from google.cloud import vision
 from google.cloud.vision import types
 
-from . import predictor 
-from . import classify
+from .machine_learning import predictor 
+from .machine_learning import classify
+from .machine_learning import classify_menu
 
 def upload_file(request):
     if request.method == 'POST':
