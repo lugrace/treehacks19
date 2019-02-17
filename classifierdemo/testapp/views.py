@@ -93,10 +93,13 @@ def upload_training_files(request):
             for file in files:
                 convert_file(file, 'tmp/temp3.txt')
                 f = open('tmp/temp3.txt', 'rb')
-                to_add.append((f, tag))
+                trainer.add_training_image(f, tag)
 
-            trainer.add_training_images(to_add)
-            trainer.train_model()
+            try:
+                trainer.train_model()
+            except:
+                trainer.delete_all_iterations()
+                return render(request, 'result.html', {'result': 'error'})
             
     else:
         form = MultipleUploadFileForm()
