@@ -6,8 +6,6 @@ import pyrebase
 DIR = os.path.dirname(os.path.abspath(__file__))
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(DIR)))
 
-
-
 def get_info(list_of_words):
     
     list_of_words = [x.lower() for x in list_of_words]

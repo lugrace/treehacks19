@@ -22,7 +22,7 @@ with open(r'dictionary.csv', newline='', encoding='utf-8', errors='ignore') as c
 
     for row in reader:
         for element in row:
-            recognized.add(element.strip())
+            recognized.add(element.strip().lower())
 
 def upload_file(request):
     if request.method == 'POST':
