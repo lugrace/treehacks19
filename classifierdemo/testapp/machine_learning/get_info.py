@@ -8,7 +8,6 @@ def get_info(list_of_words):
     list_of_words = [x.lower() for x in list_of_words]
     co2, water, land, co2_score, water_score, land_score = 0, 0, 0, 0, 0, 0;
 
-
     #get stats from firebase
     config = {
         "apiKey": "R0j6JfG91yeNdN1QZDPufpClbAMB5STTx2X4Z3L1",
@@ -21,7 +20,6 @@ def get_info(list_of_words):
     firebase = pyrebase.initialize_app(config)
 
     db = firebase.database()
-
 
     # get words and categories
     with open('dictionary.csv', newline='', encoding='utf-8', errors='ignore') as csvfile:
