@@ -39,7 +39,7 @@ def print_results(food_items):
           'environmentally friendly food choice')
     
     for food in food_items:
-        print(list_to_string(food))
+        print(list_to_string(food[1]))
         print()
 
 def list_to_string(lst):
@@ -113,23 +113,24 @@ def classify(image_name):
                 try:
                     num = int(words[0])
                 except:
-                    food_items.append((bounds, words))
+                    food_items.append([bounds, words])
                     
     # food_items:
-    # (four vertices starting top left clockwise, list of words representing food)
-    # raw_descriptions = []
-    for food in food_items:
-        # raw_descriptions.append(food[1])
-        [co2, water, land] = get_info(food[1])
+    # [(four vertices starting top left clockwise, list of words representing food)]
+    ratings = []
+    for i in range(len(food_items)):
+        temp_food = food_items[i][1]
+        ratings.append(get_info(temp_food))
+    scores = []
+    for rate in ratings:
+        score_sum = sum(rate[1])/3
+        scores.append(score_sum)
 
-        # NLP to denote certain words (e.g. organic, processed, and add extra
-        # to the rating or not
-        factors = []
-        ratings.append(rating(factors))
-    
-    # Low rating is good
-    sorted_food = [x for _, x in sorted(zip(ratings, food_items))]
-    print_results(sorted_food[1])
+    for i in range(len(food_items)):
+        food_items[i].append(scores[i])
+        
+    sorted_food = [x for _, x in sorted(zip(scores, food_items))]
+    print_results(sorted_food)
     
         
     
