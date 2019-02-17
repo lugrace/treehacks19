@@ -24,6 +24,14 @@ with open(r'dictionary.csv', newline='', encoding='utf-8', errors='ignore') as c
         for element in row:
             recognized.add(element.strip().lower())
 
+def convert_file(img_file, tmp_filename):
+    '''
+    Converts from InMemoryUploadedFile to a python File
+    '''
+    with default_storage.open(tmp_filename, 'wb+') as destination:
+        for chunk in img_file.chunks():
+            destination.write(chunk)
+
 def upload_file(request):
     if request.method == 'POST':
         form = UploadFileForm(request.POST, request.FILES)
@@ -37,14 +45,17 @@ def upload_file(request):
             
             obj = None
             for label in reversed(labels):
-                if label.description.lower() in recognized:
+                desc = label.description.lower()
+                if desc in recognized:
                     obj = label.description
                     is_recognized = True
-                if label.description == 'text':
+                if desc in ['text', 'menu']:
                     is_menu = True
             
             if is_menu:
-                sorted_food = classify_menu.classify_menu(file)
+                convert_file(file, 'tmp/temp2.txt')
+                f = open('tmp/temp.txt', 'rb')
+                sorted_food = classify_menu.classify_menu(f)
 
                 # sorted_food is None when the text is small, i.e. not a menu
                 if sorted_food is not None:
@@ -55,14 +66,10 @@ def upload_file(request):
             if is_recognized:
                 return render(request, 'result.html', {'result' : obj})
 
-
-            with default_storage.open('tmp/temp.txt', 'wb+') as destination:
-                for chunk in file.chunks():
-                    destination.write(chunk)
+            convert_file(file, 'tmp/temp.txt')
 
             # Not correctly recognized by default image => try custom model    
             f = open('tmp/temp.txt', 'rb')
-            
             results = predictor.classify_image(f)
 
             # Note that if picture is something random, classification will be junk

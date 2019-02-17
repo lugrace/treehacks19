@@ -324,7 +324,17 @@ def upload_file(request):
             if is_recognized:
                 # return render(request, 'results.html', {'result' : obj})
                 return_values = get_info([obj])
-                return render(request, 'results.html', {'result':obj, 'land' : str(return_values[0][0])[0:4], 'co2':return_values[0][1], 'water': return_values[0][2]})
+                # return render(request, 'results.html', {'result':obj, 'land' : str(return_values[0][0])[0:4], \
+                # 	'co2':return_values[0][1], 'water': return_values[0][2]})
+                return render(request, 'results.html', {'result':obj, 'land' : str(int(return_values[0][2])), \
+            	'co2':str(int(return_values[0][0])), 'water': str(int(return_values[0][1])), \
+            	'land2' : str(100 - int(return_values[1][2])), \
+            	'co22':str(int(100 - return_values[1][0])), 
+				'water2': str(int(100 - return_values[1][1])),
+				'gas': str(int(return_values[0][0] * 1000 / 8887 * 23.6)),
+				'parking': str(int(return_values[0][2] / 15)),
+				'shower': str(int(return_values[0][1] / 66)),
+				'score': str(int(100 - sum(return_values[1])/3))})
 
 
             with default_storage.open('tmp/temp.txt', 'wb+') as destination:
@@ -341,7 +351,10 @@ def upload_file(request):
             obj = results.predictions[0].tag_name
             return_values = get_info([obj])
             # return render(request, 'results.html', {'result' : obj})
-            return render(request, 'results.html', {'result':obj, 'land' : str(return_values[0][0])[0:4], 'co2':return_values[0][1], 'water': return_values[0][2]})
+            return render(request, 'results.html', {'result':obj, 'land' : str(return_values[0][2])[0:4], \
+            	'co2':str(1 - return_values[0][0])[0:4], 'water': str(return_values[0][1])[0:4], \
+            	'land2' : str(return_values[1][2])[0:4], \
+            	'co22':str(return_values[1][0])[0:4], 'water2': str(return_values[1][1])[0:4]})
     else:
         form = UploadFileForm()
     return render(request, 'upload.html', {'form': form})
