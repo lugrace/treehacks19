@@ -9,7 +9,8 @@ DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 def write_data(name, water_use, co2, land_use):
     with open(os.path.join(DIR, r'dictionary.csv'), 'a') as d:
-        d.write(name, delimiter=',')
+        writer = csv.writer(d, delimiter=',')
+        writer.writerow(name)
 
     #get stats from firebase
     config = {

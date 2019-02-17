@@ -22,9 +22,9 @@ def write_data(name, water_use, co2, land_use):
 
     db = firebase.database()
 
-    db.child(name).child("GHG").set(co2)
-    db.child(name).child("landUse").set(land_use)
-    db.child(name).child("water").set(water_use)
+    db.child(name).child("GHG").set(float(co2))
+    db.child(name).child("landUse").set(float(land_use))
+    db.child(name).child("water").set(float(water_use))
     db.child(name).child("GHGscore").set(random.randint(0, 100))
     db.child(name).child("waterscore").set(random.randint(0, 100))
     db.child(name).child("landscore").set(random.randint(0, 100))

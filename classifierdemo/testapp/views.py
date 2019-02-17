@@ -103,13 +103,12 @@ def upload_training_files(request):
             for file in files:
                 convert_file(file, 'tmp/temp3.txt')
                 f = open('tmp/temp3.txt', 'rb')
-                write_data(tag, water_land, co2, land_use)
+                write_data.write_data(tag, water_use, co2, land_use)
                 trainer.add_training_image(f, tag)
 
             try:
                 trainer.delete_all_iterations()
                 trainer.train_model()
-
             except:
                 return render(request, 'result.html', {'result': 'error'})
             
