@@ -11,6 +11,17 @@ import io
 from google.cloud import vision
 from google.cloud.vision import types
 
+import pyrebase
+
+config = {
+  "apiKey": "apiKey",
+  "authDomain": "projectId.firebaseapp.com",
+  "databaseURL": "https://databaseName.firebaseio.com",
+  "storageBucket": "projectId.appspot.com"
+}
+
+firebase = pyrebase.initialize_app(config)
+
 client = vision.ImageAnnotatorClient()
 
 def classify(image_file):
@@ -31,6 +42,7 @@ def upload_file(request):
         if form.is_valid():
             file = request.FILES['file']
             labels = classify(file)
+            result = get_info(labels)
             obj = labels[0].description
 
             return render(request, 'result.html', {'result' : obj})
