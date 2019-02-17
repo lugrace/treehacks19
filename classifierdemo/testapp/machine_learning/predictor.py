@@ -11,6 +11,11 @@ project = trainer.get_project("9b50491c-c381-4b9f-9e5e-ed160ec8acd2")
 predictor = CustomVisionPredictionClient(prediction_key, endpoint=ENDPOINT)
 
 def classify_image(image_file):
+	'''
+	image_file: an image file opened as read bytes
+
+	Classifies the image according to the custom vision model
+	'''
 	image_data = image_file.read()
 
 	results = predictor.predict_image(project.id, image_data, custom_headers={'Content-Type': 'application/octet-stream'})

@@ -45,6 +45,9 @@ def add_training_image_with_tag(image_file, tag):
     trainer.create_images_from_files(project.id, [ImageFileCreateEntry(contents=b, tag_ids=[tag.id])])
 
 def train_model():
+    '''
+    Updates the model with new training data
+    '''
     iteration = trainer.train_project(project.id)
     while (iteration.status != "Completed"):
         iteration = trainer.get_iteration(project.id, iteration.id)
