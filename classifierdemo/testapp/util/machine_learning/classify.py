@@ -4,7 +4,7 @@ from google.cloud import vision
 from google.cloud.vision import types
 
 DIR = os.path.dirname(os.path.abspath(__file__))
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(DIR)))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(DIR))))
 
 def classify(image_file):
     '''

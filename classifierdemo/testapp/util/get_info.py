@@ -3,6 +3,11 @@ import os
 import csv
 import pyrebase
 
+DIR = os.path.dirname(os.path.abspath(__file__))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(DIR)))
+
+
+
 def get_info(list_of_words):
     
     list_of_words = [x.lower() for x in list_of_words]
@@ -14,7 +19,7 @@ def get_info(list_of_words):
         "authDomain": "treehacks-3750e.firebaseapp.com",
         "databaseURL": "https://treehacks-3750e.firebaseio.com",
         "storageBucket": "treehacks-3750e.appspot.com",
-        "serviceAccount": "firebase_cred.json"
+        "serviceAccount": os.path.join(BASE_DIR, r"auth\firebase_cred.json")
         }
 
     firebase = pyrebase.initialize_app(config)
