@@ -1,10 +1,14 @@
-food,score,,
-Peas,6.8,1,32
-Cruciferous Vegetables,0.4,0.058823529,2
-Citrus Fruit,0.6,0.088235294,3
-Bananas,1.2,0.176470588,6
-Apples,0.5,0.073529412,3
-Berries & Grapes,1.6,0.235294118,8
-Tomatoes,0.5,0.073529412,3
-Onions & Leeks,0.3,0.044117647,2
-Root Vegetables,0.2,0.029411765,1
+food,score
+Nuts,5.1
+Peanuts,7
+Soy,0.6
+Tofu,3.2
+Beef,193.7
+Lamb & Mutton,223.3
+Pork,10.1
+Chicken,7.5
+Milk,8
+Cheese,80.7
+Eggs,6.1
+Fish,3.4
+Crustaceans,1.4

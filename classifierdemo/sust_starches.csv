@@ -1,8 +1,8 @@
-food,score,,
-Potatoes,0.6,0.125,4
-Cassava,1.2,0.25,8
-Wheat & Rye,3.5,0.729166667,24
-Maize,1.7,0.354166667,12
-Barley,1,0.208333333,7
-Oatmeal,4.8,1,32
-Rice,2.4,0.5,16
+food,score
+Potatoes,0.6
+Cassava,1.2
+Wheat & Rye,3.5
+Maize,1.7
+Barley,1
+Oatmeal,4.8
+Rice,2.4
