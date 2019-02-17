@@ -13,3 +13,10 @@ class UploadFileForm(forms.Form):
 class UploadFileScreenshotForm(forms.Form):
     # title = "Please upload a file: "#forms.CharField(max_length=50)
     file = forms.FileField()
+    
+class MultipleUploadFileForm(forms.Form):
+	name = forms.CharField(max_length=50)
+	water_use = forms.CharField(max_length=50, required=False)
+	co2 = forms.CharField(max_length=50, required=False)
+	land_use = forms.CharField(max_length=50, required=False)
+	file_field = forms.FileField(widget=forms.ClearableFileInput(attrs={'multiple': True}))

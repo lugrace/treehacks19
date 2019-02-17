@@ -8,7 +8,7 @@ import csv
 import os
 import re
 DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-print(os.path.join(DIR, r"vision/treehacks-food-recognizer-3787a7fb5f64.json"))
+DIR2 = os.path.dirname(os.path.abspath(__file__))
 
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
@@ -21,6 +21,8 @@ from tweepy import Stream
 from .machine_learning import predictor 
 from .machine_learning.classify import classify
 from .machine_learning import classify_menu
+from .machine_learning import trainer
+from .machine_learning import write_data
 
 import queue
 import tweepy
@@ -33,7 +35,7 @@ import operator
 #for forms
 from .forms import CollegeForm
 from django.shortcuts import render
-from .forms import UploadFileForm
+from .forms import UploadFileForm, MultipleUploadFileForm
 import simplejson
 
 import io
@@ -54,8 +56,9 @@ path = '/text/analytics/v2.0/sentiment'
 path2 = '/text/analytics/v2.0/keyPhrases'
 
 recognized = set()
+TRESHOLD = 0.5
 
-with open(r'dictionary.csv', newline='', encoding='utf-8', errors='ignore') as csvfile:
+with open(os.path.join(DIR2, r'dictionary.csv'), newline='', encoding='utf-8', errors='ignore') as csvfile:
     reader = csv.reader(csvfile)
 
     for row in reader:
@@ -342,6 +345,7 @@ def upload_file(request):
                 return_values = get_info([obj])
                 # return render(request, 'results.html', {'result':obj, 'land' : str(return_values[0][0])[0:4], \
                 # 	'co2':return_values[0][1], 'water': return_values[0][2]})
+<<<<<<< HEAD
                 return render(request, 'results.html', {'result':obj, 'land' : str(int(return_values[0][2])), \
             	'co2':str(int(return_values[0][0])), 'water': str(int(return_values[0][1])), \
             	'land2' : str(100 - int(return_values[1][2])), \
@@ -351,6 +355,13 @@ def upload_file(request):
 				'parking': str(int(return_values[0][2] / 15)),
 				'shower': str(int(return_values[0][1] / 66)),
 				'score': str(int(100 - sum(return_values[1])/3))})
+=======
+                print(return_values)
+                return render(request, 'results.html', {'result':obj, 'land' : str(return_values[0][2])[0:4], \
+            	'co2':str(return_values[0][0])[0:4], 'water': str(return_values[0][1])[0:4], \
+            	'land2' : str(return_values[1][2])[0:4], \
+            	'co22':str(return_values[1][0])[0:4], 'water2': str(return_values[1][1])[0:4]})
+>>>>>>> 2745da6660f7f7aff636ed2e249786386aa101c9
 
 
             convert_file(file, 'tmp/temp.txt')
@@ -360,10 +371,15 @@ def upload_file(request):
             
             results = predictor.classify_image(f)
 
+            print("RESULTS", results)
+
             # Note that if picture is something random, classification will be junk
             # ideally ask user if item is correct, and then update model
             obj = results.predictions[0].tag_name
             return_values = get_info([obj])
+
+            print('RETVALUES', return_values)
+
             # return render(request, 'results.html', {'result' : obj})
             return render(request, 'results.html', {'result':obj, 'land' : str(return_values[0][2])[0:4], \
             	'co2':str(1 - return_values[0][0])[0:4], 'water': str(return_values[0][1])[0:4], \
@@ -387,7 +403,7 @@ def upload_file_screenshot(request):
         return render(request, 'results.html', {'result' : obj}) #used to be indented
     else:
         form = UploadFileScreenshotForm()
-    return render(request, 'webcam.html', {'form': form})
+    return render(request, 'webcam.html')
 
 def webcam_upload_file(request):
     if request.method == 'POST':
@@ -407,9 +423,9 @@ def webcam_upload_file(request):
             obj = labels[0].description
 
             return render(request, 'results.html', {'result' : obj})
-    else:
-        form = CollegeForm()
-    return render(request, 'webcam.html', {'form': form})
+    # else:
+    #     form = CollegeForm()
+    return render(request, 'webcam.html')
 
 
 def get_college(request):
@@ -443,7 +459,7 @@ def get_info(list_of_words):
 
 
     # get words and categories
-    with open('dictionary.csv', newline='', encoding='utf-8', errors='ignore') as csvfile:
+    with open(os.path.join(DIR2, r'dictionary.csv'), newline='', encoding='utf-8', errors='ignore') as csvfile:
             data = list(csv.reader(csvfile))
             
     new_data = [];
@@ -479,6 +495,36 @@ def get_info(list_of_words):
 
 
     return [[co2, water, land], [co2_score, water_score, land_score]]
+
+def upload_training_files(request):
+    if request.method == 'POST':
+        form = MultipleUploadFileForm(request.POST, request.FILES)
+        if form.is_valid():
+            files = request.FILES.getlist('file_field')
+
+            to_add = []
+            tag = request.POST['name']
+
+            co2 = request.POST['co2']
+            land_use = request.POST['land_use']
+            water_use = request.POST['water_use']
+            
+            for file in files:
+                convert_file(file, 'tmp/temp3.txt')
+                f = open('tmp/temp3.txt', 'rb')
+                write_data.write_data(tag, water_use, co2, land_use)
+                trainer.add_training_image(f, tag)
+
+            # try:
+            trainer.delete_all_iterations()
+            trainer.train_model()
+
+            # except:
+            #     return render(request, 'results.html', {'result': 'error'})
+            
+    else:
+        form = MultipleUploadFileForm()
+    return render(request, 'upload.html', {'form': form})
 
 
 def topTen(request):

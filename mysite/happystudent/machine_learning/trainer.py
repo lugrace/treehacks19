@@ -12,6 +12,10 @@ prediction_key = "3ab50f6272c747d7831a72ef493fe46c"
 trainer = CustomVisionTrainingClient(training_key, endpoint=ENDPOINT)
 project = trainer.get_project("9b50491c-c381-4b9f-9e5e-ed160ec8acd2")
 
+def delete_all_iterations():
+    for iteration in trainer.get_iterations(project.id):
+        trainer.delete_iteration(project.id, iteration.id)
+
 def add_training_images(to_add):
     '''
     to_add: list of (file, tagname) tuples

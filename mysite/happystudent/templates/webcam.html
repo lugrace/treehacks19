@@ -50,7 +50,10 @@
       <a href="/happystudent/home#works">How it works</a>
       </li>
       <li>
-      <a href="#">Sustainability</a>
+      <a href="/happystudent/home/finder">Sustainability</a>
+      </li>
+      <li>
+      <a href="/happystudent/home/train">Add Custom Data</a>
       </li>
       <!-- <li>
       <a href="/happystudent/home/ten">Our top 10</a>
@@ -93,15 +96,7 @@
         <a onclick="takescreenshot()" style="margin-bottom: 50px;" id="screenshot-button" class="btnghostwhite">Take Picture
         </a>
 
-        <form enctype="multipart/form-data" method="post">
-            <!-- {% csrf_token %}
-            {{ form }}
-            <input type="submit" value="Submit"> -->
-            {% csrf_token %}
-            <label>Please upload a file: </label> <br/>
-            {{ form }} <br/>
-            <input id="thisisbullshit" type="submit" value="Submit">
-        </form>
+        
 
         {% csrf_token %}
         <script>
