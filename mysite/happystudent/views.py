@@ -1,6 +1,7 @@
 import sys
 import base64
 from django.core.files.base import ContentFile
+from django.core.files.storage import default_storage
 import pyrebase
 import csv
 
@@ -16,6 +17,10 @@ from django.http import HttpResponse, HttpResponseRedirect
 from tweepy.streaming import StreamListener
 from tweepy import OAuthHandler
 from tweepy import Stream
+
+from .machine_learning import predictor 
+from .machine_learning.classify import classify
+from .machine_learning import classify_menu
 
 import queue
 import tweepy
@@ -47,6 +52,15 @@ accessKey = 'f15920f0f61947c29e12c7f1f12174f9'
 uri = 'westcentralus.api.cognitive.microsoft.com'
 path = '/text/analytics/v2.0/sentiment'
 path2 = '/text/analytics/v2.0/keyPhrases'
+
+recognized = set()
+
+with open(r'dictionary.csv', newline='', encoding='utf-8', errors='ignore') as csvfile:
+    reader = csv.reader(csvfile)
+
+    for row in reader:
+        for element in row:
+            recognized.add(element.strip().lower())
 
 # Create your views here.
 def index(request):
@@ -262,15 +276,70 @@ def classify(image_file):
     return labels
 
 def upload_file(request):
+    # if request.method == 'POST':
+    #     form = UploadFileForm(request.POST, request.FILES)
+    #     if form.is_valid():
+    #         file = request.FILES['file']
+    #         labels = classify(file)
+    #         obj = labels[0].description
+
+
+
+
+
+    #         return_values = get_info([obj])
+
+    #         # return render(request, 'results.html', {'result' : obj})
+    #         return render(request, 'results.html', {'result':obj, 'land' : str(return_values[0][0])[0:4], 'co2':return_values[0][1], 'water': return_values[0][2]})
+    # else:
+    #     form = UploadFileForm()
+    # return render(request, 'upload.html', {'form': form})
     if request.method == 'POST':
         form = UploadFileForm(request.POST, request.FILES)
         if form.is_valid():
             file = request.FILES['file']
+
             labels = classify(file)
-            obj = labels[0].description
 
+            is_menu = False
+            is_recognized = False
+            
+            obj = None
+            for label in reversed(labels):
+                if label.description.lower() in recognized:
+                    obj = label.description
+                    is_recognized = True
+                if label.description == 'text':
+                    is_menu = True
+            
+            if is_menu: #special
+                sorted_food = classify_menu.classify_menu(file)
+
+                # sorted_food is None when the text is small, i.e. not a menu
+                if sorted_food is not None:
+                    # Handle this special case. Shows every single item
+                    # return render(...)
+                    return render(request, 'results.html', {'result': str(sorted_food)})
+
+            if is_recognized:
+                # return render(request, 'results.html', {'result' : obj})
+                return_values = get_info([obj])
+                return render(request, 'results.html', {'result':obj, 'land' : str(return_values[0][0])[0:4], 'co2':return_values[0][1], 'water': return_values[0][2]})
+
+
+            with default_storage.open('tmp/temp.txt', 'wb+') as destination:
+                for chunk in file.chunks():
+                    destination.write(chunk)
+
+            # Not correctly recognized by default image => try custom model    
+            f = open('tmp/temp.txt', 'rb')
+            
+            results = predictor.classify_image(f)
+
+            # Note that if picture is something random, classification will be junk
+            # ideally ask user if item is correct, and then update model
+            obj = results.predictions[0].tag_name
             return_values = get_info([obj])
-
             # return render(request, 'results.html', {'result' : obj})
             return render(request, 'results.html', {'result':obj, 'land' : str(return_values[0][0])[0:4], 'co2':return_values[0][1], 'water': return_values[0][2]})
     else:
