@@ -1,6 +1,8 @@
 import sys
 import base64
 from django.core.files.base import ContentFile
+import pyrebase
+import csv
 
 import os
 import re
@@ -35,26 +37,10 @@ from google.cloud.vision import types
 
 client = vision.ImageAnnotatorClient()
 
-# import os
-
-# from wordcloud import WordCloud
-# import matplotlib.pyplot as plt
-
-#Variables that contains the user credentials to access Twitter API
-# consumer_key = 'oeaiWzPmHLx20OLsp5g5QPFbw'
-# consumer_secret = '3b55vyoax4DIkhvTX6KUGP9sSjhxo9ZxOfpUUtsz6tpPVfZfw3'
-# access_token = '926830219356340225-z2qjfLCagnxp99AL4UhzQ94LUQbo9RR'
-# access_secret = 'uX5IWIi0ERKLySSQEYIVOSIcjEuHCmJlPwEK2zSLLLgGk'
-
 consumer_key = 'nZLGMLHWqqRdXZLJyRO4Aa73i'
 consumer_secret = 'S6z8cMV3o1e8Pd1RV7w57KTUloL3XwZGPj9nX885CcE33o36En'
 access_token = '1499540593-1EwsHUl4V7gaa1EFXTlqqq5mAceIwsJ3sioQ0Nf'
 access_secret = 'BrgR0qv32GbIQQD8fYKXHtcxigrvh4fJJ3Td3LdQEU4tq'
-
-# consumer_key = 'USKNo3FUPLEY4Drk7PGOP3vfs'
-# consumer_secret = 'EexUTxb2MDYQw51jz9xYaB3eFv9uMd2CdIdWzxNY8OeX0m05to'
-# access_token = '927051697876324352-3Vqh7zQybwZPu7VGggnLc4MBwbeoZTT'
-# access_secret = 'kHVihIkPLvud5p0665ceKHcrLq2qrTl4yinnD5tV0X1oj'
 
 #analyzing tweets
 accessKey = 'f15920f0f61947c29e12c7f1f12174f9'
@@ -68,7 +54,6 @@ def index(request):
         request,
         'index.html'
     )
-    # return HttpResponse("Hello, world. You're at the polls index.")
 
 def GetSentiment (documents):
     "Gets the sentiments for a set of documents and returns the information."
@@ -174,14 +159,6 @@ def analyze(request, college="University of Maryland"):
 	negativeR = int(int(negative*100)/100*100)
 	positiveR = int(int(positive*100)/100*100)
 
-	# wordle stuff
-	# words = [
-			# {text: "Lorem", weight: 15},
-			# {text: "Ipsum", weight: 9, link: "http://jquery.com/"},
-			# {text: "Dolor", weight: 6, html: {title: "I can haz any html attribute"}},
-			# {text: "Sit", weight: 7},
-			# {text: "Amet", weight: 5}
- #	];
 	wordqueue = queue.Queue()
 	keywords = eval(GetKeyWords(documents))
 	badfile = open("static/txt/badfile.txt", 'r', encoding="utf8")
@@ -228,13 +205,8 @@ def analyze(request, college="University of Maryland"):
 	goodstringinput.strip()
 	badstringinput = badstringinput.split(" ")
 	goodstringinput = goodstringinput.split(" ")
-	# words = ["fuck", "wtf"]
-	# json_list = simplejson.dumps(words)
-	# words = badstringinput.concat(goodstringinput)
 	words = badstringinput + goodstringinput
 	words_list = simplejson.dumps(words)
-	# badwords_list = simplejson.dumps(badstringinput)
-	# goodwords_list = simplejson.dumps(goodstringinput)
 
 	return render(
 		request, 
@@ -243,7 +215,6 @@ def analyze(request, college="University of Maryland"):
 		'exampleGood1': examplegood[0], 'exampleGood2': examplegood[1], 'exampleGood3': examplegood[2], 
 		'exampleBad1': examplebad[0], 'exampleBad2': examplebad[1], 'exampleBad3': examplebad[2],
 		'words': words_list}
-		# 'words': json_list
 	)
 
 def analyzeForm(request):
@@ -298,7 +269,10 @@ def upload_file(request):
             labels = classify(file)
             obj = labels[0].description
 
-            return render(request, 'results.html', {'result' : obj})
+            return_values = get_info([obj])
+
+            # return render(request, 'results.html', {'result' : obj})
+            return render(request, 'results.html', {'result':obj, 'land' : str(return_values[0][0])[0:4], 'co2':return_values[0][1], 'water': return_values[0][2]})
     else:
         form = UploadFileForm()
     return render(request, 'upload.html', {'form': form})
@@ -352,58 +326,66 @@ def get_college(request):
 
 	return render(request, 'results.html', {'form': form})
 
+def get_info(list_of_words):
+    
+    list_of_words = [x.lower() for x in list_of_words]
+    co2, water, land, co2_score, water_score, land_score = 0, 0, 0, 0, 0, 0;
+
+
+    #get stats from firebase
+    config = {
+        "apiKey": "R0j6JfG91yeNdN1QZDPufpClbAMB5STTx2X4Z3L1",
+        "authDomain": "treehacks-3750e.firebaseapp.com",
+        "databaseURL": "https://treehacks-3750e.firebaseio.com",
+        "storageBucket": "treehacks-3750e.appspot.com",
+        "serviceAccount": "firebase_cred.json"
+        }
+
+    firebase = pyrebase.initialize_app(config)
+
+    db = firebase.database()
+
+
+    # get words and categories
+    with open('dictionary.csv', newline='', encoding='utf-8', errors='ignore') as csvfile:
+            data = list(csv.reader(csvfile))
+            
+    new_data = [];
+
+    for x in data:
+        temp = [];
+        for j in x:
+            if (j != ''):
+                temp.append(j.lower())
+        new_data.append(temp)
+        
+    data = new_data
+    counter = 1;
+
+    #check if each word is in a category, and increment the values if so
+    for word in list_of_words:
+        for x in data:
+            if word in x:
+                ind = data.index(x)
+                category = data[ind][0].replace(" ", "")
+                ghg = db.child(category).child("GHG").get().val()
+                landUse = db.child(category).child("landUse").get().val()
+                h2o = db.child(category).child("water").get().val()
+                co2 = co2 + ghg
+                water = water + h2o
+                land = land + landUse
+                co2_score = co2_score + (1/counter) * db.child(category).child("GHGscore").get().val() #weigh based on certainty/importance
+                water_score = water_score + (1/counter) *db.child(category).child("waterscore").get().val()
+                land_score = land_score + (1/counter) * db.child(category).child("landscore").get().val()
+                counter = counter + 1;
+                data.remove(x); #prevent double-counting an item
+                break;
+
+
+    return [[co2, water, land], [co2_score, water_score, land_score]]
+
 
 def topTen(request):
-	# f = open("static/txt/college_acronyms.txt", 'r', encoding="utf8")
-	# colleges = {}
-	# top_ten = {}
-	# line = f.readline()
-	# while line != "":
-	#     line = line.split(' - ')
-	#     fullname = line[1][:-1].split(', ')
-	#     for x in fullname:
-	#         colleges[x] = line[0]
-	#     line = f.readline()
-
-	# for input_word in colleges:
-	#     acronym_word = colleges[input_word]
-	#     tweet_data = queue.Queue()
-
-	#     auth = OAuthHandler(consumer_key, consumer_secret)
-	#     auth.set_access_token(access_token, access_secret)
-	#     api = tweepy.API(auth)
-
-	#     for tweet in tweepy.Cursor(api.search, q=input_word, count=3500, result_type="recent", include_entities=True, lang="en").items(100):     # the values inside items defines how many searches we want
-	#         tweet_data.put(tweet.text)
-	#     for tweet in tweepy.Cursor(api.search, q=acronym_word, count=3500, result_type="recent", include_entities=True, lang="en").items(100):     # the values inside items defines how many searches we want
-	#         tweet_data.put(tweet.text)
-	#     tweetlist = []
-
-	#     x = 1
-	#     while tweet_data.empty() == False:
-	#         tweetlist.append({'id': str(x), 'language': 'en', 'text': str(tweet_data.get())})
-	#         x+=1
-	#     documents = { 'documents': tweetlist }
-
-	#     percentresults = eval(GetSentiment(documents))
-	#     avpercent = 0.0
-	#     positive = 0.0
-	#     negative = 0.0
-	#     for z in percentresults["documents"]:
-	#         avpercent += z["score"]
-	#         if z["score"] < 0.01:
-	#             negative+=1
-	#         elif z["score"] > 0.8:
-	#             positive+=1
-	#     avpercent = avpercent/len(percentresults["documents"])
-	#     top_ten.update({input_word: avpercent})
-	# sorted_x = sorted(top_ten.items(), key=operator.itemgetter(1))
-
-	# returnme = []
-	# for rrr in sorted_x.keys()[0:10]:
-	# 	returnme.append(rrr)
-	# 	returnme.append(sorted_x[rrr])
-
 	return render(
 		request, 
 		'ten.html',
