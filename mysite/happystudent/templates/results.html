@@ -64,97 +64,43 @@
 <!-- /.container -->
 </nav>
 
-<header class="intro" style="background: radial-gradient(circle at 50% 50%,rgba(0,0,0,0.2),rgba(0,0,0,0.3)),url('http://unsplash.it/1600/1400?image=868') no-repeat; background-size: 100%;">
+<header class="intro" style="background: radial-gradient(circle at 50% 50%,rgba(0,0,0,0.2),rgba(0,0,0,0.3)),url('http://unsplash.it/1600/1400?image=869') no-repeat; background-size: 100%;">
 <div class="intro-body">
   <div class="container">
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
-        <!-- <h1 class="brand-heading" style="display:inherit;">{{college_name}}</h1> -->
-          <!-- r -->
-            <!-- <text id="count" x="50" y="50" text-anchor="middle" dy="7" font-size="20">{{avpercent}}%</text>
-          </svg>
+          
+            <div class="pricingTable" style="color: black; margin-top: 80px;">
+              <h2 class="pricingTable-title" style="margin-top: 30px;">{{result}}</h2>
 
-          <p>Happiness Level</p>
-          <div style="display: flex; flex-direction: row;">
-              <div style="width: 50%; flex-direction: column;">
-                <svg id="animated2" viewbox="0 0 100 100">
-                  <circle cx="50" cy="50" r="45" fill="#66ff66"/>
-                  <path id="progress2" stroke-linecap="round" stroke-width="5" stroke="#fff" fill="none"
-                        d="M50 10
-                           a 40 40 0 0 1 0 80
-                           a 40 40 0 0 1 0 -80">
-                  </path>
-                  <text id="count" x="50" y="50" text-anchor="middle" dy="7" font-size="20">{{positive}}%</text>
-                </svg>
-                <p>Positive Tweets</p>
-                <br>
-                <div style="background: white; color: black; border-radius: 10px; padding: 20px; margin: 10px;">
-                  <p>{{exampleGood1}}</p>
-                </div>
-                <div style="background: white; color: black; border-radius: 10px; padding: 20px; margin: 10px;">
-                  <p>{{exampleGood2}}</p>
-                </div>
-                <div style="background: white; color: black; border-radius: 10px; padding: 20px; margin: 10px;">
-                  <p>{{exampleGood3}}</p>
-                </div>
-              </div>
-              <div style="width: 50%; flex-direction: column;">
-                <svg id="animated3" viewbox="0 0 100 100">
-                  <circle cx="50" cy="50" r="45" fill="#ff0000"/>
-                  <path id="progress3" stroke-linecap="round" stroke-width="5" stroke="#fff" fill="none"
-                        d="M50 10
-                           a 40 40 0 0 1 0 80
-                           a 40 40 0 0 1 0 -80">
-                  </path>
-                  <text id="count" x="50" y="50" text-anchor="middle" dy="7" font-size="20">{{negative}}%</text>
-                </svg>
-                <p>Negative Tweets</p>
-                <br>
-                <div style="background: white; color: black; border-radius: 10px; padding: 20px; margin: 10px;">
-                  <p>{{exampleBad1}}</p>
-                </div>
-                <div style="background: white; color: black; border-radius: 10px; padding: 20px; margin: 10px;">
-                  <p>{{exampleBad2}}</p>
-                </div>
-                <div style="background: white; color: black; border-radius: 10px; padding: 20px; margin: 10px;">
-                  <p>{{exampleBad3}}</p>
-                </div>
-              </div>
-          </div>
-          <div id="tagsCloudGood" style="width: 100%; height: 500px; color: white; margin-top: 250px;"> -->
-            <div class="pricingTable" style="color: black">
-              <h2 class="pricingTable-title">{{result}}</h2>
+              <svg id="animated" viewbox="0 0 100 100">
+            <circle cx="50" cy="50" r="45" fill="#84e0ff"/>
+            <path id="progress" stroke-linecap="round" stroke-width="5" stroke="#fff" fill="none"
+                  d="M50 10
+                     a 40 40 0 0 1 0 80
+                     a 40 40 0 0 1 0 -80">
+            </path>
+            <text id="count" x="50" y="50" text-anchor="middle" dy="7" font-size="20">50%</text>
+            </svg>
               <h3 class="pricingTable-subtitle"></h3>
               
               <ul class="pricingTable-firstTable">
                 <li class="pricingTable-firstTable_table">
                   <h1 class="pricingTable-firstTable_table__header">Land Usage</h1>
                   <p class="pricingTable-firstTable_table__pricing"><span></span><span>{{land}}</span><span>m<sup>2</sup></span></p>
-                  <ul class="pricingTable-firstTable_table__options">
-                    <li>Unlimited Listing</li>
-                    <li>Edit Your Listing</li>
-                    <li>Approve Reviews</li>
-                  </ul>
+                  <p class="pricingTable-firstTable_table__pricing"><span></span><span>{{land2}}</span><span>m<sup>2</sup></span></p>
                   <!-- <div class="pricingTable-firstTable_table__getstart">Get Started Now</div> -->
                 </li><li class="pricingTable-firstTable_table">
                   <h1 class="pricingTable-firstTable_table__header">CO2 Emissions</h1>
                   <p class="pricingTable-firstTable_table__pricing"><span></span><span>{{co2}}</span><span>kg</span></p>
-                  <ul class="pricingTable-firstTable_table__options">
-                    <li>Unlimited Listing</li>
-                    <li>Edit Your Listing</li>
-                    <li>Approve Reviews</li>
-                    <li>Take Booking Online</li>
-                    <li>24/7 Support Service</li>
-                  </ul>
+                  
+                  <p class="pricingTable-firstTable_table__pricing"><span></span><span>{{co22}}</span><span>kg</span></p>
                   <!-- <div class="pricingTable-firstTable_table__getstart">Get Started Now</div> -->
                 </li><li class="pricingTable-firstTable_table">
                   <h1 class="pricingTable-firstTable_table__header">H20 Usage</h1>
                   <p class="pricingTable-firstTable_table__pricing"><span></span><span>{{water}}</span><span>L</span></p>
-                  <ul class="pricingTable-firstTable_table__options">
-                    <li>Unlimited Listing</li>
-                    <li>Edit Your Listing</li>
-                    <li>Approve Reviews</li>
-                  </ul>
+                  
+                  <p class="pricingTable-firstTable_table__pricing"><span></span><span>{{water2}}</span><span>L</span></p>
                  <!--  <div class="pricingTable-firstTable_table__getstart">Get Started Now</div> -->
                 </li>
               </ul>
@@ -619,78 +565,46 @@ body {
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 
 <script type="text/javascript">
-  var count = $(('#count'));
-  $({ Counter: 0 }).animate({ Counter: count.text() }, {
-    duration: 5000,
-    easing: 'linear',
-    step: function () {
-      count.text(Math.ceil(this.Counter)+ "%");
-    }
-  });
+  // var count = $(('#count'));
+  // $({ Counter: 0 }).animate({ Counter: count.text() }, {
+  //   duration: 5000,
+  //   easing: 'linear',
+  //   step: function () {
+  //     count.text(Math.ceil(this.Counter)+ "%");
+  //   }
+  // });
 
-  var s = Snap('#animated');
-  var progress = s.select('#progress');
-  var limit = 251.2*{{avpercent}}/100;
+  // var s = Snap('#animated');
+  // var progress = s.select('#progress');
+  // var limit = 251.2*50/100; //avpercent
 
-  progress.attr({strokeDasharray: '0, 251.2'});
-  Snap.animate(0,limit, function( value ) {
-      progress.attr({ 'stroke-dasharray':value+',251.2'});
-  }, 5000);
-
-  var s = Snap('#animated2');
-  var progress2 = s.select('#progress2');
-  var limit2 = 251.2*{{positive}}/100;
-
-  progress2.attr({strokeDasharray: '0, 251.2'});
-  Snap.animate(0,limit2, function( value ) {
-      progress2.attr({ 'stroke-dasharray':value+',251.2'});
-  }, 5000);
-
-  var s = Snap('#animated3');
-  var progress3 = s.select('#progress3');
-  var limit3 = 251.2*{{negative}}/100;
-
-  progress3.attr({strokeDasharray: '0, 251.2'});
-  Snap.animate(0,limit3, function( value ) {
-      progress3.attr({ 'stroke-dasharray':value+',251.2'});
-  }, 5000);
+  // progress.attr({strokeDasharray: '0, 251.2'});
+  // Snap.animate(0,limit, function( value ) {
+  //     progress.attr({ 'stroke-dasharray':value+',251.2'});
+  // }, 5000);
 
   (function(e){"use strict";e.fn.jQCloud=function(t,n){var r=this,i=r.attr("id")||Math.floor(Math.random()*1e6).toString(36),s={width:r.width(),height:r.height(),center:{x:(n&&n.width?n.width:r.width())/2,y:(n&&n.height?n.height:r.height())/2},delayedMode:t.length>50,shape:!1,encodeURI:!0,removeOverflowing:!0};n=e.extend(s,n||{}),r.addClass("jqcloud").width(n.width).height(n.height),r.css("position")==="static"&&r.css("position","relative");var o=function(){var s=function(e,t){var n=function(e,t){return Math.abs(2*e.offsetLeft+e.offsetWidth-2*t.offsetLeft-t.offsetWidth)<e.offsetWidth+t.offsetWidth&&Math.abs(2*e.offsetTop+e.offsetHeight-2*t.offsetTop-t.offsetHeight)<e.offsetHeight+t.offsetHeight?!0:!1},r=0;for(r=0;r<t.length;r++)if(n(e,t[r]))return!0;return!1};for(var o=0;o<t.length;o++)t[o].weight=parseFloat(t[o].weight,10);t.sort(function(e,t){return e.weight<t.weight?1:e.weight>t.weight?-1:0});var u=n.shape==="rectangular"?18:2,a=[],f=n.width/n.height,l=function(o,l){var c=i+"_word_"+o,h="#"+c,p=6.28*Math.random(),d=0,v=0,m=0,g=5,y="",b="",w;l.html=e.extend(l.html,{id:c}),l.html&&l.html["class"]&&(y=l.html["class"],delete l.html["class"]),t[0].weight>t[t.length-1].weight&&(g=Math.round((l.weight-t[t.length-1].weight)/(t[0].weight-t[t.length-1].weight)*9)+1),w=e("<span>").attr(l.html).addClass("w"+g+" "+y),l.link?(typeof l.link=="string"&&(l.link={href:l.link}),n.encodeURI&&(l.link=e.extend(l.link,{href:encodeURI(l.link.href).replace(/'/g,"%27")})),b=e("<a>").attr(l.link).text(l.text)):b=l.text,w.append(b);if(!!l.handlers)for(var E in l.handlers)l.handlers.hasOwnProperty(E)&&typeof l.handlers[E]=="function"&&e(w).bind(E,l.handlers[E]);r.append(w);var S=w.width(),x=w.height(),T=n.center.x-S/2,N=n.center.y-x/2,C=w[0].style;C.position="absolute",C.left=T+"px",C.top=N+"px";while(s(w[0],a)){if(n.shape==="rectangular"){v++,v*u>(1+Math.floor(m/2))*u*(m%4%2===0?1:f)&&(v=0,m++);switch(m%4){case 1:T+=u*f+Math.random()*2;break;case 2:N-=u+Math.random()*2;break;case 3:T-=u*f+Math.random()*2;break;case 0:N+=u+Math.random()*2}}else d+=u,p+=(o%2===0?1:-1)*u,T=n.center.x-S/2+d*Math.cos(p)*f,N=n.center.y+d*Math.sin(p)-x/2;C.left=T+"px",C.top=N+"px"}if(n.removeOverflowing&&(T<0||N<0||T+S>n.width||N+x>n.height)){w.remove();return}a.push(w[0]),e.isFunction(l.afterWordRender)&&l.afterWordRender.call(w)},c=function(i){i=i||0;if(!r.is(":visible")){setTimeout(function(){c(i)},10);return}i<t.length?(l(i,t[i]),setTimeout(function(){c(i+1)},10)):e.isFunction(n.afterCloudRender)&&n.afterCloudRender.call(r)};n.delayedMode?c():(e.each(t,l),e.isFunction(n.afterCloudRender)&&n.afterCloudRender.call(r))};return setTimeout(function(){o()},10),r}})(jQuery);
   // wordle
   $(document).ready(function(){
-    // var words = [
-    //       {text: "Lorem", weight: 15},
-    //       {text: "Ipsum", weight: 9, link: "http://jquery.com/"},
-    //       {text: "Dolor", weight: 6, html: {title: "I can haz any html attribute"}},
-    //       {text: "Sit", weight: 7},
-    //       {text: "Amet", weight: 5}
-    //       // ...as many words as you want
-    //   ];
-    // {% autoescape off %}
-    // var wordss = {{badwords}};
-    // var wordsss = [];
-    // for(var i = 0; i < wordss.length; i++){
-    //   var nums = countInArray(wordss, wordss[i]);
-    //   // myObject = {text: wordss[i], weight: nums};
-    //   // wordsss = appendObjTo(wordsss, myObject);
-    //   wordsss.push({text: wordss[i], weight: nums})
-    // }
-    // $("#tagsCloudBad").jQCloud(wordsss);
-    // {% endautoescape %}
+    var count = $(('#count'));
+    $({ Counter: 0 }).animate({ Counter: count.text() }, {
+      duration: 5000,
+      easing: 'linear',
+      step: function () {
+        count.text(Math.ceil(this.Counter)+ "%");
+      }
+    });
 
-    {% autoescape off %}
-    var wordss = {{words}};
-    var wordsss = [];
-    for(var i = 0; i < wordss.length; i++){
-      var nums = countInArray(wordss, wordss[i]);
-      var temp = {text: wordss[i], weight: nums};
-      if(!containsObject(temp, wordsss))
-        wordsss.push(temp);
-    }
-    $("#tagsCloudGood").jQCloud(wordsss);
-    {% endautoescape %}
-    console.log("theoretically...")
-  });
+    var s = Snap('#animated');
+    var progress = s.select('#progress');
+    var limit = 251.2*50/100; //avpercent
+
+    progress.attr({strokeDasharray: '0, 251.2'});
+    Snap.animate(0,limit, function( value ) {
+        progress.attr({ 'stroke-dasharray':value+',251.2'});
+    }, 5000);
+  }
+    
 
   function countInArray(array, what) {
       var count = 0;
@@ -710,7 +624,7 @@ body {
     }
 
     return false;
-}
+  }
 
   
 
