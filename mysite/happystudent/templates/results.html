@@ -26,6 +26,33 @@
   <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
   <link rel="shortcut icon" href="{% static 'img/carrot.ico' %}">
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  // Add smooth scrolling to all links
+  $("a").on('click', function(event) {
+
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+});
+</script>
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
@@ -70,39 +97,43 @@
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
           
-            <div class="pricingTable" style="color: black; margin-top: 80px;">
+            <div class="pricingTable" style="color:Black; margin-top: 80px;">
               
               <h2 class="pricingTable-title" style="margin-top: 30px;">{{result}}</h2>
-              <h3>Sustainability Score</h3>
+              <h3 style="color: white">Sustainability Score</h3>
               <svg id="animated" viewbox="0 0 100 100">
              <!-- <circle cx="50" cy="50" r="100" fill="#84e0ff"/>  -->
-            <path id="progress" stroke-linecap="round" stroke-width="1" stroke="#000" fill="none"
+            <path id="progress" stroke-linecap="round" stroke-width="1" stroke="#fff" fill="none"
                   d="M50 10
                      a 40 40 0 0 1 0 80
                      a 40 40 0 0 1 0 -80"> -->
             </path>
             
-            <text id="count" x="50" y="50" text-anchor="middle" dy="7" font-size="20px">{{score}} / 100</p></text>
+            <text id="count" x="50" y="50" text-anchor="middle" dy="7" font-size="20px" style="color: white">{{score}} / 100</text>
             </svg>
               <h3 class="pricingTable-subtitle"></h3>
               <ul class="pricingTable-firstTable">
-                  <h3>HOW IT'S CALCULATED</h3>
+                  <h3 style="color: white">HOW IT'S CALCULATED</h3>
 
-                <li class="pricingTable-firstTable_table">
+                <a href ="#myDIVland" id="#land"><li class="pricingTable-firstTable_table" onclick="myFunctionland()">
                   <h1 class="pricingTable-firstTable_table__header">Land Usage</h1>
                   <p class="pricingTable-firstTable_table__pricing"><span></span><span></span>{{land}}</span><span> m<sup>2</sup><br><br></span><span></span><span style="font-size:18px">= {{parking}} parking spaces</span><span><span></span></span></p>
                   <p class="pricingTable-firstTable_table__pricing" padding="0px">↓</p>
                   <p class="pricingTable-firstTable_table__pricing"><span></span><span>{{land2}} / 100</span><span><sup></sup></span></p>
                   <!-- <div class="pricingTable-firstTable_table__getstart">Get Started Now</div> -->
-                </li><li class="pricingTable-firstTable_table">
-                  <h1 class="pricingTable-firstTable_table__header">CO<sub>2</sub> Emissions</h1>
+                </li></a>
+                
+                <a href ="#myDIV"><li class="pricingTable-firstTable_table" onclick="myFunction()">
+                  <h1 class="pricingTable-firstTable_table__header" >CO<sub>2</sub> Emissions</h1>
                   <p class="pricingTable-firstTable_table__pricing"><span></span><span>{{co2}}</span><span> kg</span><br><br></span><span></span><span style="font-size:18px">= {{gas}} miles driven</span><span><span></span></span></p>
                   <p class="pricingTable-firstTable_table__pricing" padding="0px">↓</p>
 
                      <p class="pricingTable-firstTable_table__pricing"><span></span><span>{{co22}} / 100</span><span></span></p>
 
                   <!-- <div class="__getstart">Get Started Now</div> -->
-                </li><li class="pricingTable-firstTable_table">
+                </li></a>
+                
+                <a href ="#myDIVwater" ><li class="pricingTable-firstTable_table" onclick="myFunctionwater()">
                   <h1 class="pricingTable-firstTable_table__header">H<sub>2</sub>O Usage</h1>
                   <p class="pricingTable-firstTable_table__pricing"><span></span><span>{{water}}</span><span> L</span><br><br></span><span></span><span style="font-size:18px">= {{shower}} showers</span><span><span></span></span></p>
                   
@@ -110,21 +141,84 @@
 
                   <p class="pricingTable-firstTable_table__pricing"><span></span><span>{{water2}} / 100</span><span></span></p>
                  <!--  <div class="pricingTable-firstTable_table__getstart">Get Started Now</div> -->
-                </li>
+                </li></a>
+               
               </ul>
             </div>
             <!-- <p>{{result}}</p> -->
           <!-- wordle -->
+          <!-- <script type="text/javascript" src="~/charts/starch_land.js"></script> -->
+
           </div>
       </div>
     </div>
   </div>
+ <!-- <script type="text/javascript" src="../charts/starch_land.js"></script> -->
+
 </div>
 </header>
+<script>
+  const btn = document.getElementById('land');
+
+btn.addEventListener('click', () => window.scrollTo({
+  top: 400,
+  behavior: 'smooth',
+}));
+function myFunction() {
+  
+    var x = document.getElementById("myDIV");
+    var y = document.getElementById("myDIVland");
+    var z = document.getElementById("myDIVwater");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+      y.style.display = "none";
+      z.style.display = "none";
+    } else {
+      x.style.display = "none";
+    }
+  }
+  function myFunctionland() {
+    var x = document.getElementById("myDIVland");
+    var y = document.getElementById("myDIVwater");
+    var z = document.getElementById("myDIV");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+      y.style.display = "none";
+      z.style.display = "none";
+    } else {
+      x.style.display = "none";
+    }
+  }
+  function myFunctionwater() {
+    var x = document.getElementById("myDIVwater");
+    var y = document.getElementById("myDIVland");
+    var z = document.getElementById("myDIV");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+      y.style.display = "none";
+      z.style.display = "none";
+    } else {
+      x.style.display = "none";
+    }
+  }</script>
+
+
 
 
 <!-- Footer -->
-<footer>
+<footer style="background-color: #fff">
+    
+    <div id="myDIVland" style="display:none">
+        <img src="{% static 'img/fv_water.png' %}" style="display:inline-block; width:55%; align:center;"/>
+      </div>
+      <div id="myDIVwater" style="display:none">
+          <img src="{% static 'img/fv_ghg.png' %}" style="display:inline-block; width:55%; align:center;"/>
+        </div> 
+      <div id="myDIV" style="display:none">
+          <img src="{% static 'img/fv_land.png' %}" style="display:inline-block; width:55%; align:center;"/>
+        </div> 
+</footer>
+<footer style="background-color: #fff">
 <div class="container text-center">
   <p class="credits">
     Copyright &copy; SUS 2019<br/>
@@ -150,7 +244,8 @@
 }
 .pricingTable .pricingTable-title {
   text-align: center;
-  color: #000;
+  color:#fff;
+  font:'Open Sans';
   font-size: 5em;
   font-size: 300%;
   margin-bottom: 20px;
@@ -387,7 +482,7 @@
   }
 }
 .pricingTable-firstTable_table__options > li {
-  padding: 2px 0px;
+  padding: 20px 0px;
 }
 @media screen and (max-width: 767px) {
   .pricingTable-firstTable_table__options > li {
@@ -514,6 +609,11 @@ body {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+
+a {
+  text-emphasis: none;
+  font-weight: normal;
 }
 
 </style>
