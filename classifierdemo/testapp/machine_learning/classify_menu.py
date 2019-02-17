@@ -1,15 +1,15 @@
 import io
 import os
-from get_info import get_info
+from .get_info import get_info
 
 from google.cloud import vision
 from google.cloud.vision import types
 
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"]='C:\\Users\\eshao\\Documents\\Caltech\\treehacks2019\\treehacks19\\treehacks2019-d0ddac9f339e.json'
+DIR = os.path.dirname(os.path.abspath(__file__))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(DIR)))
+print(BASE_DIR)
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"]= os.path.join(BASE_DIR, r"auth\treehacks2019-d0ddac9f339e.json")
 client = vision.ImageAnnotatorClient()
-
-file_prefix = 'C:\\Users\\eshao\\Documents\\Caltech\\treehacks2019\\'
-pic_prefix = 'C:\\Users\\eshao\\Pictures\\treehacks2019\\'
 
 def rating(factors):
     '''
@@ -59,7 +59,7 @@ def list_to_string(lst):
     
     return output
 
-def classify(image_name):
+def classify_menu(image_file):
     '''
     Takes in an image name and return the food and the environmental effects
     each food has on the environment.
@@ -70,11 +70,7 @@ def classify(image_name):
     Return Value:
       - List of food objects ranked in best to worst for the environment
     '''
-    file_string_name = pic_prefix + image_name
-    file_name = os.path.join(os.path.dirname(__file__), file_string_name)
-    
-    with io.open(file_name, 'rb') as image_file:
-        content = image_file.read()
+    content = image_file.read()
     
     image = types.Image(content=content)
     

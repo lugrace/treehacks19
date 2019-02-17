@@ -19,7 +19,7 @@ def classify_image(image_file):
 
 if __name__ == '__main__':
 	base_image_url = os.path.dirname(os.path.abspath(__file__))
-	filename = base_image_url + r'/images/nuttest.jpg'
+	filename = base_image_url + r'./images/test5.jpg'
 
 	file = open(filename, 'rb')
 
