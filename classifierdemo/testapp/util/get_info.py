@@ -25,7 +25,7 @@ def get_info(list_of_words):
     db = firebase.database()
 
     # get words and categories
-    with open('dictionary.csv', newline='', encoding='utf-8', errors='ignore') as csvfile:
+    with open(os.path.join(BASE_DIR, r'classifierdemo\dictionary.csv'), newline='', encoding='utf-8', errors='ignore') as csvfile:
             data = list(csv.reader(csvfile))
             
     new_data = [];
@@ -61,3 +61,5 @@ def get_info(list_of_words):
 
 
     return [[co2, water, land], [co2_score, water_score, land_score]]
+
+get_info(['carrot'])
