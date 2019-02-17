@@ -54,7 +54,7 @@ def upload_file(request):
             
             if is_menu:
                 convert_file(file, 'tmp/temp2.txt')
-                f = open('tmp/temp.txt', 'rb')
+                f = open('tmp/temp2.txt', 'rb')
                 sorted_food = classify_menu.classify_menu(f)
 
                 # sorted_food is None when the text is small, i.e. not a menu
